@@ -5,6 +5,6 @@ Grupo:
 Igor Balbino,
 Mayanne Gomes,
 Ana Dias,
-Athur Carvalho,
+Arthur Carvalho,
 Arthur Almeida.
 
