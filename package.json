@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JustaProjectUPE/SysJusta#readme",
   "dependencies": {
+    "@angular/cli": "^15.2.4",
     "express": "^4.18.2",
     "nodemon": "^2.0.21"
   }
