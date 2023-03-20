@@ -2,9 +2,9 @@ Esse projeto √© baseado no desafio da empresa "Justa" para o Inova UPE e servir√
 
 Grupo:
 
-Igor Balbino
-Mayanne Gomes
-Ana Dias
-Athur Carvalho
-Arthur Almeida
+Igor Balbino,
+Mayanne Gomes,
+Ana Dias,
+Athur Carvalho,
+Arthur Almeida.
 
