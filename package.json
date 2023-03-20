@@ -1,0 +1,25 @@
+{
+  "name": "justa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon back/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustaProjectUPE/SysJusta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustaProjectUPE/SysJusta/issues"
+  },
+  "homepage": "https://github.com/JustaProjectUPE/SysJusta#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21"
+  }
+}
