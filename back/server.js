@@ -1,10 +1,14 @@
 const express = require('express');
-const routes = require('./router')
-
+const session = require('express-session');
+const routes = require('./router');
+const bodyParser = require('body-parser');
 
 const app = express();
+app.use(routes);
+app.use(session({secret:'sakjsasdsakjkjasdjdsak'}));
+app.use(bodyParser.urlencoded({extended:true}));
 
-app.use(routes)
+app.set('view engine', 'ejs');
 
 
 app.listen(3003,()=>{
