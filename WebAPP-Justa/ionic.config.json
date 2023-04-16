@@ -1,0 +1,7 @@
+{
+  "name": "WebAPP-Justa",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
