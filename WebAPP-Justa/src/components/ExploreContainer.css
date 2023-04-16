@@ -25,11 +25,3 @@
   text-decoration: none;
 
 }
-
-ion-toolbar {
-  --background: #0071B8;
-  }
-
-ion-content{
-  --ion-background-color: #F7F7F7;
-}
