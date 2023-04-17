@@ -12,7 +12,7 @@ const Signup: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent>
+      <IonContent className="background-signup">
         <div className="login-section ion-padding">
           <div className="heading ion-padding">
             <h1>Crie sua conta</h1>

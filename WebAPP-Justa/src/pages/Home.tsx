@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg, IonMenuButton, IonButtons} from '@ionic/react';
 import './Home.css';
 import { lockClosedOutline, mailOutline } from 'ionicons/icons';
 
@@ -7,12 +7,14 @@ const Home: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Justa</IonTitle>
+        <div className="titleicon">
+          <img src = "assets/img/fundo.png"></img>
+        </div>
           <IonMenu></IonMenu>
         </IonToolbar>
       </IonHeader>
 
-      <IonContent>
+      <IonContent class="backgroundHome">
         <div className="login-section ion-padding">
           <div className="heading ion-padding">
             <h1>Olá, seja bem-vindo(a) de volta!</h1>
@@ -37,7 +39,7 @@ const Home: React.FC = () => {
           <div className="action-button ion-padding">
             <IonButton size="default" class="login-button" routerLink="/signin">Entrar</IonButton>
             <p>Esqueceu a sua senha?</p>
-            <IonButton class="signup-button" size="default" fill="outline" routerLink="/signup">Sign up</IonButton>
+            <IonButton class="signup-button" size="default" fill="outline" routerLink="/signup">Cadastre-se</IonButton>
           </div>
         </div>
       </IonContent>

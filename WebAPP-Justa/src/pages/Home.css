@@ -8,8 +8,11 @@ ion-title {
     text-align: center;
   }
 
-ion-content{
+.backgroundHome{
     --background: url(../assets/img/background-login.jpg) 0 0/100% 100% no-repeat;
+}
+.titleicon {
+    text-align:center;
 }
 
 .login-section{
@@ -79,3 +82,12 @@ ion-content{
     font-weight: bold;
     font-size: 1rem;
 }
+
+.login-section .action-button .signup-button{
+    border-style: solid;
+    border-width: 3px;
+    border-image: linear-gradient(to left, #499BDD, #204268);
+    border-image-slice: 1;
+    font-size: 0.9rem;
+    --border-color: transparent;
+  }
