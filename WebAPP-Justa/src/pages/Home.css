@@ -64,17 +64,18 @@ ion-title {
     top: 3px;
 }
 
-.login-section .login-form .form-input .Input{
+.form-input .Input{
     --padding-start: 36px;
     --padding-top: 36px;
 }
 
-.login-section .action-button{
+
+.action-button{
     color: #606D80;
     font-size: 0.9rem;
     text-align: center;
 }
-.login-section .action-button .login-button{
+.login-button{
     --background: #064780;
     text-align: center;
     width: 50%;
@@ -83,7 +84,7 @@ ion-title {
     font-size: 1rem;
 }
 
-.login-section .action-button .signup-button{
+#signup-button{
     border-style: solid;
     border-width: 3px;
     border-image: linear-gradient(to left, #499BDD, #204268);

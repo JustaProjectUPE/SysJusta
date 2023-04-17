@@ -8,7 +8,7 @@ const Home: React.FC = () => {
       <IonHeader>
         <IonToolbar>
         <div className="titleicon">
-          <img src = "assets/img/fundo.png"></img>
+          <img src = "/fundo.png"></img>
         </div>
           <IonMenu></IonMenu>
         </IonToolbar>
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
           <div className="action-button ion-padding">
             <IonButton size="default" class="login-button" routerLink="/signin">Entrar</IonButton>
             <p>Esqueceu a sua senha?</p>
-            <IonButton class="signup-button" size="default" fill="outline" routerLink="/signup">Cadastre-se</IonButton>
+            <IonButton id="signup-button" size="default" fill="outline" routerLink="/signup">Cadastre-se</IonButton>
           </div>
         </div>
       </IonContent>
