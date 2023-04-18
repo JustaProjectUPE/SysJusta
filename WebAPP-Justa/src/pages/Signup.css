@@ -10,72 +10,39 @@ ion-title {
 
 .background-signup{
     --background: url(../assets/img/background-login.jpg) 0 0/100% 100% no-repeat;
+    background-size: cover;
 }
 
-.login-section{
+.signup-section{
     height: 100%;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     background: #EDEDF4;
     right: 0;
     left: 0;
     bottom: 0;
-    position: absolute; top: 45px;
+    position: absolute; top: 15px;
     margin: auto;
     border-top-right-radius: 46px;
     border-top-left-radius: 46px;
 }
 
-.login-section .heading h1{
+.signup-section .heading h1{
     margin-top: 20px;
     font-size: 1.6 rem;
     font-weight: bolder;
     color: #0071B8;
     text-align: center;
 }
-.login-section .heading p{
+
+.signup-section .heading p{
     margin-top: 20px;
     font-size: 1 rem;
     color: #606D80;
     text-align: center;
 }
 
-.login-section .login-form .form-input{
+.signup-section .login-form .form-input{
     position: relative;
     margin-bottom: 20px;
-}
-
-.login-section .login-form .form-input .iconsInput{
-    position: absolute;
-    top: 19px;
-    z-index: 2;
-    font-size: 1.2rem;
-    left: 3px;
-    color: white;
-}
-
-.login-section .login-form .form-input .labelInput{
-    position: absolute;
-    margin-left: 35px;
-    font-size: 1rem;
-    top: 3px;
-}
-
-.login-section .login-form .form-input .Input{
-    --padding-start: 36px;
-    --padding-top: 36px;
-}
-
-.login-section .action-button{
-    color: #606D80;
-    font-size: 0.9rem;
-    text-align: center;
-}
-.login-section .action-button .login-button{
-    --background: #064780;
-    text-align: center;
-    width: 50%;
-    height: 50px;
-    font-weight: bold;
-    font-size: 1rem;
 }

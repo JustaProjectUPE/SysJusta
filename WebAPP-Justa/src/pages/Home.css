@@ -10,6 +10,7 @@ ion-title {
 
 #background-Home{
     --background: url(../assets/img/background-login.jpg) 0 0/100% 100% no-repeat;
+    background-size: cover;
 }
 .titleicon {
     text-align:center;
@@ -62,6 +63,7 @@ ion-title {
     margin-left: 35px;
     font-size: 1rem;
     top: 3px;
+    color: #404749;
 }
 
 #input-email{

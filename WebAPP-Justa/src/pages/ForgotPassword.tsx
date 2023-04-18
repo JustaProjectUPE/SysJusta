@@ -23,13 +23,11 @@ const ForgotPassword: React.FC = () => {
             </p>
           </div>
           <div className="form ion-padding">
-            <div className="formF-input">
               <IonItem>
                 <IonIcon id="iconForgot" icon={mailOutline}></IonIcon>
-                <IonLabel id="labelForgotpass" position="floating">E-mail</IonLabel>
-                <IonInput id="in-email" type="email"></IonInput>
+                <IonLabel className="labelForgotpass" position="floating">E-mail</IonLabel>
+                <IonInput id="in-email" color="medium" type="email"></IonInput>
               </IonItem>
-            </div>
           </div>
           <div className="action-button ion-padding">
             <IonButton size="default" class="login-button" routerLink="/home">Enviar</IonButton>
