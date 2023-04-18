@@ -74,7 +74,7 @@ const Home: React.FC = () => {
           <div className="action-button ion-padding">
           <IonButton id="forgotmypass"size="small" fill = "clear"  routerLink="/forgotpass" > Esqueceu a sua senha? </IonButton>
           <IonContent></IonContent>
-            <IonButton id="signin-button" size="default" class="login-button" routerLink="/signin">Entrar</IonButton>
+            <IonButton id="signin-button" size="default" class="login-button" routerLink="/signin" onClick={()=>{check()}}>Entrar</IonButton>
             <p id="question" >Ainda não tem conta?</p>
             <IonButton id="signup-button" size="default" fill="outline" routerLink="/signup">Cadastre-se</IonButton>
             <IonContent></IonContent>
