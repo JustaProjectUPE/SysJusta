@@ -1,0 +1,40 @@
+{
+    "clients" : [{
+    "name" : "Bilbo",
+    "birth": "24021943",
+    "surname": "Baggins",
+    "cnpj" : "31752350000138",
+    "phone" : "81988666474",
+    "email" : "bilbobaggins66@gmail.com",
+    "login" : "bilbobag123",
+    "password" : "gandalfs2",
+    "biz" : "Anéis Mágicos LTDA",
+    "func" : {
+
+    },
+    
+    "finance" : "50000",
+    "extract" : {
+
+        "jan" : "1000",
+        "feb" : "2000",
+        "mar" : "1500",
+        "apr" : "3500",
+        "may" : "4000",
+        "jun" : "4320",
+        "jul" : "4203",
+        "aug" : "4050",
+        "sep" : "1084",
+        "oct" : "6008",
+        "nov" : "5467",
+        "dec" : "6127"
+
+    
+    }
+
+
+    }]
+}
+
+
+

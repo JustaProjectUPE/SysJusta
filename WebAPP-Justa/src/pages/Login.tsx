@@ -1,4 +1,5 @@
 import { IonButtons, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent } from "@ionic/react";
+import './Login.css';
 
 const Signin = () =>{
     return(

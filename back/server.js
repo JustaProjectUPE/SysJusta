@@ -1,10 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs');
+
+//converter os dados tipo json em objeto javascript para leitura
+const userData = JSON.parse(fs.readFileSync("back\\dados.json"));
 
 //configuração do express
 const app = express();
 
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.json());
 app.set('view engine', 'ejs');
 
 
@@ -58,18 +63,17 @@ app.get('/cadastro',(req,res)=>{res.sendFile(__dirname+'/views/cadastro.html')})
 
 app.post('/cadastro',(req,res)=>{
 
-    let new_client = {"nome":"","endereco":"","Idade":"","saldo":"","divida":"","login":"","senha":""};
-    let nome=req.body.nome ,idade=req.body.idade, endereco=req.body.endereco , login=req.body.login, senha = req.body.senha;
-
-    new_client.nome=nome;
-    new_client.endereco=endereco;
-    new_client.Idade=idade;
-    new_client.login=login;
-    new_client.senha=senha;
-
-    console.log(db_client);
-    db_client.push(new_client);
-    console.log(db_client);
+    const {nome, endereco, idade, saldo, divida, login, senha} = req.body;
+    const new_client = {nome, endereco, idade, saldo, divida, login, senha};
+    
+    //armazenar os dados na variavel userData
+    userData.push(new_client);
+    //tratamento dos dados tipo javascript para json
+    const tratarDados = JSON.stringify(userData, null, 2);
+    
+    //escrever as informações de cadastro no arquivo json
+    fs.writeFileSync("back\\dados.json", tratarDados);
+    res.status(200).send("OK");
 })
 
 

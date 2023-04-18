@@ -8,8 +8,9 @@ ion-title {
     text-align: center;
   }
 
-.backgroundHome{
+#background-Home{
     --background: url(../assets/img/background-login.jpg) 0 0/100% 100% no-repeat;
+    background-size: cover;
 }
 .titleicon {
     text-align:center;
@@ -54,7 +55,7 @@ ion-title {
     z-index: 2;
     font-size: 1.2rem;
     left: 3px;
-    color: white;
+    color: #0071B8;
 }
 
 .login-section .login-form .form-input .labelInput{
@@ -62,11 +63,17 @@ ion-title {
     margin-left: 35px;
     font-size: 1rem;
     top: 3px;
+    color: #404749;
 }
 
-.form-input .Input{
+#input-email{
     --padding-start: 36px;
     --padding-top: 36px;
+}
+
+#input-senha{
+    --padding-start: 36px;
+    --padding-top: 36px;  
 }
 
 
@@ -83,6 +90,13 @@ ion-title {
     font-weight: bold;
     font-size: 1rem;
 }
+#signin-button{
+    margin-bottom: 20px;
+}
+
+#question{
+    font-weight: bolder;
+}
 
 #signup-button{
     border-style: solid;
@@ -90,5 +104,14 @@ ion-title {
     border-image: linear-gradient(to left, #499BDD, #204268);
     border-image-slice: 1;
     font-size: 0.9rem;
+    color: #0071B8;
     --border-color: transparent;
+  }
+
+  #forgotmypass{
+    margin-top:-65px;
+    margin-left: 250px;
+    text-transform: none;
+    font-size: 0.9rem;
+    color:#606D80;
   }
