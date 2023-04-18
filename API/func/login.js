@@ -1,4 +1,3 @@
-const { Console } = require('console');
 const fs = require('fs');
 
 async function checkEntry(log, passw){
@@ -23,7 +22,7 @@ async function checkEntry(log, passw){
 
             if(users[i] == log && pass[i] == passw){
                 console.log('WELCOME');
-                return 200;//success
+                return [200,client.client_tolken];//success
 
             }else if(i == users.length-1){
                 console.log('WRONG PASS');
