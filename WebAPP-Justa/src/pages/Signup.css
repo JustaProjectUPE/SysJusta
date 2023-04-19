@@ -9,19 +9,22 @@ ion-title {
   }
 
 .background-signup{
-    --background: url(../assets/img/background-login.jpg) 0 0/100% 100% no-repeat;
+    --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
+    background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
     background-size: cover;
 }
 
 .signup-section{
-    height: 100%;
+    height: auto;
     width: 100%;
     max-width: 600px;
     background: #EDEDF4;
     right: 0;
     left: 0;
     bottom: 0;
-    position: absolute; top: 15px;
+    position: relative; top: 45px;
     margin: auto;
     border-top-right-radius: 46px;
     border-top-left-radius: 46px;
@@ -45,4 +48,8 @@ ion-title {
 .signup-section .login-form .form-input{
     position: relative;
     margin-bottom: 20px;
+}
+
+.signup-section .login-form .form-input .labelInput{
+    color: #404749;
 }

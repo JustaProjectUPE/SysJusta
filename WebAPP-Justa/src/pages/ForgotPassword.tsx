@@ -30,7 +30,7 @@ const ForgotPassword: React.FC = () => {
               </IonItem>
           </div>
           <div className="action-button ion-padding">
-            <IonButton size="default" class="login-button" routerLink="/home">Enviar</IonButton>
+            <IonButton size="default" id="send-button" routerLink="/home">Enviar</IonButton>
           </div>
         </div>
       </IonContent>
