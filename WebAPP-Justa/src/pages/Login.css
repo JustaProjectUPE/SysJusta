@@ -25,7 +25,27 @@
     margin-top: auto;
 }
 
+.search-menu{
+    --color: black;
+    --placeholder-color: black;
+    --icon-color: #0071B8;
+    --clear-button-color: #0071B8;
+    --border-radius: 10px;
+}
 
+.options-menu ion-icon{
+    color: #0071B8;
+    padding: auto;
+}
+
+.options-menu ion-item{
+    padding: auto;
+    margin-left: auto;
+}
+
+.options-menu ion-label{
+    margin-left: 10px;
+}
 
 main{
     display: flex;

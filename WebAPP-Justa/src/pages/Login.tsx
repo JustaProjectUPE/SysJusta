@@ -1,5 +1,5 @@
-import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon } from "@ionic/react";
-import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline} from "ionicons/icons";
+import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon, IonSearchbar, IonMenuToggle } from "@ionic/react";
+import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, receiptOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline} from "ionicons/icons";
 import './Login.css'
 import { Balance } from "../components/balance";
 
@@ -38,14 +38,40 @@ const Signin = () =>{
               <div className="icon-hero"><img src = "/superhero.png"></img></div>
             </IonItem>
           </section>
-          <IonContent className="options-menu">
-            <IonList>
-              <IonItem lines="none">
-                <IonLabel>Opção 1</IonLabel>
-              </IonItem>
-              <IonItem lines="none">
-                <IonLabel>Opção 2</IonLabel>
-              </IonItem>
+          <IonSearchbar className="search-menu" showCancelButton="focus" placeholder="Pesquisar"></IonSearchbar>
+          
+          <IonContent>
+            <IonList className="options-menu">
+              <IonMenuToggle auto-hide="false">
+                <IonItem lines="none">
+                  <IonIcon icon={calendarOutline}></IonIcon>
+                  <IonLabel>Agenda de Recebíveis</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
+              <IonMenuToggle>
+                <IonItem lines="none">
+                <IonIcon icon={barcodeOutline}></IonIcon>
+                  <IonLabel>Pagar Boleto</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
+              <IonMenuToggle>
+                <IonItem lines="none">
+                <IonIcon icon={sendOutline}></IonIcon>
+                  <IonLabel>Linkou</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
+              <IonMenuToggle>
+                <IonItem lines="none">
+                <IonIcon icon={cardOutline}></IonIcon>
+                  <IonLabel>Crédito Justo</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
+              <IonMenuToggle>
+                <IonItem lines="none">
+                <IonIcon icon={calculatorOutline}></IonIcon>
+                  <IonLabel>Simulador de Vendas</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
             </IonList>
           </IonContent>
           </IonMenu>
