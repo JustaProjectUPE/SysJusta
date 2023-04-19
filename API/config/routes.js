@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = express.Router();
 const checkEntry = require('../func/login.js');
+const giveData = require('../func/give.js');
 
 //LOGIN
 routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:password, os dois pontos idicam que os parametros vão ser passados ao servidor, logo são variáveirs que poderão ser acessadas.
@@ -18,9 +19,21 @@ routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:passwo
 
 })
 
+//ENVIO DE DADOS AO ENTRAR
+routes.get('/menu/:client_tolken', async(req,res)=>{
 
+    try{
+        const response = giveData(req.params.client_tolken);
+        req.status(200).json(response);
+
+    }catch(err){
+        res.status(500).json( {err : err} );
+    }
+
+
+})
 
 //CADASTRO
-
+routes.post('/cadastro')
 
 module.exports = routes;
