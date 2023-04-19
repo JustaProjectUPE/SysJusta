@@ -1,0 +1,16 @@
+.balance-sec > ion-card{
+  width: 100%;
+}
+
+.balance-sec > ion-card > ion-card-header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.balance-sec > ion-card > ion-card-header > ion-card-subtitle{
+  font-size: 2em;
+}
+
+.balance-future{
+  text-align: right;
+}

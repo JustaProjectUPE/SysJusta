@@ -1,3 +1,35 @@
 .background-menu{
     --background: red;
 }
+
+main{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    flex-direction: column;
+    max-width: 30vw;
+}
+
+main > ion-card{
+    width: 30vw !important;
+}
+
+.products-sec ion-title{
+    font-size: 2em;
+    text-align: left;
+    padding-top: 4vh;
+}
+
+.products{
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    column-gap: 5vw;
+    row-gap: 5vh;
+}
+
+.products > ion-button{
+    width: 60px;
+    height: 60px;
+}
