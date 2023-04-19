@@ -11,8 +11,6 @@ ion-title {
 .background-signup{
     --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
     background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
     background-size: cover;
 }
 
