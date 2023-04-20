@@ -6,23 +6,30 @@
     flex-direction: row;
     display: flex;
 }
+.header-section ion-toolbar{
+    --background: #0071B8;
+}
 
 #logout{
     justify-content: left;
     margin-left: auto;
+    --color: white;
 }
 
 #notify{
     justify-content: right;
     margin-right: 0;
+    --color: white;
 }
 
 #settings{
     margin-left: 0;
+    --color: white;
 }
 
 .avatar-header{
-    margin-top: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .search-menu{

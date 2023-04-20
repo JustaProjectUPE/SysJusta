@@ -1,5 +1,5 @@
 import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon, IonSearchbar, IonMenuToggle } from "@ionic/react";
-import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, receiptOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline} from "ionicons/icons";
+import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, receiptOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, pricetagsOutline, hourglassOutline, statsChartOutline, shuffleOutline} from "ionicons/icons";
 import './Login.css'
 import { Balance } from "../components/balance";
 
@@ -42,6 +42,12 @@ const Signin = () =>{
           
           <IonContent>
             <IonList className="options-menu">
+            <IonMenuToggle auto-hide="false">
+                <IonItem lines="none">
+                  <IonIcon icon={trophyOutline}></IonIcon>
+                  <IonLabel>Meus benefícios</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
               <IonMenuToggle auto-hide="false">
                 <IonItem lines="none">
                   <IonIcon icon={calendarOutline}></IonIcon>
@@ -72,6 +78,25 @@ const Signin = () =>{
                   <IonLabel>Simulador de Vendas</IonLabel>
                 </IonItem>
               </IonMenuToggle>
+              <IonMenuToggle>
+                <IonItem lines="none">
+                <IonIcon icon={statsChartOutline}></IonIcon>
+                  <IonLabel>Estatística de Desempenho</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
+              <IonMenuToggle>
+                <IonItem lines="none">
+                <IonIcon icon={hourglassOutline}></IonIcon>
+                  <IonLabel>Vendas em Tempo Real</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
+              <IonMenuToggle>
+                <IonItem lines="none">
+                <IonIcon icon={shuffleOutline}></IonIcon>
+                  <IonLabel>Transferência de Vendas</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
+
             </IonList>
           </IonContent>
           </IonMenu>
