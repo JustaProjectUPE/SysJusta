@@ -6,26 +6,53 @@
     flex-direction: row;
     display: flex;
 }
+.header-section ion-toolbar{
+    --background: #0071B8;
+}
 
 #logout{
     justify-content: left;
     margin-left: auto;
+    --color: white;
 }
 
 #notify{
     justify-content: right;
     margin-right: 0;
+    --color: white;
 }
 
 #settings{
     margin-left: 0;
+    --color: white;
 }
 
 .avatar-header{
-    margin-top: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
+.search-menu{
+    --color: black;
+    --placeholder-color: black;
+    --icon-color: #0071B8;
+    --clear-button-color: #0071B8;
+    --border-radius: 10px;
+}
 
+.options-menu ion-icon{
+    color: #0071B8;
+    padding: auto;
+}
+
+.options-menu ion-item{
+    padding: auto;
+    margin-left: auto;
+}
+
+.options-menu ion-label{
+    margin-left: 10px;
+}
 
 main{
     display: flex;

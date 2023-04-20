@@ -1,0 +1,65 @@
+ion-toolbar {
+    --background: #EDEDF4; 
+}
+ion-item{
+    --background: #000000;
+    margin: 10px; 
+    width:20%;
+}
+.background-received{
+    --background: #EDEDF4;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.title{
+    text-align: left;
+    color: #0071B8;
+    margin: 10px;
+}
+
+
+.forma{
+    margin: 10px;
+}
+.LabelOpc{
+    color: #0071B8;
+}
+.info-card {
+    --background:#ffffff;
+    margin: 10px;
+}
+.info-card > ion-card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+    color: #000;
+}
+.info-card > ion-card-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+    color: #000;
+
+}
+.background-dados{
+    --background: #EDEDF4;
+}
+.dados-card {
+    --background:#ffffff;
+    margin: 10px;
+}
+.origem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+}
+
+
+
+
