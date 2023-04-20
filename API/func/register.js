@@ -19,7 +19,7 @@ async function register(reg){
             "password" : reg[8],
             "biz" : reg[9],
             "finance" : "0",
-            "Client_Token": newDB.extract.length
+            "client_token": newDB.extract.length
             };
 
         obj.clients.push(client);

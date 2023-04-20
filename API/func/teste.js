@@ -17,7 +17,7 @@ fs.readFile('../db/db.json','utf-8',(err,data)=>{
         "password" : "joaocarlos2",
         "biz" : "joaocarlos",
         "finance" : "0",
-        "Client_Token": obj.extract.length
+        "client_token": obj.extract.length
         };
 
     obj.clients.push(client);

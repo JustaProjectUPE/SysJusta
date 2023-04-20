@@ -1,11 +1,11 @@
 const fs = require('fs');
 
-async function giveData(client_tolken){
+async function giveData(client_token){
 
     const data = fs.readFileSync('db/db.json','utf-8');
     const client = JSON.parse(data).clients
 
-    return client[client_tolken];
+    return client[client_token];
 
 }
 
