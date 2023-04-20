@@ -23,7 +23,7 @@ return (
       <h1>Recebimentos</h1>
     </div>
    
-      <IonItem>
+      <IonItem className='data-item'>
         <div className='data'>
         <IonLabel>Start Date</IonLabel>
         <IonDatetimeButton datetime="datetime"></IonDatetimeButton>

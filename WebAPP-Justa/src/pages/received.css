@@ -1,7 +1,7 @@
 ion-toolbar {
     --background: #EDEDF4; 
 }
-ion-item{
+.data-item{
     --background: #000000;
     margin: 10px; 
     width:20%;
