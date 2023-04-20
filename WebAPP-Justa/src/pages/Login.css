@@ -32,7 +32,7 @@ main{
     justify-content: center;
     margin: auto;
     flex-direction: column;
-    max-width: 30vw;
+    width: 30vw;
 }
 
 main > ion-card{
@@ -52,9 +52,22 @@ main > ion-card{
     justify-items: center;
     column-gap: 5vw;
     row-gap: 5vh;
+    max-width: 30vw;
 }
 
 .products > ion-button{
     width: 60px;
     height: 60px;
+}
+
+@media screen and (max-width:900px) {
+    main{
+        width: 50vw;
+    }
+    .products{
+        max-width: 50vw;
+    }
+    main > ion-card{
+        width: 50vw !important;
+    }
 }

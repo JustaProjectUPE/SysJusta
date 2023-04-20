@@ -1,11 +1,23 @@
 import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon } from "@ionic/react";
 import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline} from "ionicons/icons";
 import './Login.css'
-import { Balance } from "../components/balance";
+import { Balance } from "../components/Balance";
+import { useState } from "react";
+import axios from "axios";
 
 const Signin = () =>{
-  let balance = 1;
+  const [clientData, setClientData] = useState([""]);
 
+  async function fetchData(client_tolken: number) {
+    try{
+      let res:any = await axios.get(`http://localhost:3000/menu/${client_tolken}`);
+      setClientData(res.data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  
     return(
       <>
         <IonMenu contentId="main-content">
@@ -32,7 +44,7 @@ const Signin = () =>{
                 <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
               </IonAvatar>
               <IonLabel>
-                Nome Sobrenome
+              {`${clientData["name"]} ${clientData["surname"]}`}
                 <p>Nível 3</p>
               </IonLabel>
               <div className="icon-hero"><img src = "/superhero.png"></img></div>
@@ -50,7 +62,7 @@ const Signin = () =>{
           </IonContent>
           </IonMenu>
 
-        <IonPage id="main-content">
+        <IonPage id="main-content" onLoad={()=>{fetchData(1)}}>
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
@@ -74,11 +86,11 @@ const Signin = () =>{
                   </IonButton>
                 </IonCardHeader>
               </IonCard>
-              <Balance balance={balance}/>
+              <Balance/>
               <section className="products-sec">
                 <IonTitle >Produtos</IonTitle>
                 <div className='products'>
-                  <IonButton shape='round' size='large'>
+                  <IonButton shape='round' size='large' onClick={()=>{fetchData(0)}}>
                     <IonIcon slot='icon-only' ></IonIcon>
                   </IonButton>
                   <IonButton shape='round' size='large'>

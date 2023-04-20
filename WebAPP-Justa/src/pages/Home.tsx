@@ -6,14 +6,14 @@ import axios from 'axios'
 
 const Home: React.FC = () => {
   
-  const [clients, setClients] = useState(0);
+  const [clients, setClients] = useState([]);
 
-  var login:any = document.querySelector('#login')
-  var password:any = document.querySelector('#pass')
+  var login:any = document.querySelector('#input-email');
+  var password:any = document.querySelector('#input-senha');
 
   async function fetchData() {
     try{
-      let res = await axios.get(`http://localhost:3000/teste/${login.value}/${password.value}`);
+      let res = await axios.get(`http://localhost:3000/signin/${login.value}/${password.value}`);
       setClients(res.data)
     } catch(err) {
       console.log(err)
@@ -21,11 +21,11 @@ const Home: React.FC = () => {
   }
 
   function check(){
-    console.log(login.value)
     fetchData()
-    if(clients == 200){
+    console.log(clients[0])
+    /*if(clients[0] == 200){
       window.location.href = "/signin"
-    }
+    }*/
   }
 
   return (
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
             <IonButton size="small" fill = "clear"  routerLink="/forgotpass" > Esqueceu a sua senha? </IonButton>
           </div>
           <IonContent></IonContent>
-            <IonButton id="signin-button" size="default" class="login-button" routerLink="/signin" onClick={()=>{check()}}>Entrar</IonButton>
+            <IonButton id="signin-button" size="default" class="login-button" onClick={()=>{check()}}>Entrar</IonButton>
             <p id="question" >Ainda não tem conta?</p>
             <IonButton id="signup-button" size="default" fill="outline" routerLink="/signup">Cadastre-se</IonButton>
           </div>
