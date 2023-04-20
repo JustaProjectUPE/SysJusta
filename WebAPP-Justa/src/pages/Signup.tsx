@@ -1,6 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg} from '@ionic/react';
 import './Signup.css';
-import { lockClosedOutline, mailOutline, personOutline } from 'ionicons/icons';
 
 const Signup: React.FC = () => {
   return (
@@ -24,25 +23,25 @@ const Signup: React.FC = () => {
           <div className="form-input">
               <IonItem>
                 <IonLabel className = "labelInput" position="floating">Nome Completo</IonLabel>
-                <IonInput className = "Input" type="email"></IonInput>
+                <IonInput className = "Input" color="medium" type="email"></IonInput>
               </IonItem>
             </div>
             <div className="form-input">
               <IonItem>
                 <IonLabel className = "labelInput" position="floating">CPF</IonLabel>
-                <IonInput className = "Input" type="email"></IonInput>
+                <IonInput className = "Input" color="medium" type="email"></IonInput>
               </IonItem>
             </div>
             <div className="form-input">
               <IonItem>
                 <IonLabel className = "labelInput" position="floating">E-mail</IonLabel>
-                <IonInput className = "Input" type="email"></IonInput>
+                <IonInput className = "Input" color="medium" type="email"></IonInput>
               </IonItem>
             </div>
             <div className="form-input">
               <IonItem>
                 <IonLabel className = "labelInput" position="floating">Senha</IonLabel>
-                <IonInput className = "Input" type="password"></IonInput>
+                <IonInput className = "Input" color="medium" type="password"></IonInput>
               </IonItem>
             </div>
           </div>

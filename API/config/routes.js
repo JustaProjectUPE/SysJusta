@@ -8,7 +8,7 @@ routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:passwo
 
    try{
         
-        const response = checkEntry(req.params.login,req.params.password);//parametros passados pelos : na url
+        const response = await checkEntry(req.params.login,req.params.password);//parametros passados pelos : na url
         res.status(200).json(response);  //.status(200) significa que o servidor conferiu, .json(response) vai enviar o retorno da função login para o frontend , que no caso vai ser 200 ou 500
       
     }catch(err){
@@ -23,8 +23,8 @@ routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:passwo
 routes.get('/menu/:client_tolken', async(req,res)=>{
 
     try{
-        const response = giveData(req.params.client_tolken);
-        req.status(200).json(response);
+        const response = await giveData(req.params.client_tolken);
+        res.status(200).json(response);
 
     }catch(err){
         res.status(500).json( {err : err} );

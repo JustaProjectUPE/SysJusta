@@ -1,3 +1,100 @@
 .background-menu{
-    --background: red;
+    --background: #EDEDF4;
+}
+
+.header-section .buttons-header{
+    flex-direction: row;
+    display: flex;
+}
+.header-section ion-toolbar{
+    --background: #0071B8;
+}
+
+#logout{
+    justify-content: left;
+    margin-left: auto;
+    --color: white;
+}
+
+#notify{
+    justify-content: right;
+    margin-right: 0;
+    --color: white;
+}
+
+#settings{
+    margin-left: 0;
+    --color: white;
+}
+
+.avatar-header{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.search-menu{
+    --color: black;
+    --placeholder-color: black;
+    --icon-color: #0071B8;
+    --clear-button-color: #0071B8;
+    --border-radius: 10px;
+}
+
+.options-menu ion-icon{
+    color: #0071B8;
+    padding: auto;
+}
+
+.options-menu ion-item{
+    padding: auto;
+    margin-left: auto;
+}
+
+.options-menu ion-label{
+    margin-left: 10px;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    flex-direction: column;
+    width: 30vw;
+}
+
+main > ion-card{
+    width: 30vw !important;
+}
+
+.products-sec ion-title{
+    font-size: 2em;
+    text-align: left;
+    padding-top: 4vh;
+}
+
+.products{
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    column-gap: 5vw;
+    row-gap: 5vh;
+    max-width: 30vw;
+}
+
+.products > ion-button{
+    width: 60px;
+    height: 60px;
+}
+
+@media screen and (max-width:900px) {
+    main{
+        width: 50vw;
+    }
+    .products{
+        max-width: 50vw;
+    }
+    main > ion-card{
+        width: 50vw !important;
+    }
 }

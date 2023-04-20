@@ -6,11 +6,13 @@ async function checkEntry(log, passw){
     let client = JSON.parse(data); // Converte o que foi lido em Objeto literal
     let users = [];
     let pass = [];
+    let client_tolken = [];
     
     //Adicionando senhas e usuários em arrays
     client.clients.map((obj) => {
         users.push(obj.login);
         pass.push(obj.password); 
+        client_tolken.push(obj.client_tolken);
     })
 
     //Verificando as condições para login através dos arrays 

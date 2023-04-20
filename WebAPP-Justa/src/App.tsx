@@ -24,6 +24,7 @@ import './theme/variables.css';
 import Signin from './pages/Login';
 import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
+import Received from './pages/received';
 
 setupIonicReact();
 
@@ -45,6 +46,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
+        </Route>
+        <Route exact path="/received">
+          <Received />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

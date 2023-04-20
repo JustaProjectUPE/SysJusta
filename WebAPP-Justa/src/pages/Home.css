@@ -9,7 +9,8 @@ ion-title {
   }
 
 #background-Home{
-    --background: url(../assets/img/background-login.jpg) 0 0/100% 100% no-repeat;
+    --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
+    background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
     background-size: cover;
 }
 .titleicon {
@@ -17,17 +18,20 @@ ion-title {
 }
 
 .login-section{
-    height: 100%;
+    height: auto;
     width: 100%;
     max-width: 500px;
     background: #EDEDF4;
     right: 0;
     left: 0;
     bottom: 0;
-    position: absolute; top: 45px;
+    position: relative; top: 45px;
     margin: auto;
     border-top-right-radius: 46px;
     border-top-left-radius: 46px;
+}
+.login-section .login-form{
+    padding-bottom: 0;
 }
 
 .login-section .heading h1{
@@ -47,6 +51,7 @@ ion-title {
 .login-section .login-form .form-input{
     position: relative;
     margin-bottom: 20px;
+    padding: 0;
 }
 
 .login-section .login-form .form-input .iconsInput{
@@ -77,10 +82,16 @@ ion-title {
 }
 
 
-.action-button{
+.login-section .action-button{
     color: #606D80;
     font-size: 0.9rem;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 0;
 }
 .login-button{
     --background: #064780;
@@ -89,6 +100,7 @@ ion-title {
     height: 50px;
     font-weight: bold;
     font-size: 1rem;
+
 }
 #signin-button{
     margin-bottom: 20px;
@@ -109,9 +121,15 @@ ion-title {
   }
 
   #forgotmypass{
-    margin-top:-65px;
-    margin-left: 250px;
     text-transform: none;
     font-size: 0.9rem;
     color:#606D80;
+    justify-content: right;
+    width: 100%;
+    display: flex;
+  }
+
+  #forgotmypass ion-button{
+    color: #606D80;
+    margin-bottom: 2vh;
   }
