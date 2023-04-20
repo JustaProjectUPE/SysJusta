@@ -34,6 +34,33 @@ routes.get('/menu/:client_tolken', async(req,res)=>{
 })
 
 //CADASTRO
-routes.post('/cadastro')
+routes.post('/register',async(req,res)=>{
+
+    try{
+        const name = req.body.name;
+        const surname = req.body.surname;
+        const birth = req.body.birth;
+        const cpf = req.body.cpf;
+        const cnpj = req.body.cnpj;
+        const phone = req.body.phone;
+        const email = req.body.email;
+        const login = req.body.login;
+        const password = req.body.password;
+        const biz = req.body.biz;
+
+        register([name,surname,birth,cpf,cnpj,phone,email,login,password,biz]);
+
+        //if(response==200){
+         //   req.status(200);
+       // }else{
+       //     res.status(500).json( {err : err} );
+       // }
+
+    }catch(err){
+        res.status(500).json( {err : err} );
+    }
+
+
+})
 
 module.exports = routes;

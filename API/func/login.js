@@ -13,8 +13,6 @@ async function checkEntry(log, passw){
         pass.push(obj.password); 
     })
 
-    
-
     //Verificando as condições para login através dos arrays 
     if(users.includes(log)){
 

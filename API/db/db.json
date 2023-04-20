@@ -1,8 +1,9 @@
 {
     "clients" : [{
     "name" : "Bilbo",
-    "birth": "24021943",
     "surname": "Baggins",
+    "birth": "24021912",
+    "cpf":"",
     "cnpj" : "31752350000138",
     "phone" : "81988666474",
     "email" : "bilbobaggins66@gmail.com",
@@ -16,9 +17,10 @@
 
     {
         "name" : "Frodo",
-        "birth": "24022054",
         "surname": "Baggins",
-        "cnpj" : "03518969000147",
+        "birth": "24021990",
+        "cpf":"79225119062",
+        "cnpj" : "",
         "phone" : "81985666373",
         "email" : "frogobaggins66@gmail.com",
         "login" : "frodobag123",

@@ -9,5 +9,4 @@ async function giveData(client_tolken){
 
 }
 
-
 module.exports = giveData;
