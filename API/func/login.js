@@ -6,13 +6,13 @@ async function checkEntry(log, passw){
     let client = JSON.parse(data); // Converte o que foi lido em Objeto literal
     let users = [];
     let pass = [];
-    let client_tolken = [];
+    let client_token = [];
     
     //Adicionando senhas e usuários em arrays
     client.clients.map((obj) => {
         users.push(obj.login);
         pass.push(obj.password); 
-        client_tolken.push(obj.client_tolken);
+        client_token.push(obj.client_token);
     })
 
     //Verificando as condições para login através dos arrays 
@@ -22,7 +22,7 @@ async function checkEntry(log, passw){
 
             if(users[i] == log && pass[i] == passw){
                 console.log('WELCOME');
-                return [200,client.client_tolken];//success
+                return [200,client_token[i]];//success
 
             }else if(i == users.length-1){
                 console.log('WRONG PASS');

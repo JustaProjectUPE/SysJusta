@@ -49,7 +49,7 @@ routes.post('/register',async(req,res)=>{
         const biz = req.body.biz;
 
         register([name,surname,birth,cpf,cnpj,phone,email,login,password,biz]);
-
+        res.status(200);
         //if(response==200){
          //   req.status(200);
        // }else{

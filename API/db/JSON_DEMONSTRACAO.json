@@ -11,7 +11,7 @@
     "password" : "gandalfs2",
     "biz" : "Anéis Mágicos LTDA",
     "finance" : "50000",
-    "client_token": 0
+    "Client_Token": 0
 
     },
 
@@ -27,7 +27,7 @@
         "password" : "bilbos2",
         "biz" : "Tolkien",
         "finance" : "100000",
-        "client_token": 1
+        "Client_Token": 1
     
         }],
     "extract" : [
