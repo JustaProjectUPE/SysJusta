@@ -22,7 +22,7 @@ const Signin = () =>{
       <>
         <IonMenu contentId="main-content">
           <section className="header-section" >
-            <IonHeader>
+            <IonHeader class="ion-no-border">
               <IonToolbar>
                 <div className="buttons-header">
                   <IonButton id="settings" fill="clear">
@@ -35,75 +35,71 @@ const Signin = () =>{
                     <IonIcon icon={logOutOutline} slot="start"></IonIcon> Sair
                   </IonButton>
                 </div>
+                <IonAvatar className="icon-avatar">
+                  <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+                </IonAvatar>
+                <IonLabel className="label-avatar">
+                  <div id="nome-user">{`${clientData["name"]} ${clientData["surname"]}`}</div>
+                    <p>Nível 3</p>
+                    <div><img src="/icon-superhero.png"></img></div>
+                </IonLabel>
               </IonToolbar>
             </IonHeader>
           </section>
-          <section className="avatar-header">
-            <IonItem lines="none">
-              <IonAvatar slot="start">
-                <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-              </IonAvatar>
-              <IonLabel>
-              {`${clientData["name"]} ${clientData["surname"]}`}
-                <p>Nível 3</p>
-              </IonLabel>
-              <div className="icon-hero"><img src = "/superhero.png"></img></div>
-            </IonItem>
-          </section>
+
+          <IonContent className="body-menu">
           <IonSearchbar className="search-menu" showCancelButton="focus" placeholder="Pesquisar"></IonSearchbar>
-          
-          <IonContent>
             <IonList className="options-menu">
             <IonMenuToggle auto-hide="false">
-                <IonItem lines="none">
+                <IonItem lines="full">
                   <IonIcon icon={trophyOutline}></IonIcon>
-                  <IonLabel>Meus benefícios</IonLabel>
+                  <IonLabel>Meus Benefícios</IonLabel>
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle auto-hide="false">
-                <IonItem lines="none">
+                <IonItem lines="full" routerLink="/received">
                   <IonIcon icon={calendarOutline}></IonIcon>
                   <IonLabel>Agenda de Recebíveis</IonLabel>
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
-                <IonItem lines="none">
+                <IonItem lines="full">
                 <IonIcon icon={barcodeOutline}></IonIcon>
                   <IonLabel>Pagar Boleto</IonLabel>
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
-                <IonItem lines="none">
+                <IonItem lines="full">
                 <IonIcon icon={sendOutline}></IonIcon>
                   <IonLabel>Linkou</IonLabel>
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
-                <IonItem lines="none">
+                <IonItem lines="full">
                 <IonIcon icon={cardOutline}></IonIcon>
                   <IonLabel>Crédito Justo</IonLabel>
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
-                <IonItem lines="none">
+                <IonItem lines="full">
                 <IonIcon icon={calculatorOutline}></IonIcon>
                   <IonLabel>Simulador de Vendas</IonLabel>
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
-                <IonItem lines="none">
+                <IonItem lines="full">
                 <IonIcon icon={statsChartOutline}></IonIcon>
                   <IonLabel>Estatística de Desempenho</IonLabel>
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
-                <IonItem lines="none">
+                <IonItem lines="full">
                 <IonIcon icon={hourglassOutline}></IonIcon>
                   <IonLabel>Vendas em Tempo Real</IonLabel>
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
-                <IonItem lines="none">
+                <IonItem lines="full">
                 <IonIcon icon={shuffleOutline}></IonIcon>
                   <IonLabel>Transferência de Vendas</IonLabel>
                 </IonItem>
