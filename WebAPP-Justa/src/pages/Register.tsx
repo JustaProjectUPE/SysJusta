@@ -1,6 +1,6 @@
-import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonPage, IonRow, IonSelect, IonSelectOption, IonToolbar } from '@ionic/react';
 import './Register.css'
-import { arrowBackOutline, mailOutline } from 'ionicons/icons';
+import {peopleOutline, pricetagOutline, pricetagsOutline } from 'ionicons/icons';
 
 const Register: React.FC = () => {
     return (
@@ -19,25 +19,26 @@ const Register: React.FC = () => {
         </IonHeader>
   
         <IonContent className="background-forgotpass">
-          <div className="forgotpass-section ion-padding">
-            <div className="heading ion-padding">
-              <h1>Esqueci minha senha</h1>
-              <p>
-                  Para redefinir sua senha, informe o e-mail cadastrado na sua conta e lhe enviaremos
-                  um link com as instruções.
-              </p>
-            </div>
-            <div className="form ion-padding">
-                <IonItem>
-                  <IonIcon id="iconForgot" icon={mailOutline}></IonIcon>
-                  <IonLabel className="labelForgotpass" position="floating">E-mail</IonLabel>
-                  <IonInput id="in-email" color="medium" type="email"></IonInput>
-                </IonItem>
-            </div>
-            <div className="action-button ion-padding">
-              <IonButton size="default" id="send-button" routerLink="/home">Enviar</IonButton>
-            </div>
-          </div>
+          <div className="register-section ion-padding">
+              <h1>Cadastros</h1>
+              <p>Selecione a categoria que você deseja cadastrar.</p>
+              <IonGrid>
+                <IonRow>
+                  <IonCol size-sm="6" size="6"  class="ion-text-center">
+                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/register-product'>
+                        <IonIcon icon={pricetagsOutline}></IonIcon>
+                      </IonButton>
+                      <IonLabel>Produtos</IonLabel>
+                  </IonCol>
+                  <IonCol size-sm="6" size="6"  class="ion-text-center">
+                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/register-people'>
+                    <IonIcon icon={peopleOutline}></IonIcon>
+                  </IonButton>
+                  <IonLabel>Funcionários</IonLabel>
+                </IonCol>
+                </IonRow>
+                    </IonGrid>
+                </div>
         </IonContent>
   
       </IonPage>

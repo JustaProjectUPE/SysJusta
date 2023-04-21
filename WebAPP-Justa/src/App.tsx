@@ -26,6 +26,9 @@ import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
 import Received from './pages/received';
 import Register from './pages/Register';
+import Simulator from './pages/Simulator';
+import Registerproduct from './pages/Registerproduct';
+import Registerpeople from './pages/Registerpeople';
 
 setupIonicReact();
 
@@ -53,6 +56,15 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/register">
           <Register />
+        </Route>
+        <Route exact path="/simulator">
+          <Simulator />
+        </Route>
+        <Route exact path="/register-product">
+          <Registerproduct />
+        </Route>
+        <Route exact path="/register-people">
+          <Registerpeople />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

@@ -18,8 +18,7 @@ const Signin = () =>{
       console.log(error)
     }
   }
-
-  
+ 
     return(
       <>
         <IonMenu contentId="main-content">
@@ -73,7 +72,7 @@ const Signin = () =>{
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
-              <IonNavLink routerDirection="forward" component={() => <Received />}>
+              <IonNavLink routerDirection="forward" component={() => <Register />}>
                 <IonItem lines="full" routerLink="/register">
                 <IonIcon icon={addCircleOutline}></IonIcon>
                   <IonLabel>Cadastros</IonLabel>
