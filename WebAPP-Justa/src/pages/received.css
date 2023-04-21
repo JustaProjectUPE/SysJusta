@@ -1,66 +1,138 @@
 ion-toolbar {
-    --background: #EDEDF4;
+    --background: #EDEDF4; 
 }
 .title-icon{
     text-align: center;
 }
-.data-item{
-    --background: #000000;
-    margin: 10px; 
-    width:20%;
+.header {
+    align-items: center;
 }
+  
 .background-received{
     --background: #EDEDF4;
 }
-.header {
-    align-items: center;
+  
+.selecionar-informacao{
+    --background: #EDEDF4;
+    margin: 10px;
+    border-bottom: #EDEDF4;
+    width: 20%;
 }
 .title{
     text-align: left;
     color: #0071B8;
     margin: 10px;
+    width: auto;
 }
-
-
-.forma{
+  
+.data-item{
+    --background: #ffffff;
+    margin: 10px; 
+    width:20%;
+}
+  
+.opcao > ion-segment-button{
+    --background-checked: #dad8d8;
+  
+}
+.opcao{
     margin: 10px;
 }
 .LabelOpc{
     color: #0071B8;
 }
-.info-card {
+  
+.info-geral {
+    --background:#ffffff;
+    margin: 10px;
+    height: auto;
+ }
+  
+.Total{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+  
+}
+.quantT{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    gap: 15px;
+  }
+.ValorT{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    gap:15px;
+}
+  
+.cartao{
+    display: block;
+}
+.dados-cartao{
     --background:#ffffff;
     margin: 10px;
 }
-.info-card > ion-card-header {
+.info-cartao{
+    height: 40px;
+    background: #EDEDF4;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-evenly;
-    color: #000;
+    justify-content:space-around;
+    margin-top: 15px;
 }
-.info-card > ion-card-content{
+  
+.exemplo{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-evenly;
-    color: #000;
+    justify-content:space-around;
+    border-bottom: solid;
+    border-bottom-color: #EDEDF4;
+    height: 40px;
+}
+.exemplo2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    border-bottom: solid;
+    border-bottom-color: #EDEDF4;
+    height: 40px;
+}
 
+.boleto{
+    display: none;
 }
-.background-dados{
-    --background: #EDEDF4;
-}
-.dados-card {
+.dados-boleto{
     --background:#ffffff;
     margin: 10px;
 }
-.origem {
+.info-boleto{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content:space-around;
 }
-
-
-
-
+  
+.transferencia{
+    display: none;
+}
+.dados-transferencia{
+    --background:#ffffff;
+    margin: 10px;
+}
+.info-transferencia{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+}
+  
+  
+  
