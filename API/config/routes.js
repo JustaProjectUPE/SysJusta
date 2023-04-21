@@ -4,7 +4,7 @@ const checkEntry = require('../func/login.js');
 const giveData = require('../func/give.js');
 const giveExtract = require('../func/giveExtract.js');
 
-//LOGIN
+//LOGIN, retorna o token do cliente e o nível dele
 routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:password, os dois pontos idicam que os parametros vão ser passados ao servidor, logo são variáveirs que poderão ser acessadas.
 
    try{
@@ -35,7 +35,7 @@ routes.get('/menu/:client_tolken', async(req,res)=>{
 });
 
 
-//Envio de dados de extrato e nível, nível baseado em faturamento anual
+//Envio de dados de extrato e nível
 routes.get('/extract/:client_token',async(req,res)=>{
 
     try{
