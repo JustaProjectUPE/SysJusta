@@ -1,9 +1,11 @@
-import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon, IonSearchbar, IonMenuToggle } from "@ionic/react";
-import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, receiptOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, pricetagsOutline, hourglassOutline, statsChartOutline, shuffleOutline} from "ionicons/icons";
+import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon, IonSearchbar, IonMenuToggle, IonNavLink } from "@ionic/react";
+import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, receiptOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, pricetagsOutline, hourglassOutline, statsChartOutline, shuffleOutline, addCircleOutline} from "ionicons/icons";
 import './Login.css'
 import { Balance } from "../components/Balance";
 import { useState } from "react";
 import axios from "axios";
+import Register from "./Register";
+import Received from "./received";
 
 const Signin = () =>{
   const [clientData, setClientData] = useState([""]);
@@ -57,16 +59,26 @@ const Signin = () =>{
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle auto-hide="false">
+              <IonNavLink routerDirection="forward" component={() => <Received />}>
                 <IonItem lines="full" routerLink="/received">
                   <IonIcon icon={calendarOutline}></IonIcon>
                   <IonLabel>Agenda de Recebíveis</IonLabel>
                 </IonItem>
+                </IonNavLink>
               </IonMenuToggle>
               <IonMenuToggle>
                 <IonItem lines="full">
                 <IonIcon icon={barcodeOutline}></IonIcon>
                   <IonLabel>Pagar Boleto</IonLabel>
                 </IonItem>
+              </IonMenuToggle>
+              <IonMenuToggle>
+              <IonNavLink routerDirection="forward" component={() => <Received />}>
+                <IonItem lines="full" routerLink="/register">
+                <IonIcon icon={addCircleOutline}></IonIcon>
+                  <IonLabel>Cadastros</IonLabel>
+                </IonItem>
+                </IonNavLink>
               </IonMenuToggle>
               <IonMenuToggle>
                 <IonItem lines="full">

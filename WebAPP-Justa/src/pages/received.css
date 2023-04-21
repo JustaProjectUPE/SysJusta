@@ -1,5 +1,8 @@
 ion-toolbar {
-    --background: #EDEDF4; 
+    --background: #EDEDF4;
+}
+.title-icon{
+    text-align: center;
 }
 .data-item{
     --background: #000000;
@@ -10,8 +13,6 @@ ion-toolbar {
     --background: #EDEDF4;
 }
 .header {
-    display: flex;
-    flex-direction: row;
     align-items: center;
 }
 .title{

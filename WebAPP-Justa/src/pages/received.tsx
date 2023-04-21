@@ -1,4 +1,4 @@
-import { IonPage, IonHeader, IonText, IonToolbar, IonIcon,  IonSelect, IonContent, IonButton, IonDatetime, IonItem, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal  } from '@ionic/react';
+import { IonPage, IonHeader, IonText, IonToolbar, IonIcon,  IonSelect, IonContent, IonButton, IonDatetime, IonItem, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal, IonButtons, IonBackButton  } from '@ionic/react';
 import { arrowBackOutline } from 'ionicons/icons';
 import './received.css'
 import {format} from 'date-fns';
@@ -8,14 +8,16 @@ return (
 <>
 <IonPage>
   <IonHeader>
+    <div className='header'>
       <IonToolbar>
-      <div className='header'>
-        <IonButton fill = "clear" size = "large">
-          <IonIcon icon={arrowBackOutline}></IonIcon>
-        </IonButton>
+        <IonButtons slot="start">
+            <IonBackButton></IonBackButton>
+        </IonButtons>
+        <div className="title-icon">
         <img src = "/logo2.png"></img>
-      </div>
+        </div>
       </IonToolbar>
+      </div>
   </IonHeader>
  
   <IonContent className="background-received">
@@ -23,7 +25,7 @@ return (
       <h1>Recebimentos</h1>
     </div>
    
-      <IonItem className='data-item'>
+      <IonItem>
         <div className='data'>
         <IonLabel>Start Date</IonLabel>
         <IonDatetimeButton datetime="datetime"></IonDatetimeButton>
