@@ -25,13 +25,13 @@ const Register: React.FC = () => {
               <IonGrid>
                 <IonRow>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
-                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/register-product'>
+                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/registerproduct'>
                         <IonIcon icon={pricetagsOutline}></IonIcon>
                       </IonButton>
                       <IonLabel>Produtos</IonLabel>
                   </IonCol>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
-                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/register-people'>
+                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/registerpeople'>
                     <IonIcon icon={peopleOutline}></IonIcon>
                   </IonButton>
                   <IonLabel>Funcionários</IonLabel>

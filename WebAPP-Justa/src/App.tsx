@@ -60,10 +60,10 @@ const App: React.FC = () => (
         <Route exact path="/simulator">
           <Simulator />
         </Route>
-        <Route exact path="/register-product">
+        <Route exact path="/registerproduct">
           <Registerproduct />
         </Route>
-        <Route exact path="/register-people">
+        <Route exact path="/registerpeople">
           <Registerpeople />
         </Route>
       </IonRouterOutlet>

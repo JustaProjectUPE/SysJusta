@@ -1,0 +1,60 @@
+.background-registerproduct{
+    --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
+    background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
+    background-size: cover;
+}
+
+.register-product-section{
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    background: #EDEDF4;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: relative; top: 45px;
+    margin: auto;
+    border-top-right-radius: 46px;
+    border-top-left-radius: 46px;
+}
+
+.register-product-section h1{
+    margin-top: 30px;
+    font-size: 1.6 rem;
+    font-weight: bolder;
+    color: #0071B8;
+    text-align: center;
+    padding-bottom: 5px;
+}
+.register-product-section p{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1 rem;
+    color: #606D80;
+    text-align: center;
+}
+
+.register-product-section ion-button{
+    --background: #0071B8;
+    padding-left: 0
+}
+.register-product-section ion-item{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin: auto;
+}
+
+.input-product{
+    width: 70%
+}
+
+.input-code{
+    width: 40%;
+    height: 70px;
+}
+.input-price{
+    width: 70%;
+}
+.input-estoque{
+    width: 70%;
+}

@@ -92,7 +92,7 @@ const Signin = () =>{
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
-                <IonItem lines="full">
+                <IonItem lines="full" routerLink="/simulator">
                 <IonIcon icon={calculatorOutline}></IonIcon>
                   <IonLabel>Simulador de Vendas</IonLabel>
                 </IonItem>
