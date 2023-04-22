@@ -18,11 +18,11 @@ const Simulator: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Simulador de Vendas</IonTitle>
+          <IonTitle className='page-title'>Simulador de Vendas</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonGrid>
+        <IonGrid className='form'>
           <IonRow>
             <IonCol size="12">
               <IonCard>

@@ -1,0 +1,67 @@
+/* Estilos para o título da página */
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1c1c1c;
+  }
+  
+  /* Estilos para o formulário */
+  .form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  /* Estilos para os rótulos */
+  .form-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #1c1c1c;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Estilos para as entradas */
+  .form-input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #1c1c1c;
+  }
+  
+  /* Estilos para os botões */
+  .form-button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .form-button:hover {
+    background-color: #0d0d0d;
+  }
+  
+  /* Estilos para mensagens de erro */
+  .form-error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
