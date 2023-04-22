@@ -1,6 +1,5 @@
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { IonApp, setupIonicReact } from '@ionic/react';
 import Home from './pages/Home';
 
 /* Core CSS required for Ionic components to work properly */
@@ -35,43 +34,21 @@ setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/signin">
-          <Signin />
-        </Route>
-        <Route exact path="/signup">
-          <Signup />
-        </Route>
-        <Route exact path="/forgotpass">
-          <ForgotPassword />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-        <Route exact path="/received">
-          <Received />
-        </Route>
-        <Route exact path="/register">
-          <Register />
-        </Route>
-        <Route exact path="/simulator">
-          <Simulator />
-        </Route>
-        <Route exact path="/registerproduct">
-          <Registerproduct />
-        </Route>
-        <Route exact path="/registerpeople">
-          <Registerpeople />
-        </Route>
-        <Route exact path="/mybenefits">
-          <Mybenefits />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
+        <Route path='/signin' element={<Signin/>}/>
+        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/forgotpass' element={<ForgotPassword/>}/>
+        <Route path='received' element={<Received/>}/>
+        <Route path='/register' element={<Register/>}/>
+        <Route path='/simulator' element={<Simulator/>}/>
+        <Route path='/registerproduct' element={<Registerproduct/>}/>
+        <Route path='registerpeople' element={<Registerpeople/>}/>
+        <Route path='/mybenefits' element={<Mybenefits/>}/>
+      </Routes>
+    </BrowserRouter>
   </IonApp>
 );
 

@@ -3,17 +3,18 @@ import './Home.css';
 import { lockClosedOutline, mailOutline } from 'ionicons/icons';
 import { useState } from 'react';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
-  
+  const navigate = useNavigate();
   const [clients, setClients] = useState([]);
+  const [login, setLog] = useState('');
+  const [password, setPass] = useState('');
 
-  var login:any = document.querySelector('#input-email');
-  var password:any = document.querySelector('#input-senha');
 
   async function fetchData() {
     try{
-      let res = await axios.get(`http://localhost:3000/signin/${login.value}/${password.value}`);
+      let res = await axios.get(`http://localhost:3000/signin/${login}/${password}`);
       setClients(res.data)
     } catch(err) {
       console.log(err)
@@ -23,9 +24,9 @@ const Home: React.FC = () => {
   function check(){
     fetchData()
     console.log(clients[0])
-    /*if(clients[0] == 200){
-      window.location.href = "/signin"
-    }*/
+    if(clients[0] == 200){
+      navigate('/signin', {replace: true, state:{id: clients[1], loyalty: clients[2]}})
+    }
   }
 
   return (
@@ -48,14 +49,14 @@ const Home: React.FC = () => {
               <IonItem>
                 <IonIcon className="iconsInput" icon={mailOutline}></IonIcon>
                 <IonLabel className = "labelInput" position="floating">E-mail</IonLabel>
-                <IonInput id="input-email" errorText="Invalid email" color="medium" shape="round" type="email"></IonInput>
+                <IonInput id="input-email" errorText="Invalid email" color="medium" shape="round" type="email" onIonInput={(e: any)=>setLog(e.target.value)}></IonInput>
               </IonItem>
             </section>
             <section className="form-input">
               <IonItem>
                 <IonIcon className="iconsInput" icon={lockClosedOutline}></IonIcon>
                 <IonLabel className = "labelInput" position="floating">Senha</IonLabel>
-                <IonInput id="input-senha" color="medium" type="password"></IonInput>
+                <IonInput id="input-senha" color="medium" type="password" onIonInput={(e: any)=>setPass(e.target.value)}></IonInput>
               </IonItem>
             </section>
           </div>

@@ -6,9 +6,11 @@ import { useState } from "react";
 import axios from "axios";
 import Register from "./Register";
 import Received from "./received";
+import { useLocation } from "react-router-dom";
 
 const Signin = () =>{
   const [clientData, setClientData] = useState([""]);
+  const location = useLocation();
 
   async function fetchData(client_tolken: number) {
     try{
@@ -16,6 +18,16 @@ const Signin = () =>{
       setClientData(res.data);
     } catch (error) {
       console.log(error)
+    }
+  }
+
+  function checkLevel(level: number){
+    if(level == 1){
+      return 'HERÓI INICIANTE'
+    } else if(level == 2){
+      return 'HERÓI DE CARREIRA'
+    } else if(level == 3) {
+      return 'SUPER-HERÓI'
     }
   }
  
@@ -41,7 +53,7 @@ const Signin = () =>{
                 </IonAvatar>
                 <IonLabel className="label-avatar">
                   <div id="nome-user">{`${clientData["name"]} ${clientData["surname"]}`}</div>
-                    <p>Nível 3</p>
+                    <p>Nível {location.state.loyalty}</p>
                     <div><img src="/icon-superhero.png"></img></div>
                 </IonLabel>
               </IonToolbar>
@@ -120,7 +132,7 @@ const Signin = () =>{
           </IonContent>
           </IonMenu>
 
-        <IonPage id="main-content" onLoad={()=>{fetchData(1)}}>
+        <IonPage id="main-content" onLoad={()=>{fetchData(location.state.id)}}>
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
@@ -136,15 +148,15 @@ const Signin = () =>{
             <main>
               <IonCard>
                 <IonCardHeader>
-                  <IonCardSubtitle>Nível de lealdade: 3</IonCardSubtitle>
-                  <IonCardTitle>SUPER-HERÓI</IonCardTitle>
+                  <IonCardSubtitle>Nível de lealdade: {location.state.loyalty}</IonCardSubtitle>
+                  <IonCardTitle>{checkLevel(location.state.loyalty)}</IonCardTitle>
                   <IonButton fill="clear">
                     Acesse os benefícios
                     <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
                   </IonButton>
                 </IonCardHeader>
               </IonCard>
-              <Balance/>
+              <Balance balance={clientData["finance"]}/>
               <section className="products-sec">
                 <IonTitle >Produtos</IonTitle>
                 <div className='products'>

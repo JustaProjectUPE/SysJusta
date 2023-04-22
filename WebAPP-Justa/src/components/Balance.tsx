@@ -2,7 +2,7 @@ import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/re
 import React from 'react'
 import '../components/Balance.css'
 
-export const Balance = (balance:any) => {
+export const Balance = ({balance}:any) => {
 
     let saldo = 1;
     let futuros = 1;
@@ -14,7 +14,7 @@ export const Balance = (balance:any) => {
             <IonCardHeader>
                 <IonCardTitle>SALDO ATUAL</IonCardTitle>
                 <IonCardTitle class="balance-future">Recebiveis</IonCardTitle>
-                <IonCardSubtitle>R${saldo.toFixed(2)}</IonCardSubtitle>
+                <IonCardSubtitle>{Number(balance).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</IonCardSubtitle>
                 <IonCardSubtitle class="balance-future">R${futuros.toFixed(2)}</IonCardSubtitle>
             </IonCardHeader>
         </IonCard>
