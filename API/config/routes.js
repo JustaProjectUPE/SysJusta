@@ -2,6 +2,7 @@ const express = require('express');
 const routes = express.Router();
 const checkEntry = require('../func/login.js');
 const giveData = require('../func/give.js');
+const fs = require('fs');
 
 //LOGIN
 routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:password, os dois pontos idicam que os parametros vão ser passados ao servidor, logo são variáveirs que poderão ser acessadas.
@@ -55,6 +56,36 @@ routes.post('/register',async(req,res)=>{
        // }else{
        //     res.status(500).json( {err : err} );
        // }
+
+    }catch(err){
+        res.status(500).json( {err : err} );
+    }
+
+
+})
+
+//EXTRATO
+routes.post('/menu/balance',async(req,res)=>{
+
+    try{
+        const client_token = req.body.client_token; //Recebe o ID do cliente
+        const value = req.body.value; //Recebe o valor que será atribuído ou retirado do saldo  
+        const data = fs.readFileSync('db/db.json','utf-8');
+        const obj = JSON.parse(data);
+
+        //Alterar valores do saldo do cliente
+        let balance = obj.clients[client_token].finance;
+        const new_balance = parseFloat(balance) + parseFloat(value);
+        obj.clients[client_token].finance = new_balance;
+        
+        //Escrever o novo saldo dentro do json
+        fs.writeFile('./db/db.json',JSON.stringify(obj, null, 2), 'utf-8', (err)=>{
+            if(err) throw err;
+
+            console.log('File updated')
+        });       
+      
+        res.status(200);
 
     }catch(err){
         res.status(500).json( {err : err} );
