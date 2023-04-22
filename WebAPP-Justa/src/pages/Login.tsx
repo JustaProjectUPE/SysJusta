@@ -144,7 +144,7 @@ const Signin = () =>{
                   </IonButton>
                 </IonCardHeader>
               </IonCard>
-              <Balance/>
+              <Balance balance={clientData["finance"]}/>
               <section className="products-sec">
                 <IonTitle >Produtos</IonTitle>
                 <div className='products'>
