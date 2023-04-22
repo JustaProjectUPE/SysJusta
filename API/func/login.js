@@ -1,5 +1,5 @@
 const fs = require('fs');
-const clietLevel = require('./clientLevel.js')
+const clientLevel = require('./clientLevel.js')
 
 async function checkEntry(log, passw){
     
