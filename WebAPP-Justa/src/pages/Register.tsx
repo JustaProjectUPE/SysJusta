@@ -1,4 +1,4 @@
-import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonPage, IonRow, IonSelect, IonSelectOption, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonNavLink, IonPage, IonRow, IonSelect, IonSelectOption, IonToolbar } from '@ionic/react';
 import './Register.css'
 import {peopleOutline, pricetagOutline, pricetagsOutline } from 'ionicons/icons';
 
@@ -25,13 +25,15 @@ const Register: React.FC = () => {
               <IonGrid>
                 <IonRow>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
-                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/register-product'>
+                  <IonNavLink routerDirection="forward" component={() => <Register />}>
+                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/registerproduct'>
                         <IonIcon icon={pricetagsOutline}></IonIcon>
                       </IonButton>
+                  </IonNavLink>
                       <IonLabel>Produtos</IonLabel>
                   </IonCol>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
-                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/register-people'>
+                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/registerpeople'>
                     <IonIcon icon={peopleOutline}></IonIcon>
                   </IonButton>
                   <IonLabel>Funcionários</IonLabel>

@@ -5,10 +5,7 @@
     background: #EDEDF4;
     position: relative; top: 45px;
     margin: auto;
-    border-top-right-radius: 46px;
-    border-top-left-radius: 46px;
-    border-bottom-left-radius: 46px;
-    border-bottom-right-radius: 46px;
+    border-radius: 30px;
 }
 .register-section h1{
     margin-top: 50px;

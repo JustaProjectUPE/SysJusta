@@ -29,6 +29,7 @@ import Register from './pages/Register';
 import Simulator from './pages/Simulator';
 import Registerproduct from './pages/Registerproduct';
 import Registerpeople from './pages/Registerpeople';
+import Mybenefits from './pages/Mybenefits';
 
 setupIonicReact();
 
@@ -60,11 +61,14 @@ const App: React.FC = () => (
         <Route exact path="/simulator">
           <Simulator />
         </Route>
-        <Route exact path="/register-product">
+        <Route exact path="/registerproduct">
           <Registerproduct />
         </Route>
-        <Route exact path="/register-people">
+        <Route exact path="/registerpeople">
           <Registerpeople />
+        </Route>
+        <Route exact path="/mybenefits">
+          <Mybenefits />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

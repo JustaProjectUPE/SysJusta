@@ -48,7 +48,7 @@ const Home: React.FC = () => {
               <IonItem>
                 <IonIcon className="iconsInput" icon={mailOutline}></IonIcon>
                 <IonLabel className = "labelInput" position="floating">E-mail</IonLabel>
-                <IonInput id="input-email" color="medium" shape="round" type="email"></IonInput>
+                <IonInput id="input-email" errorText="Invalid email" color="medium" shape="round" type="email"></IonInput>
               </IonItem>
             </section>
             <section className="form-input">

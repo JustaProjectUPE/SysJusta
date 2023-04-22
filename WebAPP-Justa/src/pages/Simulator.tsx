@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption } from '@ionic/react';
+import './Simulator.css'
 
 const Simulator: React.FC = () => {
   const [valorTotal, setValorTotal] = useState(0);
@@ -18,11 +19,11 @@ const Simulator: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Simulador de Vendas</IonTitle>
+          <IonTitle className='page-title'>Simulador de Vendas</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonGrid>
+        <IonGrid className='form'>
           <IonRow>
             <IonCol size="12">
               <IonCard>

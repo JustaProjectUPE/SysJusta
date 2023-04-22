@@ -1,0 +1,43 @@
+.register-product-content{
+    --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
+    background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
+    background-size: cover;
+}
+
+.register-product-section{
+    max-width: 600px;
+    margin: auto;
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #EDEDF4;
+}
+
+.register-product-section h1{
+    margin-top: 20px;
+    font-size: 1.6 rem;
+    font-weight: bolder;
+    color: #0071B8;
+    text-align: center;
+}
+
+.register-product-section p{
+    margin-top: 20px;
+    font-size: 1 rem;
+    color: #606D80;
+    text-align: center;
+}
+.register-product-section ion-card-title{
+    font-size: 1.2 rem;
+    font-weight: bolder;
+    color: #0071B8;
+    text-align: center;
+}
+
+.register-product-section ion-button{
+    --background: #0071B8;
+    padding-top: 5px;
+    text-align: center;
+}

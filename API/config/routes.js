@@ -2,9 +2,10 @@ const express = require('express');
 const routes = express.Router();
 const checkEntry = require('../func/login.js');
 const giveData = require('../func/give.js');
+const giveExtract = require('../func/giveExtract.js');
 const fs = require('fs');
 
-//LOGIN
+//LOGIN, retorna o token do cliente e o nível dele
 routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:password, os dois pontos idicam que os parametros vão ser passados ao servidor, logo são variáveirs que poderão ser acessadas.
 
    try{
@@ -18,7 +19,7 @@ routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:passwo
        
    }
 
-})
+});
 
 //ENVIO DE DADOS AO ENTRAR
 routes.get('/menu/:client_tolken', async(req,res)=>{
@@ -32,7 +33,28 @@ routes.get('/menu/:client_tolken', async(req,res)=>{
     }
 
 
-})
+});
+
+
+//Envio de dados de extrato e nível
+routes.get('/extract/:client_token',async(req,res)=>{
+
+    try{
+
+        const response = await giveExtract(req.params.client_token);
+        res.status(500).json(response);
+
+    }catch(err){
+
+        res.status(500).json({err:err});
+
+    }
+
+
+});
+
+
+
 
 //CADASTRO
 routes.post('/register',async(req,res)=>{
@@ -92,6 +114,6 @@ routes.post('/menu/balance',async(req,res)=>{
     }
 
 
-})
+});
 
 module.exports = routes;
