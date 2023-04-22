@@ -3,6 +3,7 @@ const routes = express.Router();
 const checkEntry = require('../func/login.js');
 const giveData = require('../func/give.js');
 const giveExtract = require('../func/giveExtract.js');
+const extract = require('../func/extract.js');
 const fs = require('fs');
 
 //LOGIN, retorna o token do cliente e o nível dele
@@ -86,7 +87,7 @@ routes.post('/register',async(req,res)=>{
 
 })
 
-//EXTRATO
+//SALDO
 routes.post('/menu/balance',async(req,res)=>{
 
     try{
@@ -107,6 +108,23 @@ routes.post('/menu/balance',async(req,res)=>{
             console.log('File updated')
         });       
       
+        res.status(200);
+
+    }catch(err){
+        res.status(500).json( {err : err} );
+    }
+
+
+});
+
+//SALDO
+routes.post('/menu/extract',async(req,res)=>{
+
+    try{
+        const client_token = req.body.client_token; //Recebe o ID do cliente
+        const month = req.body.month; //Recebe os meses que o cliente pediu o extrato
+        const extract_type = req.body.extract_type; //Escolhe o tipo de extrato        
+        extract(client_token, month, extract_type); //Função para verificar o extrato      
         res.status(200);
 
     }catch(err){
