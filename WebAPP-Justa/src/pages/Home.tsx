@@ -3,10 +3,10 @@ import './Home.css';
 import { lockClosedOutline, mailOutline } from 'ionicons/icons';
 import { useState } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
-  
+  const navigate = useNavigate();
   const [clients, setClients] = useState([]);
   const [login, setLog] = useState('');
   const [password, setPass] = useState('');
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
     fetchData()
     console.log(clients[0])
     if(clients[0] == 200){
-      window.location.href = "/signin"
+      navigate('/signin', {replace: true, state:{id: clients[1], loyalty: clients[2]}})
     }
   }
 
