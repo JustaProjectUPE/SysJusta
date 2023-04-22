@@ -52,7 +52,7 @@ const Signin = () =>{
           <IonSearchbar className="search-menu" showCancelButton="focus" placeholder="Pesquisar"></IonSearchbar>
             <IonList className="options-menu">
             <IonMenuToggle auto-hide="false">
-                <IonItem lines="full">
+                <IonItem lines="full" routerLink="/mybenefits">
                   <IonIcon icon={trophyOutline}></IonIcon>
                   <IonLabel>Meus Benefícios</IonLabel>
                 </IonItem>
