@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption } from '@ionic/react';
+import './Simulator.css'
 
 const Simulator: React.FC = () => {
   const [valorTotal, setValorTotal] = useState(0);
