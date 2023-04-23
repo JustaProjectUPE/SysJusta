@@ -26,12 +26,12 @@ const Registerpeople: React.FC = () => {
                 </IonCardHeader>
                 <IonCardContent>
                   <IonItem className="input-product">
-                    <IonLabel position="floating">Nome Completo</IonLabel>
+                    <IonLabel position="floating">Nome</IonLabel>
                     <IonInput color="medium" clearInput={true} type="text"></IonInput>
                   </IonItem>
                   <IonItem className="input-price">
-                    <IonLabel position="floating">Quantidade de vendas</IonLabel>
-                    <IonInput min="0" color="medium" clearInput={true} type="number"></IonInput>
+                    <IonLabel position="floating">CPF</IonLabel>
+                    <IonInput color="medium" clearInput={true}></IonInput>
                   </IonItem>
                   <IonButton size="default">Adicionar</IonButton>
                   <IonButton size="default">Atualizar</IonButton>

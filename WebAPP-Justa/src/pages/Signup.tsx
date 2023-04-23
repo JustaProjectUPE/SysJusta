@@ -1,56 +1,65 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg, IonList, IonCardContent, IonCard, IonCol, IonRow, IonGrid, IonCardHeader, IonCardTitle, IonButtons, IonBackButton, IonSelectOption, IonSelect} from '@ionic/react';
 import './Signup.css';
+import ReactInputMask from 'react-input-mask';
 
 const Signup: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-        <div className="titleicon">
-          <img src = "/logo2.png"></img>
-        </div>
-          <IonMenu></IonMenu>
+        <IonButtons slot="start">
+            <IonBackButton></IonBackButton>
+          </IonButtons>
+          <div className="titleicon">
+            <img src = "/logo2.png"></img>
+          </div>
         </IonToolbar>
       </IonHeader>
-
-      <IonContent className="background-signup">
-        <div className="signup-section ion-padding">
-          <div className="heading ion-padding">
-            <h1>Crie sua conta</h1>
-            <p>Insira os dados corretamente.</p>
-          </div>
-          <div className="login-form ion-padding">
-          <div className="form-input">
-              <IonItem>
-                <IonLabel className = "labelInput" position="floating">Nome Completo</IonLabel>
-                <IonInput className = "Input" color="medium" type="email"></IonInput>
-              </IonItem>
-            </div>
-            <div className="form-input">
-              <IonItem>
-                <IonLabel className = "labelInput" position="floating">CPF</IonLabel>
-                <IonInput className = "Input" color="medium" type="email"></IonInput>
-              </IonItem>
-            </div>
-            <div className="form-input">
-              <IonItem>
-                <IonLabel className = "labelInput" position="floating">E-mail</IonLabel>
-                <IonInput className = "Input" color="medium" type="email"></IonInput>
-              </IonItem>
-            </div>
-            <div className="form-input">
-              <IonItem>
-                <IonLabel className = "labelInput" position="floating">Senha</IonLabel>
-                <IonInput className = "Input" color="medium" type="password"></IonInput>
-              </IonItem>
-            </div>
-          </div>
-          <div className="action-button ion-padding">
-            <IonButton size="default" class="login-button" routerLink="/home">Criar</IonButton>
-          </div>
-        </div>
+      <IonContent className="signup-content">
+        <IonGrid className="signup-section">
+          <h1>Crie sua conta</h1>
+          <p>Insira corretamente as informações abaixo.</p>
+          <IonRow>
+            <IonCol size="12">
+              <IonCard>
+                <IonCardContent>
+                  <IonItem>
+                    <IonInput label="Nome" color="medium" clearInput={true} type="text"></IonInput>
+                  </IonItem>
+                  <IonItem>
+                    <IonInput label="Sobrenome" color="medium" clearInput={true} type="text"></IonInput>
+                  </IonItem>
+                  <IonItem>
+                    <IonLabel position="floating">Data de Nascimento</IonLabel>
+                    <ReactInputMask className="input-Date" mask="99/99/9999" />
+                  </IonItem>
+                  <IonItem>
+                    <IonSelect placeholder="Selecione uma opção">
+                      <IonSelectOption value="1">CPF</IonSelectOption>
+                      <IonSelectOption value="2">CNPJ</IonSelectOption>
+                    </IonSelect>
+                    <IonInput  color="medium" clearInput={true} ></IonInput>
+                  </IonItem>
+                  <IonItem>
+                  <IonLabel position="floating">Telefone</IonLabel>
+                  <ReactInputMask className="input-Telefone" mask="+99 (99) 99999-9999" />
+                  </IonItem>
+                  <IonItem>
+                    <IonInput label="E-mail" color="medium" clearInput={true} type="email"></IonInput>
+                  </IonItem>
+                  <IonItem>
+                    <IonInput label="Login" color="medium" clearInput={true}></IonInput>
+                  </IonItem>
+                  <IonItem>
+                    <IonInput label="Senha" color="medium" clearInput={true} type="password"></IonInput>
+                  </IonItem>
+                </IonCardContent>
+              </IonCard>
+            </IonCol>
+          </IonRow>
+          <IonButton size="default" className="signup-button">Criar</IonButton>
+        </IonGrid>
       </IonContent>
-
     </IonPage>
   );
 };
