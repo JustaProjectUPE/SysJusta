@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg, IonMenuButton, IonButtons, IonApp} from '@ionic/react';
 import './Home.css';
-import { lockClosedOutline, mailOutline } from 'ionicons/icons';
+import { lockClosedOutline, mailOutline, peopleOutline, personOutline } from 'ionicons/icons';
 import { useState } from 'react';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
@@ -47,9 +47,9 @@ const Home: React.FC = () => {
           <div className="login-form ion-padding">
             <section className="form-input">
               <IonItem>
-                <IonIcon className="iconsInput" icon={mailOutline}></IonIcon>
-                <IonLabel className = "labelInput" position="floating">E-mail</IonLabel>
-                <IonInput id="input-email" errorText="Invalid email" color="medium" shape="round" type="email" onIonInput={(e: any)=>setLog(e.target.value)}></IonInput>
+                <IonIcon className="iconsInput" icon={personOutline}></IonIcon>
+                <IonLabel className = "labelInput" position="floating">Login</IonLabel>
+                <IonInput id="input-email" color="medium" shape="round"  onIonInput={(e: any)=>setLog(e.target.value)}></IonInput>
               </IonItem>
             </section>
             <section className="form-input">

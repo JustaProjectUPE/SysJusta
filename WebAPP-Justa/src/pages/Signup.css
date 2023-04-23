@@ -8,46 +8,68 @@ ion-title {
     text-align: center;
   }
 
-.background-signup{
+.signup-content{
     --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
     background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
     background-size: cover;
 }
 
 .signup-section{
-    height: auto;
-    width: 100%;
     max-width: 600px;
-    background: #EDEDF4;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    position: relative; top: 45px;
     margin: auto;
-    border-top-right-radius: 46px;
-    border-top-left-radius: 46px;
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #EDEDF4;
+    align-items: center;
+    text-align: center;
 }
 
-.signup-section .heading h1{
+.signup-section h1{
     margin-top: 20px;
     font-size: 1.6 rem;
     font-weight: bolder;
     color: #0071B8;
-    text-align: center;
 }
 
-.signup-section .heading p{
+.signup-section p{
     margin-top: 20px;
     font-size: 1 rem;
     color: #606D80;
-    text-align: center;
 }
 
-.signup-section .login-form .form-input{
-    position: relative;
-    margin-bottom: 20px;
+.signup-button{
+    --background: #0071B8;
 }
 
-.signup-section .login-form .form-input .labelInput{
-    color: #404749;
+.input-Telefone{
+    font-size: 16px;
+    color: black;
+    border: 0;
+    margin-left: 70px;
+    padding-bottom: 10px;
+
+    background-color:  white;
+}
+
+.input-Date{
+    font-size: 16px;
+    color: black;
+    border: 0;
+    margin-left: 160px;
+    padding-bottom: 10px;
+
+    background-color:  white;
+}
+
+.input-Telefone:focus {
+    outline: none;
+    border: none;
+}
+
+.input-Date:focus {
+    outline: none;
+    border: none;
 }
