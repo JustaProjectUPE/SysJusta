@@ -3,6 +3,20 @@ import './Signup.css';
 import ReactInputMask from 'react-input-mask';
 
 const Signup: React.FC = () => {
+
+  async function handleSubmit() {
+    const dataToAdd = { name: name};
+    const response = await fetch("/add-data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(dataToAdd)
+    });
+    const result = await response.json();
+    console.log(result);
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -24,7 +38,7 @@ const Signup: React.FC = () => {
               <IonCard>
                 <IonCardContent>
                   <IonItem>
-                    <IonInput label="Nome" color="medium" clearInput={true} type="text"></IonInput>
+                    <IonInput label="Nome" value={name} onIonChange={(e) => setName(e.detail.value)} color="medium" clearInput={true} type="text"></IonInput>
                   </IonItem>
                   <IonItem>
                     <IonInput label="Sobrenome" color="medium" clearInput={true} type="text"></IonInput>
@@ -57,7 +71,7 @@ const Signup: React.FC = () => {
               </IonCard>
             </IonCol>
           </IonRow>
-          <IonButton size="default" className="signup-button">Criar</IonButton>
+          <IonButton size="default" className="signup-button" onClick={handleSubmit}>Criar</IonButton>
         </IonGrid>
       </IonContent>
     </IonPage>
