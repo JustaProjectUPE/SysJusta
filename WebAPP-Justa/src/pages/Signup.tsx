@@ -22,7 +22,7 @@ const Signup: React.FC = () => {
       <IonHeader>
         <IonToolbar>
         <IonButtons slot="start">
-            <IonBackButton></IonBackButton>
+            <IonBackButton defaultHref="/home"></IonBackButton>
           </IonButtons>
           <div className="titleicon">
             <img src = "/logo2.png"></img>

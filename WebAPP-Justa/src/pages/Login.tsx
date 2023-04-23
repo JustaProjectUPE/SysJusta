@@ -1,5 +1,5 @@
 import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon, IonSearchbar, IonMenuToggle, IonNavLink } from "@ionic/react";
-import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, receiptOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, pricetagsOutline, hourglassOutline, statsChartOutline, shuffleOutline, addCircleOutline} from "ionicons/icons";
+import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, hourglassOutline, statsChartOutline, shuffleOutline, addCircleOutline} from "ionicons/icons";
 import './Login.css'
 import { Balance } from "../components/Balance";
 import { useState } from "react";
