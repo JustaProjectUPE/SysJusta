@@ -3,7 +3,7 @@ const fs = require('fs');
 async function register(reg){
 
     fs.readFile('./db/db.json','utf-8',(err,data)=>{
-        if(err) throw err;
+        if(err) return 500;
 
         let obj = JSON.parse(data); 
         let ext = {};
@@ -27,7 +27,8 @@ async function register(reg){
         console.log(obj);
         
         fs.writeFile('./db/db.json',JSON.stringify(obj),(err)=>{
-            if(err) throw err;
+            if(err) return 500;
+            else return 200;
 
             console.log('File updated')
         });

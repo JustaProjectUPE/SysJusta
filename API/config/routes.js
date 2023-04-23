@@ -1,10 +1,15 @@
 const express = require('express');
 const routes = express.Router();
-const checkEntry = require('../func/login.js');
-const giveData = require('../func/give.js');
-const giveExtract = require('../func/giveExtract.js');
-const extract = require('../func/extract.js');
 const fs = require('fs');
+
+//Funções criadas para auxiliar
+const checkEntry = require('../func/dataGivers/login.js'); //checagem login
+const giveData = require('../func/dataGivers/give.js'); //Entrega dados do cliente
+const giveExtract = require('../func/dataGivers/giveExtract.js');//Entrega extrato do cliente
+const extract = require('../func/extract.js'); 
+const register = require('../func/dataRegisters/register.js'); //registra cliente
+const registerEmp = require('../func/dataRegisters/registerEmp.js'); //registra funcionário
+const productRegister = require('../func/dataRegisters/productRegister.js'); //registra produto
 
 //LOGIN, retorna o token do cliente e o nível dele
 routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:password, os dois pontos idicam que os parametros vão ser passados ao servidor, logo são variáveirs que poderão ser acessadas.
@@ -37,7 +42,7 @@ routes.get('/menu/:client_tolken', async(req,res)=>{
 });
 
 
-//Envio de dados de extrato e nível
+//Envio de dados de extrato 
 routes.get('/extract/:client_token',async(req,res)=>{
 
     try{
@@ -60,7 +65,6 @@ routes.get('/extract/:client_token',async(req,res)=>{
 //CADASTRO
 routes.post('/register',async(req,res)=>{
 
-    try{
         const name = req.body.name;
         const surname = req.body.surname;
         const birth = req.body.birth;
@@ -72,13 +76,13 @@ routes.post('/register',async(req,res)=>{
         const password = req.body.password;
         const biz = req.body.biz;
 
-        register([name,surname,birth,cpf,cnpj,phone,email,login,password,biz]);
-        res.status(200);
-        //if(response==200){
-         //   req.status(200);
-       // }else{
-       //     res.status(500).json( {err : err} );
-       // }
+    try{
+
+        let response = await register([name,surname,birth,cpf,cnpj,phone,email,login,password,biz]);
+       
+        if(response==200)  req.status(200);
+        else res.status(500).json( {err : err} );
+        
 
     }catch(err){
         res.status(500).json( {err : err} );
@@ -86,6 +90,51 @@ routes.post('/register',async(req,res)=>{
 
 
 })
+
+
+//CADASTRO DE FUNCIONÁRIOS
+routes.post('/empRegister',async(req,res)=>{
+
+    const name = req.body.name;
+    const client_token = req.body.client_token;
+
+    try{
+    await registerEmp(name,client_token);
+
+    }catch(err){
+        res.send(500).json({err:err});
+    }
+
+});
+
+//CADASTRO DE PRODUTOS
+
+routes.post('/productRegister',async(req,res)=>{
+
+    const code = req.body.code;
+    const product = req.body.product;
+    const value = req.body.product;
+    const stock = req.body.stock;
+    const client_token = req.body.stock;
+    let response;
+    try{
+
+        response = await productRegister([code,product,value,stock],client_token);
+        if(response == 200) res.send(200);
+        else res.send(500);
+
+    }catch(err){
+
+        res.send(500).json({err:err});
+
+    }
+
+
+})
+
+
+
+
 
 //SALDO
 routes.post('/menu/balance',async(req,res)=>{
@@ -133,5 +182,8 @@ routes.post('/menu/extract',async(req,res)=>{
 
 
 });
+
+
+
 
 module.exports = routes;
