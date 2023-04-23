@@ -10,6 +10,8 @@ const extract = require('../func/extract.js');
 const register = require('../func/dataRegisters/register.js'); //registra cliente
 const registerEmp = require('../func/dataRegisters/registerEmp.js'); //registra funcionário
 const productRegister = require('../func/dataRegisters/productRegister.js'); //registra produto
+const giveProduct = require('../func/dataGivers/giveProduct.js') //entrega produto
+const giveEmp = require('../func/dataGivers/giveEmp.js')//entrega funcionários
 
 //LOGIN, retorna o token do cliente e o nível dele
 routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:password, os dois pontos idicam que os parametros vão ser passados ao servidor, logo são variáveirs que poderão ser acessadas.
@@ -48,7 +50,7 @@ routes.get('/extract/:client_token',async(req,res)=>{
     try{
 
         const response = await giveExtract(req.params.client_token);
-        res.status(500).json(response);
+        res.status(200).json(response);
 
     }catch(err){
 
@@ -79,17 +81,15 @@ routes.post('/register',async(req,res)=>{
     try{
 
         let response = await register([name,surname,birth,cpf,cnpj,phone,email,login,password,biz]);
-       
-        if(response==200)  req.status(200);
-        else res.status(500).json( {err : err} );
+        res.status(response);
         
 
     }catch(err){
-        res.status(500).json( {err : err} );
+        res.status(500);
     }
 
 
-})
+});
 
 
 //CADASTRO DE FUNCIONÁRIOS
@@ -97,12 +97,15 @@ routes.post('/empRegister',async(req,res)=>{
 
     const name = req.body.name;
     const client_token = req.body.client_token;
+    let response;
 
     try{
-    await registerEmp(name,client_token);
+
+        response = await registerEmp(name,client_token);
+        res.status(response);
 
     }catch(err){
-        res.send(500).json({err:err});
+        res.status(500);
     }
 
 });
@@ -120,20 +123,49 @@ routes.post('/productRegister',async(req,res)=>{
     try{
 
         response = await productRegister([code,product,value,stock],client_token);
-        if(response == 200) res.send(200);
-        else res.send(500);
+        res.status(response);
+        
 
     }catch(err){
 
-        res.send(500).json({err:err});
+        res.status(500);
 
     }
 
 
-})
+});
+
+//ENVIO DADOS DE PRODUTOS
+routes.get('/products/:client_token',async(req,res)=>{
+
+    try{
+        const response = await giveProduct(req.params.client_token);
+        res.status(200).json(response);
+
+    }catch(err){
+
+        res.status(500).json({err:err});
+
+    }
 
 
+});
 
+//ENVIO DADOS DE FUNCIONÁRIOS
+routes.get('/emp/:client_token',async(req,res)=>{
+
+    try{
+        const response = await giveProduct(req.params.client_token);
+        res.status(200).json(response);
+
+    }catch(err){
+
+        res.status(500).json({err:err});
+
+    }
+
+
+});
 
 
 //SALDO
@@ -160,7 +192,7 @@ routes.post('/menu/balance',async(req,res)=>{
         res.status(200);
 
     }catch(err){
-        res.status(500).json( {err : err} );
+        res.status(500);
     }
 
 
@@ -177,7 +209,7 @@ routes.post('/menu/extract',async(req,res)=>{
         res.status(200);
 
     }catch(err){
-        res.status(500).json( {err : err} );
+        res.status(500);
     }
 
 
