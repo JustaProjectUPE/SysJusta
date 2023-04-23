@@ -1,7 +1,7 @@
-import { IonPage, IonHeader, IonText, IonToolbar, IonIcon,  IonSelect, IonContent, IonButton, IonDatetime, IonItem, IonTitle, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal, IonButtons, IonBackButton, IonSelectOption, IonCardSubtitle, IonCardTitle  } from '@ionic/react';
-import { arrowBackOutline } from 'ionicons/icons';
+import { IonPage, IonHeader, IonFooter, IonText, IonToolbar, IonIcon,  IonSelect, IonContent, IonButton, IonDatetime, IonItem, IonTitle, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal, IonButtons, IonBackButton, IonSelectOption, IonCardSubtitle, IonCardTitle  } from '@ionic/react';
+import { calendarOutline } from 'ionicons/icons';
 import './received.css'
-import {format} from 'date-fns';
+import { useRef } from 'react';
 
 let quantidade = 10, valorTotal=1;
 
@@ -12,6 +12,7 @@ var dadosBol:any = document.querySelector(".boleto");
 var btnT:any = document.querySelector("#button-trans");
 var dadosTrans:any = document.querySelector(".transferencia");
 
+/*funções para mostrar card dependendo a seleção do usuario*/
 function showCar () {
   btnC.addEventListener("click", function(){
     dadosCar.style.display = "block";
@@ -34,7 +35,6 @@ function showTransf () {
   });
 }
 
-
 const Received: React.FC = () => {
 return (
 <>
@@ -53,17 +53,27 @@ return (
   </IonHeader>
  
   <IonContent className="background-received">
-  <IonItem className='selecionar-informacao'>
-      <IonSelect className="title" interface="popover" placeholder="Recebimentos">
-        <IonSelectOption value="Recebimentos">Recebimentos</IonSelectOption>
-        <IonSelectOption value="Despesas">Despesas</IonSelectOption>
-      </IonSelect>
-     </IonItem>
-      
-      <IonItem className='data-item'>
-        <IonLabel color="light">xxxxxx</IonLabel>
-      </IonItem>
-      
+    <div className='Title'>
+      <h1>Recebimentos</h1>
+    </div>
+    <IonButton id="Data" expand="block" fill='clear'>
+      <IonIcon icon={calendarOutline}></IonIcon>
+    </IonButton>
+    <IonModal id="selectdate" trigger="Data">
+      <IonContent>
+        <IonToolbar>
+          <p>Data inicial:</p>
+          <p>Data final:</p>
+        </IonToolbar>
+        <IonDatetime
+          presentation="date"
+          doneText="OK"
+          cancelText="Cancelar"
+          multiple={true}
+          showDefaultButtons={true}
+        ></IonDatetime>;
+      </IonContent>
+  </IonModal>
       
       <IonSegment scrollable={true} className='opcao'>
         <IonSegmentButton  id="button-cartao" value="Cartão" onClick={() => showCar()}>
@@ -106,16 +116,7 @@ return (
         </div>
       </IonCardHeader>
       <IonCardContent>
-        <div className='exemplo'>
-          <p>30/04/2023</p>
-          <p>xxxxxxx</p>
-          <p>1800</p>
-        </div>
-        <div className='exemplo2'>
-          <p>30/04/2023</p>
-          <p>xxxxxxx</p>
-          <p>1800</p>
-        </div>
+
       </IonCardContent>
     </IonCard>
     </div>
@@ -131,7 +132,6 @@ return (
         </div>
       </IonCardHeader>
       <IonCardContent>
-        Here's a small text description for the card content. Nothing more, nothing less.
       </IonCardContent>
     </IonCard>
     </div>
@@ -147,7 +147,6 @@ return (
         </div>
       </IonCardHeader>
       <IonCardContent>
-        Here's a small text description for the card content. Nothing more, nothing less.
       </IonCardContent>
     </IonCard>
     </div>

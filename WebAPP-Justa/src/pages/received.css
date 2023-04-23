@@ -1,83 +1,83 @@
 ion-toolbar {
     --background: #EDEDF4; 
-}
-.title-icon{
+  }
+  .title-icon{
     text-align: center;
-}
-.header {
+  }
+  .header {
     align-items: center;
-}
+  }
   
-.background-received{
+  .background-received{
     --background: #EDEDF4;
-}
+  }
   
-.selecionar-informacao{
+  .selecionar-informacao{
     --background: #EDEDF4;
     margin: 10px;
     border-bottom: #EDEDF4;
     width: 20%;
-}
-.title{
+  }
+  .Title{
     text-align: left;
     color: #0071B8;
     margin: 10px;
-    width: auto;
-}
+  }
   
-.data-item{
+  .data-item{
     --background: #ffffff;
     margin: 10px; 
     width:20%;
-}
+  }
   
-.opcao > ion-segment-button{
-    --background-checked: #dad8d8;
-  
-}
-.opcao{
+  /*segment*/
+  .opcao > ion-segment-button{
+    --background-checked: #dad8d8; 
+  }
+  .opcao{
     margin: 10px;
-}
-.LabelOpc{
+  }
+  .LabelOpc{
     color: #0071B8;
-}
+  }
   
-.info-geral {
+  /*card informação geral*/
+  .info-geral {
     --background:#ffffff;
     margin: 10px;
     height: auto;
- }
-  
-.Total{
+  }  
+  .Total{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content:space-evenly;
   
-}
-.quantT{
+  }
+  .quantT{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content:space-evenly;
     gap: 15px;
   }
-.ValorT{
+  .ValorT{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content:space-evenly;
     gap:15px;
-}
+  }
   
-.cartao{
+  /*card cartao*/
+  .cartao{
     display: block;
-}
-.dados-cartao{
+  }
+  .dados-cartao{
     --background:#ffffff;
     margin: 10px;
-}
-.info-cartao{
+  }
+  .info-cartao{
     height: 40px;
     background: #EDEDF4;
     display: flex;
@@ -85,54 +85,54 @@ ion-toolbar {
     align-items: center;
     justify-content:space-around;
     margin-top: 15px;
-}
+  }
   
-.exemplo{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:space-around;
-    border-bottom: solid;
-    border-bottom-color: #EDEDF4;
-    height: 40px;
-}
-.exemplo2{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:space-around;
-    border-bottom: solid;
-    border-bottom-color: #EDEDF4;
-    height: 40px;
-}
-
-.boleto{
+  /*card boleto*/ 
+  .boleto{
     display: none;
-}
-.dados-boleto{
+  }
+  .dados-boleto{
     --background:#ffffff;
     margin: 10px;
-}
-.info-boleto{
+  }
+  .info-boleto{
+    height: 40px;
+    background: #EDEDF4;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content:space-around;
-}
+    margin-top: 15px;
+  }
   
-.transferencia{
+  /*card transferencia*/
+  .transferencia{
     display: none;
-}
-.dados-transferencia{
+  }
+  .dados-transferencia{
     --background:#ffffff;
     margin: 10px;
-}
-.info-transferencia{
+  }
+  .info-transferencia{
+    height: 40px;
+    background: #EDEDF4;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content:space-around;
-}
+    margin-top: 15px;
+  }
+  
+  ion-button#Data{
+    margin: 10px;
+    width: 30%;
+    text-align: right;
+    background:#ffffff;
+  }
+  ion-modal#selectdate{
+    --width:25%;
+  }
+  
   
   
   
