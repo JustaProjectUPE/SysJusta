@@ -38,7 +38,7 @@ function showTransf () {
 const Received: React.FC = () => {
 return (
 <>
-<IonPage>
+<IonPage onLoad={()=>{fetchdata(location.state.id)}}>
   <IonHeader>
     <div className='header'>
       <IonToolbar>

@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 const Signin = () =>{
   const [clientData, setClientData] = useState([""]);
   const location = useLocation();
+  console.log(location)
 
   async function fetchData(client_tolken: number) {
     try{
