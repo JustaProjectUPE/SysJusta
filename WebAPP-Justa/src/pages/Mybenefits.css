@@ -1,0 +1,47 @@
+#subtitle-benefits{
+    font-size: 20px;
+    color: #0E4EAD;
+    font-weight: bold;
+}
+
+.benefits-content{
+    --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
+    background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
+    background-size: cover;
+}
+.benefits-section{
+    max-width: 600px;
+    margin: auto;
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #EDEDF4;
+    text-align: center;
+}
+.benefits-section h1{
+    margin-top: 20px;
+    font-size: 1.6 rem;
+    font-weight: bolder;
+    color: #0071B8;
+    text-align: center;
+}
+
+.benefits-section ion-card-title{
+    font-size: 1.2 rem;
+    font-weight: bolder;
+    color: #0071B8;
+    text-align: center;
+}
+
+.benefits-content ion-progress-bar{
+    padding-bottom: 10px;
+}
+.benefits-section ion-progress-bar{
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.benefits-section .swiper{
+    padding-top: 15px;
+}

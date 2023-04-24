@@ -35,6 +35,12 @@ const Signin = () =>{
     } else if(level == 3) {
       return 'SUPER-HERÓI'
     }
+    else if(level == 4){
+      return 'HERÓI ÉPICO'
+    }
+    else if(level == 5){
+      return 'HERÓI LENDÁRIO'
+    }
   }
  
     return(
@@ -65,7 +71,6 @@ const Signin = () =>{
               </IonToolbar>
             </IonHeader>
           </section>
-
           <IonContent className="body-menu">
           <IonSearchbar className="search-menu" showCancelButton="focus" placeholder="Pesquisar"></IonSearchbar>
             <IonList className="options-menu">
