@@ -1,8 +1,12 @@
 import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonNavLink, IonPage, IonRow, IonSelect, IonSelectOption, IonToolbar } from '@ionic/react';
 import './Register.css'
 import {peopleOutline, pricetagOutline, pricetagsOutline } from 'ionicons/icons';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Register: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  
     return (
       <IonPage>
         <IonHeader>
@@ -33,7 +37,7 @@ const Register: React.FC = () => {
                       <IonLabel>Produtos</IonLabel>
                   </IonCol>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
-                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/registerpeople'>
+                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/registerpeople' onClick={()=>navigate('/registerpeople', {replace: true, state:{id:location.state.id}})}>
                     <IonIcon icon={peopleOutline}></IonIcon>
                   </IonButton>
                   <IonLabel>Funcionários</IonLabel>

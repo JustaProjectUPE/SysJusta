@@ -29,20 +29,22 @@ const Registerpeople: React.FC = () => {
   async function fetchData(client_tolken: number) {
     try{
       let res:any = await axios.get(`http://localhost:3000/emp/${client_tolken}`);
-      const flatEmpData = res.flat();
-
-      const newList = flatEmpData.map(emp => ({
+      const flatEmpData = res.data.flat();
+      flatEmpData.shift()
+      const newList = flatEmpData.map((emp:empType) => ({
         name: emp.name,
         sales: emp.sales
       }));
-
-      setEmpData(newList.data);
+      setEmpData(newList);
+      
+      
+      
 
     } catch (error) {
       console.log(error)
     }
   }
-
+  console.log(empData)
   return (
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>
@@ -89,8 +91,8 @@ const Registerpeople: React.FC = () => {
                 </IonCardHeader>
                 <IonCardContent>
                   <IonList>
-                    {empData.map(emp => (
-                      <IonItem key={emp.name}>
+                    {empData.map((emp, index) => (
+                      <IonItem key={index}>
                         <IonLabel>Nome: {emp.name}</IonLabel>
                         <IonLabel>Vendas: {emp.sales.jan}</IonLabel>
                       </IonItem>
