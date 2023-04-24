@@ -32,38 +32,38 @@
         }],
     "extract" : [
         {
-            "jan" : [{"boleto": [1000,-2000,3000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "feb" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "mar" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "apr" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "may" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "jun" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "jul" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "aug" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "sep" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "oct" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "nov" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}],
-            "dec" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"pix": [1000,-500,2000]}]  
+            "jan" : [{"boleto": [1000,-2000,3000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "feb" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "mar" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "apr" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "may" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "jun" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "jul" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "aug" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "sep" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "oct" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "nov" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": []}, {"antecedências": [1000,-500,2000]}],
+            "dec" : [{"boleto": [1000,-500,2000]}, {"cartão": [1000,-500,2000]}, {"transferência": [1000,-500,2000]}, {"antecedências": []}] 
         },
         {
-            "jan" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "feb" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "mar" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "apr" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "may" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "jun" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "jul" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "aug" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "sep" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "oct" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "nov" : [{"boleto": []}, {"cartão": []}, {"pix": []}],
-            "dec" : [{"boleto": []}, {"cartão": []}, {"pix": []}]  
+            "jan" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "feb" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "mar" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "apr" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "may" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "jun" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "jul" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "aug" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "sep" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "oct" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "nov" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}],
+            "dec" : [{"boleto": []}, {"cartão": []}, {"transferência": []}, {"antecedências": []}]  
         }
         
     ],
 
-    "emp":[[{"name":"Marcelo Arruda","sales":{}},
-            {"name":"Roberto Carlos","sales":{"jan":"5000"}}],
+    "emp": [[{"name":"Marcelo Arruda","sales":{}},
+              {"name":"Roberto Carlos","sales":{"jan":"5000"}}],
 
             [{"name":"Robesvânia Costa","sales":{}},
             {"name":"Jukasline almeida","sales":{}}]

@@ -1,16 +1,22 @@
 import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon, IonSearchbar, IonMenuToggle, IonNavLink } from "@ionic/react";
-import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, receiptOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, pricetagsOutline, hourglassOutline, statsChartOutline, shuffleOutline, addCircleOutline} from "ionicons/icons";
+import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, hourglassOutline, statsChartOutline, shuffleOutline, addCircleOutline} from "ionicons/icons";
 import './Login.css'
 import { Balance } from "../components/Balance";
 import { useState } from "react";
 import axios from "axios";
 import Register from "./Register";
 import Received from "./received";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
+interface ClientData {
+  name: string;
+  surname: string;
+}
 
 const Signin = () =>{
-  const [clientData, setClientData] = useState([""]);
+  const [clientData, setClientData] = useState<ClientData>({ name: "", surname: ""});
   const location = useLocation();
+  const navigate = useNavigate();
 
   async function fetchData(client_tolken: number) {
     try{
@@ -70,24 +76,32 @@ const Signin = () =>{
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle auto-hide="false">
-              <IonNavLink routerDirection="forward" component={() => <Received />}>
-                <IonItem lines="full" routerLink="/received">
-                  <IonIcon icon={calendarOutline}></IonIcon>
-                  <IonLabel>Agenda de Recebíveis</IonLabel>
-                </IonItem>
-                </IonNavLink>
-              </IonMenuToggle>
+                    <IonNavLink routerDirection="forward" component={() => <Received />}>
+                        <IonItem lines="full">
+                            <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/received', {replace: true, state:{id:location.state.id}})}>
+                                <span>
+                                <IonIcon icon={calendarOutline}></IonIcon>
+                                <IonLabel>Agenda de Recebíveis</IonLabel>
+                                </span>
+                            </IonButton>
+                        </IonItem>
+                    </IonNavLink>
+                </IonMenuToggle>
               <IonMenuToggle>
                 <IonItem lines="full">
-                <IonIcon icon={barcodeOutline}></IonIcon>
+                  <IonIcon icon={barcodeOutline}></IonIcon>
                   <IonLabel>Pagar Boleto</IonLabel>
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
               <IonNavLink routerDirection="forward" component={() => <Register />}>
-                <IonItem lines="full" routerLink="/register">
-                <IonIcon icon={addCircleOutline}></IonIcon>
-                  <IonLabel>Cadastros</IonLabel>
+                <IonItem lines="full">
+                  <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/register', {replace: true, state:{id:location.state.id}})}>
+                    <span>
+                      <IonIcon icon={addCircleOutline}></IonIcon>
+                      <IonLabel>Cadastros</IonLabel>
+                    </span>
+                  </IonButton>
                 </IonItem>
                 </IonNavLink>
               </IonMenuToggle>

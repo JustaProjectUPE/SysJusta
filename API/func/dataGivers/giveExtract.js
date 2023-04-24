@@ -1,12 +1,11 @@
 const fs = require('fs');
 
-async function giveExtract(client_token){
+function giveExtract(client_token){
 
-    const data = fs.readFile('./db/db.json','utf-8');
-    let parsed_db = JSON.parse(parsed_db);
-    const client_extract = parsed_db.extract[client_token]; 
+    const data = fs.readFileSync('db/db.json','utf-8');
+    const client_extract = JSON.parse(data).extract;
     
-    return [200, client_extract];
+    return [200, client_extract[client_token]];
 
 }
 

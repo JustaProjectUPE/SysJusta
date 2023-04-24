@@ -11,6 +11,32 @@
     height: 203px;
 }
 
+.menu-button {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-transform: none;
+    vertical-align: middle;
+}
+
+.menu-button ion-icon{
+    font-size: 24px;
+}
+
+.menu-button span{
+    display: flex;
+    color: black;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    font-size: 1.3em;
+    align-items: center;
+    vertical-align: middle;
+    
+}
+
 .options-menu{
     padding-top: 0px;
     padding-bottom: 0px;

@@ -155,7 +155,7 @@ routes.get('/products/:client_token',async(req,res)=>{
 routes.get('/emp/:client_token',async(req,res)=>{
 
     try{
-        const response = await giveProduct(req.params.client_token);
+        const response = await giveEmp(req.params.client_token);
         res.status(200).json(response);
 
     }catch(err){
@@ -171,12 +171,12 @@ routes.get('/emp/:client_token',async(req,res)=>{
 //SALDO
 routes.post('/menu/balance',async(req,res)=>{
 
-    try{
-        const client_token = req.body.client_token; //Recebe o ID do cliente
-        const value = req.body.value; //Recebe o valor que será atribuído ou retirado do saldo  
-        const data = fs.readFileSync('db/db.json','utf-8');
-        const obj = JSON.parse(data);
+    const client_token = req.body.client_token; //Recebe o ID do cliente
+    const value = req.body.value; //Recebe o valor que será atribuído ou retirado do saldo  
+    const data = fs.readFileSync('db/db.json','utf-8');
+    const obj = JSON.parse(data);
 
+    try{
         //Alterar valores do saldo do cliente
         let balance = obj.clients[client_token].finance;
         const new_balance = parseFloat(balance) + parseFloat(value);
@@ -198,15 +198,17 @@ routes.post('/menu/balance',async(req,res)=>{
 
 });
 
-//SALDO
+//EXTRATO
 routes.post('/menu/extract',async(req,res)=>{
 
+    const client_token = req.body.client_token; //Recebe o ID do cliente
+    const month = req.body.month; //Recebe os meses que o cliente pediu o extrato
+    const extract_type = req.body.extract_type; //Escolhe o tipo de extrato
+    let response;        
+    
     try{
-        const client_token = req.body.client_token; //Recebe o ID do cliente
-        const month = req.body.month; //Recebe os meses que o cliente pediu o extrato
-        const extract_type = req.body.extract_type; //Escolhe o tipo de extrato        
-        extract(client_token, month, extract_type); //Função para verificar o extrato      
-        res.status(200);
+        response = await extract(client_token, month, extract_type); //Função para verificar o extrato      
+        res.status(response);
 
     }catch(err){
         res.status(500);
@@ -214,8 +216,6 @@ routes.post('/menu/extract',async(req,res)=>{
 
 
 });
-
-
 
 
 module.exports = routes;

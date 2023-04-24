@@ -17,7 +17,11 @@ async function extract(client_token, month, extract_type){
             break;
 
         case 2: 
-            extract_type_string = "pix";    
+            extract_type_string = "transferência";    
+            break;
+
+        case 3: 
+            extract_type_string = "antecedência";    
             break;
     }
 
