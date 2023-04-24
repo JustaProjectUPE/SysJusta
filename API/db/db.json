@@ -70,7 +70,10 @@
         
         ],
     
-    "products":[[],[]]
+    "products":[[{"code":"000323","product":"maçãs de ouro","value":"25","stock":"58"},
+                {"code":"00043","product":"dente de elfo","value":"50","stock":59}],
+    
+                [{"code":"344323","product":"jujuba","value":"0.5","stock":"159"}]]
 
 }
 
