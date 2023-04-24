@@ -155,7 +155,7 @@ routes.get('/products/:client_token',async(req,res)=>{
 routes.get('/emp/:client_token',async(req,res)=>{
 
     try{
-        const response = await giveProduct(req.params.client_token);
+        const response = await giveEmp(req.params.client_token);
         res.status(200).json(response);
 
     }catch(err){

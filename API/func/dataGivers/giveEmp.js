@@ -1,14 +1,11 @@
 const fs = require('fs');
 
-async function giveEmp(client_token){
+function giveEmp(client_token){
 
-    fs.readFile('./db/db.json','utf-8',(err,data)=>{
-        if(err) return 500;
+    const data = fs.readFileSync('db/db.json','utf-8');
+    const client_emp = JSON.parse(data).emp;
 
-        const DB = JSON.parse(data);
-        return DB.emp[client_token];
-
-    })
+    return [200, client_emp];
 
 }
 
