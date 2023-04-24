@@ -1,4 +1,4 @@
-import { IonPage, IonHeader, IonFooter, IonText, IonToolbar, IonIcon,  IonSelect, IonContent, IonButton, IonDatetime, IonItem, IonTitle, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal, IonButtons, IonBackButton, IonSelectOption, IonCardSubtitle, IonCardTitle  } from '@ionic/react';
+import { IonPage, IonHeader, IonFooter, IonText, IonToolbar, IonIcon, IonRow, IonCol, IonSelect, IonContent, IonButton, IonDatetime, IonGrid, IonItem, IonTitle, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal, IonButtons, IonBackButton, IonSelectOption, IonCardSubtitle, IonCardTitle  } from '@ionic/react';
 import { calendarOutline } from 'ionicons/icons';
 import './received.css'
 import { useRef } from 'react';
@@ -34,125 +34,114 @@ function showTransf () {
     dadosBol.style.display="none";
   });
 }
-
 const Received: React.FC = () => {
 return (
 <>
 <IonPage onLoad={()=>{fetchdata(location.state.id)}}>
   <IonHeader>
-    <div className='header'>
-      <IonToolbar>
-        <IonButtons slot="start">
-            <IonBackButton></IonBackButton>
-        </IonButtons>
-        <div className="title-icon">
-        <img src = "/logo2.png"></img>
-        </div>
-      </IonToolbar>
+    <IonToolbar>
+      <IonButtons slot="start">
+          <IonBackButton></IonBackButton>
+      </IonButtons>
+      <div className="title-icon">
+      <img src = "/logo2.png"></img>
       </div>
+    </IonToolbar>
   </IonHeader>
  
   <IonContent className="background-received">
-    <div className='Title'>
+    <IonGrid className='gridReceived'>
       <h1>Recebimentos</h1>
-    </div>
-    <IonButton id="Data" expand="block" fill='clear'>
-      <IonIcon icon={calendarOutline}></IonIcon>
-    </IonButton>
-    <IonModal id="selectdate" trigger="Data">
-      <IonContent>
-        <IonToolbar>
-          <p>Data inicial:</p>
-          <p>Data final:</p>
-        </IonToolbar>
-        <IonDatetime
-          presentation="date"
-          doneText="OK"
-          cancelText="Cancelar"
-          multiple={true}
-          showDefaultButtons={true}
-        ></IonDatetime>;
-      </IonContent>
-  </IonModal>
+      <IonButton size='default' id="Data" expand="block" fill='clear'>
+        Selecione a data
+        <IonIcon icon={calendarOutline}></IonIcon>
+      </IonButton>
+      <IonModal id="selectdate" trigger="Data">
+        <IonContent>
+          <IonToolbar>
+            <p>Data inicial:</p>
+            <p>Data final:</p>
+          </IonToolbar>
+          <IonDatetime
+            presentation="date"
+            doneText="OK"
+            cancelText="Cancelar"
+            multiple={true}
+            showDefaultButtons={true}
+          ></IonDatetime>;
+        </IonContent>
+      </IonModal>
       
-      <IonSegment scrollable={true} className='opcao'>
-        <IonSegmentButton  id="button-cartao" value="Cartão" onClick={() => showCar()}>
-          <IonLabel className='LabelOpc'>Cartão</IonLabel>
-        </IonSegmentButton>
-        <IonSegmentButton id="button-bol" value="Boleto" onClick={() => showBol()}>
-          <IonLabel className='LabelOpc'>Boleto</IonLabel>
-        </IonSegmentButton>
-        <IonSegmentButton id="button-trans" value="Transferencia" onClick={() => showTransf()}>
-          <IonLabel className='LabelOpc'>Transferencia</IonLabel>
-        </IonSegmentButton>
-        <IonSegmentButton value="Antecipação">
-          <IonLabel className='LabelOpc'>Antecipação</IonLabel>
-        </IonSegmentButton>
-      </IonSegment>
+    <IonSegment scrollable={true} >
+      <IonSegmentButton  id="button-cartao" value="Cartão" onClick={() => showCar()}>
+        <IonLabel >Cartão</IonLabel>
+      </IonSegmentButton>
+      <IonSegmentButton id="button-bol" value="Boleto" onClick={() => showBol()}>
+        <IonLabel>Boleto</IonLabel>
+      </IonSegmentButton>
+      <IonSegmentButton id="button-trans" value="Transferencia" onClick={() => showTransf()}>
+        <IonLabel>Transferencia</IonLabel>
+      </IonSegmentButton>
+    </IonSegment>
     
-      <IonCard className='info-geral'>
-      <IonCardContent>
-        <div className='Total'>
-          <div className='quantT'>
-            <h3>Quantidade de transações</h3>
-            <IonTitle color="light">{quantidade}</IonTitle>
-          </div>
-          <div className='ValorT'>
-            <h3>Valor total recebido</h3>
-            <IonTitle color="light" >R${valorTotal.toFixed(2)}</IonTitle>
-          </div>
-        </div>
-      </IonCardContent>
-    </IonCard>
-  
-    <div className='cartao'>
-    <IonCard className='dados-cartao'>
-      <IonCardHeader>
-        <IonCardTitle color="light" >Extrato</IonCardTitle>
-        <div className='info-cartao'>
-        <IonCardSubtitle  color="light" >DATA </IonCardSubtitle>
-        <IonCardSubtitle color="light" >DESCRIÇÃO </IonCardSubtitle>
-        <IonCardSubtitle color="light" >VALOR LÍQUIDO </IonCardSubtitle>
-        </div>
-      </IonCardHeader>
-      <IonCardContent>
+    <IonRow>
+      <IonCol size="12">
+        <IonCard>
+          <IonCardContent>
+            <div className='informacaoGeral'>
+              <div className='quantidadeTotal'>
+                <p>Quantidade de transações</p>
+                <IonTitle color='dark'>{quantidade}</IonTitle>
+              </div>
+              <div className='valorTotal'>
+                <p>Valor total recebido</p>
+              <IonTitle color='dark'>R${valorTotal.toFixed(2)}</IonTitle>
+              </div>
+            </div>
+          </IonCardContent>
+        </IonCard>
+      </IonCol>
+    </IonRow>
 
-      </IonCardContent>
-    </IonCard>
-    </div>
+    <IonRow>
+      <IonCol size="12">
+        
+          <IonCard>
+            <IonCardHeader>
+              <IonCardTitle color="medium" >Extrato</IonCardTitle>
+                <div className='informacao'>
+                  <IonCardSubtitle color="dark" >DESCRIÇÃO </IonCardSubtitle>
+                  <IonCardSubtitle color="dark" >VALOR LÍQUIDO </IonCardSubtitle>
+                </div>
+            </IonCardHeader>
+            <div className='cartao'>
+              <IonCardContent>
+              <IonText>cartao</IonText>
+              </IonCardContent>
+            </div>
 
-    <div className='boleto'>
-    <IonCard className='dados-boleto'>
-      <IonCardHeader>
-      <IonCardTitle color="light" >Extrato</IonCardTitle>
-        <div className='info-boleto'>
-        <IonCardSubtitle  color="light" >DATA </IonCardSubtitle>
-        <IonCardSubtitle color="light" >DESCRIÇÃO </IonCardSubtitle>
-        <IonCardSubtitle color="light" >VALOR </IonCardSubtitle>
-        </div>
-      </IonCardHeader>
-      <IonCardContent>
-      </IonCardContent>
-    </IonCard>
-    </div>
+            <div className='boleto'>
+              <IonCardContent>
+              <IonText>boleto</IonText>
+              </IonCardContent>
+            </div>
 
-    <div className='transferencia'>
-    <IonCard className='dados-transferencia'>
-      <IonCardHeader>
-      <IonCardTitle color="light" >Extrato</IonCardTitle>
-        <div className='info-transferencia'>
-        <IonCardSubtitle  color="light" >DATA </IonCardSubtitle>
-        <IonCardSubtitle color="light" >DESCRIÇÃO </IonCardSubtitle>
-        <IonCardSubtitle color="light" >VALOR </IonCardSubtitle>
-        </div>
-      </IonCardHeader>
-      <IonCardContent>
-      </IonCardContent>
-    </IonCard>
-    </div>
+            <div className='transferencia'>
+              <IonCardContent>
+                <IonText>transferencia</IonText>
+              </IonCardContent>
+            </div>
+
+
+
+        </IonCard>
+        </IonCol>
+    </IonRow>
+
+    
   
    
-  
+    </IonGrid>
   </IonContent>
 </IonPage>
 </>
