@@ -8,8 +8,13 @@ import Register from "./Register";
 import Received from "./received";
 import { useLocation, useNavigate } from "react-router-dom";
 
+interface ClientData {
+  name: string;
+  surname: string;
+}
+
 const Signin = () =>{
-  const [clientData, setClientData] = useState([""]);
+  const [clientData, setClientData] = useState<ClientData>({ name: "", surname: ""});
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -71,13 +76,17 @@ const Signin = () =>{
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle auto-hide="false">
-              <IonNavLink routerDirection="forward" component={() => <Received />}>
-                <IonItem lines="full" routerLink="/received">
-                  <IonIcon icon={calendarOutline}></IonIcon>
-                  <IonLabel>Agenda de Recebíveis</IonLabel>
-                </IonItem>
-                </IonNavLink>
-              </IonMenuToggle>
+                    <IonNavLink routerDirection="forward" component={() => <Received />}>
+                        <IonItem lines="full">
+                            <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/received', {replace: true, state:{id:location.state.id}})}>
+                                <span>
+                                <IonIcon icon={calendarOutline}></IonIcon>
+                                <IonLabel>Agenda de Recebíveis</IonLabel>
+                                </span>
+                            </IonButton>
+                        </IonItem>
+                    </IonNavLink>
+                </IonMenuToggle>
               <IonMenuToggle>
                 <IonItem lines="full">
                   <IonIcon icon={barcodeOutline}></IonIcon>

@@ -2,7 +2,7 @@ import { IonContent, IonHeader, IonPage, IonToolbar, IonLabel, IonItem, IonInput
 import './Registerproduct.css';
 import { useState } from 'react';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { To, useLocation, useNavigate } from 'react-router-dom';
 
 interface empType {
   name: string,
@@ -25,6 +25,7 @@ interface empType {
 const Registerpeople: React.FC = () => {
   const [empData, setEmpData] = useState<empType[]>([]);
   const location = useLocation();
+  const navigate = useNavigate();
 
   async function fetchData(client_tolken: number) {
     try{
@@ -36,21 +37,22 @@ const Registerpeople: React.FC = () => {
         sales: emp.sales
       }));
       setEmpData(newList);
-      
-      
-      
 
     } catch (error) {
       console.log(error)
     }
   }
-  console.log(empData)
+
+  function handleGoBack() {
+    navigate('/register', { state: location.state });
+  }
+
   return (
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start">
-            <IonBackButton></IonBackButton>
+        <IonButtons slot="start" onClick={handleGoBack}>
+            <IonBackButton defaultHref="/register"></IonBackButton>
           </IonButtons>
           <div className="titleicon">
             <img src = "/logo2.png"></img>

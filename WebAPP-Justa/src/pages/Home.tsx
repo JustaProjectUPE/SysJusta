@@ -23,7 +23,6 @@ const Home: React.FC = () => {
 
   function check(){
     fetchData()
-    //console.log(clients[0])
     if(clients[0] == 200){
       navigate('/signin', {replace: true, state:{id: clients[1], loyalty: clients[2]}});
     }

@@ -1,19 +1,23 @@
 import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonNavLink, IonPage, IonRow, IonSelect, IonSelectOption, IonToolbar } from '@ionic/react';
 import './Register.css'
-import {peopleOutline, pricetagOutline, pricetagsOutline } from 'ionicons/icons';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {peopleOutline, pricetagsOutline } from 'ionicons/icons';
+import { To, useLocation, useNavigate } from 'react-router-dom';
 
 const Register: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  function handleGoBack() {
+    navigate('/signin', { replace: true, state: location.state });
+  }
   
     return (
       <IonPage>
         <IonHeader>
             <section className="register-header">
           <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton></IonBackButton>
+          <IonButtons slot="start" onClick={handleGoBack}>
+            <IonBackButton defaultHref="/signin"></IonBackButton>
           </IonButtons>
           <div className="register-title">
             <img src = "/logo2.png"></img>

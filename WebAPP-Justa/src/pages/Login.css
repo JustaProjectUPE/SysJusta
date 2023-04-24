@@ -16,6 +16,12 @@
     height: 100%;
     margin: 0;
     padding: 0;
+    text-transform: none;
+    vertical-align: middle;
+}
+
+.menu-button ion-icon{
+    font-size: 24px;
 }
 
 .menu-button span{
@@ -26,6 +32,9 @@
     width: 100%;
     text-align: left;
     font-size: 1.3em;
+    align-items: center;
+    vertical-align: middle;
+    
 }
 
 .options-menu{
