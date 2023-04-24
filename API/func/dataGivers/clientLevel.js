@@ -2,11 +2,26 @@ function clientLevel(client,i){
     
     let client_sum = 0;
 
-    Object.values(client.extract[i]).forEach((val)=>{
+    // Object.values(client.extract[i]).forEach((month)=>{
 
-        client_sum += parseInt(val);
+    //     month
 
-    });
+    // });
+
+
+    for(let val in client.extract[i]){
+
+        client.extract[i][val].forEach((paym) => {
+            Object.values(paym).forEach((money)=>{
+                money.forEach((value)=>{
+                    if(value>0){
+                        client_sum+=value;
+                    }
+
+                });
+            });
+        });
+    }
 
 
     if(client_sum<5000) return 0;
