@@ -111,7 +111,7 @@ const Mybenefits: React.FC = () => {
                     <IonCheckbox labelPlacement="start">Pague a fatura do cartão integralmente. <p>1700xp</p></IonCheckbox>
                     </IonItem>
                     <IonItem>
-                    <IonCheckbox labelPlacement="start">Faça duas transferência para outra conta bancária. <p>700xp</p></IonCheckbox>
+                    <IonCheckbox labelPlacement="start">Faça duas transferências para outra conta bancária. <p>700xp</p></IonCheckbox>
                     </IonItem>
                     <IonItem>
                     <IonCheckbox labelPlacement="start">Mantenha os gastos dentro do limite mensal estabelecido. <p>1500xp</p></IonCheckbox>
