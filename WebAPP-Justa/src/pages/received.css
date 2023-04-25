@@ -32,11 +32,25 @@
   max-width: 400px;
   background:#ffffff;
 }
+.gridReceived ion-button#DataEnd{
+  margin-top: 20px;
+  text-align: left;
+  width: 100%;
+  max-width: 400px;
+  background:#ffffff;
+}
 ion-modal#selectdate{
   --width:100%;
   --max-width: 350px;
   --height: 100%;
-  --max-height: 500px;
+  --max-height: 550px;
+
+}
+ion-modal#selectdateEnd{
+  --width:100%;
+  --max-width: 350px;
+  --height: 100%;
+  --max-height: 550px;
 
 }
 /*segment*/

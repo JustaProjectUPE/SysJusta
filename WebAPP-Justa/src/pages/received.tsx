@@ -1,7 +1,8 @@
 import { IonPage, IonHeader, IonFooter, IonText, IonToolbar, IonIcon, IonRow, IonCol, IonSelect, IonContent, IonButton, IonDatetime, IonGrid, IonItem, IonTitle, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal, IonButtons, IonBackButton, IonSelectOption, IonCardSubtitle, IonCardTitle  } from '@ionic/react';
 import { calendarOutline } from 'ionicons/icons';
 import './received.css'
-import { useRef } from 'react';
+import { useState} from 'react';
+import { format, parseISO} from 'date-fns';
 
 let quantidade = 10, valorTotal=1;
 
@@ -35,6 +36,18 @@ function showTransf () {
   });
 }
 const Received: React.FC = () => {
+  
+
+const[selectDateStart,setSelectdateStart] = useState("");
+const handleDateSelectionStart = (event:CustomEvent) => {
+  setSelectdateStart(event.detail.value);
+}
+const[selectDateEnd,setSelectdateEnd] = useState("");
+const handleDateSelectionEnd = (event:CustomEvent) => {
+  setSelectdateEnd(event.detail.value);
+}
+
+
 return (
 <>
 <IonPage onLoad={()=>{fetchdata(location.state.id)}}>
@@ -53,21 +66,37 @@ return (
     <IonGrid className='gridReceived'>
       <h1>Recebimentos</h1>
       <IonButton size='default' id="Data" expand="block" fill='clear'>
-        Selecione a data
+        Data inicial: {selectDateStart}
         <IonIcon icon={calendarOutline}></IonIcon>
       </IonButton>
       <IonModal id="selectdate" trigger="Data">
         <IonContent>
-          <IonToolbar>
-            <p>Data inicial:</p>
-            <p>Data final:</p>
-          </IonToolbar>
           <IonDatetime
+            onIonChange={handleDateSelectionStart}
+            value={selectDateStart}
             presentation="date"
             doneText="OK"
             cancelText="Cancelar"
-            multiple={true}
             showDefaultButtons={true}
+            showDefaultTitle={true}
+          ></IonDatetime>;
+        </IonContent>
+      </IonModal>
+
+      <IonButton size='default' id="DataEnd" expand="block" fill='clear'>
+        Data final: {selectDateEnd}
+        <IonIcon icon={calendarOutline}></IonIcon>
+      </IonButton>
+      <IonModal id="selectdateEnd" trigger="DataEnd">
+        <IonContent>
+          <IonDatetime
+            onIonChange={handleDateSelectionEnd}
+            value={selectDateEnd}
+            presentation="date"
+            doneText="OK"
+            cancelText="Cancelar"
+            showDefaultButtons={true}
+            showDefaultTitle={true}
           ></IonDatetime>;
         </IonContent>
       </IonModal>
