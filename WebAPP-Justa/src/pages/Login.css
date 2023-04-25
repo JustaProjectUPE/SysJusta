@@ -1,3 +1,11 @@
+main h1{
+    margin: auto;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-family: 'Quicksand', sans-serif;
+    color: #0071B8;
+}
+
 .body-menu{
     --background:  #EDEDF4;
 }
@@ -136,13 +144,20 @@ main > ion-card{
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     column-gap: 5vw;
-    row-gap: 5vh;
+    row-gap: 3vh;
     max-width: 30vw;
 }
 
-.products > ion-button{
+.product-button{
     width: 60px;
     height: 60px;
+
+}
+
+.product-label{
+    text-align: center;
+    font-size: 7.5pt;
+    width: 60px;
 }
 
 @media screen and (max-width:900px) {

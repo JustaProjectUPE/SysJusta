@@ -83,7 +83,7 @@ const Signin = () =>{
               <IonMenuToggle auto-hide="false">
                     <IonNavLink routerDirection="forward" component={() => <Received />}>
                         <IonItem lines="full">
-                            <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/received', {replace: true, state:{id:location.state.id}})}>
+                            <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/received', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
                                 <span>
                                 <IonIcon icon={calendarOutline}></IonIcon>
                                 <IonLabel>Agenda de Recebíveis</IonLabel>
@@ -101,7 +101,7 @@ const Signin = () =>{
               <IonMenuToggle>
               <IonNavLink routerDirection="forward" component={() => <Register />}>
                 <IonItem lines="full">
-                  <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/register', {replace: true, state:{id:location.state.id}})}>
+                  <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/register', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
                     <span>
                       <IonIcon icon={addCircleOutline}></IonIcon>
                       <IonLabel>Cadastros</IonLabel>
@@ -165,11 +165,12 @@ const Signin = () =>{
           </IonHeader>
           <IonContent>
             <main>
+              <h1>Seja bem-vindo, {clientData["name"]}!</h1>
               <IonCard>
                 <IonCardHeader>
                   <IonCardSubtitle>Nível de lealdade: {location.state.loyalty}</IonCardSubtitle>
                   <IonCardTitle>{checkLevel(location.state.loyalty)}</IonCardTitle>
-                  <IonButton fill="clear">
+                  <IonButton fill="clear" onClick={()=>navigate('/mybenefits', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
                     Acesse os benefícios
                     <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
                   </IonButton>
@@ -179,24 +180,42 @@ const Signin = () =>{
               <section className="products-sec">
                 <IonTitle >Produtos</IonTitle>
                 <div className='products'>
-                  <IonButton shape='round' size='large' onClick={()=>{fetchData(0)}}>
-                    <IonIcon slot='icon-only' ></IonIcon>
-                  </IonButton>
-                  <IonButton shape='round' size='large'>
-                    <IonIcon slot='icon-only' ></IonIcon>
-                  </IonButton>
-                  <IonButton shape='round' size='large'>
-                    <IonIcon slot='icon-only'></IonIcon>
-                  </IonButton>
-                  <IonButton shape='round' size='large'>
-                    <IonIcon slot='icon-only' ></IonIcon>
-                  </IonButton>
-                  <IonButton shape='round' size='large'>
-                    <IonIcon slot='icon-only'></IonIcon>
-                  </IonButton>
-                  <IonButton shape='round' size='large'>
-                    <IonIcon slot='icon-only'></IonIcon>
-                  </IonButton>
+                  <div>
+                    <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/received', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
+                      <IonIcon slot='icon-only' icon={calendarOutline}></IonIcon>
+                    </IonButton>
+                    <p className="product-label">Agenda de recebíveis</p>
+                  </div>
+                  <div>
+                    <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/register', {replace: true, state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+                      <IonIcon slot='icon-only' icon={addCircleOutline}></IonIcon>
+                    </IonButton>
+                    <p className="product-label">Cadastros</p>
+                  </div>
+                  <div>
+                    <IonButton className="product-button" shape='round' size='large'>
+                      <IonIcon slot='icon-only' icon={calculatorOutline}></IonIcon>
+                    </IonButton>
+                    <p className="product-label">Simulador de vendas</p>
+                  </div>
+                  <div>
+                    <IonButton className="product-button" shape='round' size='large'>
+                      <IonIcon slot='icon-only' icon={statsChartOutline}></IonIcon>
+                    </IonButton>
+                    <p className="product-label">Desempenho do negócio</p>
+                  </div>
+                  <div>
+                    <IonButton className="product-button" shape='round' size='large'>
+                      <IonIcon slot='icon-only' icon={cardOutline}></IonIcon>
+                    </IonButton>
+                    <p className="product-label">Crédito justo</p>
+                  </div>
+                  <div>
+                    <IonButton className="product-button" shape='round' size='large'>
+                      <IonIcon slot='icon-only' icon={sendOutline}></IonIcon>
+                    </IonButton>
+                    <p className="product-label">Linkou</p>
+                  </div>
                 </div>
               </section>
             </main>

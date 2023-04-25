@@ -3,7 +3,6 @@ import './Registerproduct.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router';
 
 interface prodType {
   code: number,
@@ -17,7 +16,6 @@ const Registerproduct: React.FC = () => {
   const [prodData, setProdData] = useState<prodType[]>([]);
   const location = useLocation();
   const navigate = useNavigate();
-  const history = useHistory();
 
   useEffect(() => {
     fetchData(location.state.id);
@@ -43,8 +41,7 @@ const Registerproduct: React.FC = () => {
   }
 
   const handleGoBack = () => {
-    history.goBack();
-    fetchData(location.state.id); // chama fetchData para obter dados atualizados
+    navigate('/register', { replace: true, state:{id: location.state.id, loyalty: location.state.loyalty} });
   };
 
   return (

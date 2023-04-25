@@ -26,7 +26,7 @@ const Registerpeople: React.FC = () => {
   const [empData, setEmpData] = useState<empType[]>([]);
   const location = useLocation();
   const navigate = useNavigate();
-
+  
   async function fetchData(client_tolken: number) {
     try{
       let res:any = await axios.get(`http://localhost:3000/emp/${client_tolken}`);
@@ -44,7 +44,7 @@ const Registerpeople: React.FC = () => {
   }
 
   function handleGoBack() {
-    navigate('/register', { state: location.state });
+    navigate('/register', { replace: true, state:{id: location.state.id, loyalty: location.state.loyalty} });
   }
 
   return (
