@@ -1,8 +1,9 @@
 import { IonContent, IonHeader, IonPage, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonButtons, IonBackButton} from '@ionic/react';
 import './Registerproduct.css';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 interface prodType {
   code: number,
@@ -16,6 +17,11 @@ const Registerproduct: React.FC = () => {
   const [prodData, setProdData] = useState<prodType[]>([]);
   const location = useLocation();
   const navigate = useNavigate();
+  const history = useHistory();
+
+  useEffect(() => {
+    fetchData(location.state.id);
+  }, [location.state.id]);
 
   async function fetchData(client_tolken: number) {
     try{
@@ -36,9 +42,11 @@ const Registerproduct: React.FC = () => {
     }
   }
 
-  function handleGoBack() {
-    navigate('/register', { state: location.state });
-  }
+  const handleGoBack = () => {
+    history.goBack();
+    fetchData(location.state.id); // chama fetchData para obter dados atualizados
+  };
+
   return (
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>

@@ -2,13 +2,15 @@ import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonGrid, IonH
 import './Register.css'
 import {peopleOutline, pricetagsOutline } from 'ionicons/icons';
 import { To, useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Register: React.FC = () => {
   const location = useLocation();
+  const [state, setState] = useState(location.state || {});
   const navigate = useNavigate();
 
   function handleGoBack() {
-    navigate('/signin', { replace: true, state: location.state });
+    navigate('/signin', { replace: true, state });
   }
   
     return (
@@ -34,14 +36,14 @@ const Register: React.FC = () => {
                 <IonRow>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
                   <IonNavLink routerDirection="forward" component={() => <Register />}>
-                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/registerproduct' onClick={()=>navigate('/registerproduct', {replace: true, state:{id:location.state.id}})}>
+                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/registerproduct'onClick={()=>navigate('/registerproduct', {replace: true, state})}>
                         <IonIcon icon={pricetagsOutline}></IonIcon>
                       </IonButton>
                   </IonNavLink>
                       <IonLabel>Produtos</IonLabel>
                   </IonCol>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
-                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/registerpeople' onClick={()=>navigate('/registerpeople', {replace: true, state:{id:location.state.id}})}>
+                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/registerpeople' onClick={()=>navigate('/registerpeople', {replace: true, state})}>
                     <IonIcon icon={peopleOutline}></IonIcon>
                   </IonButton>
                   <IonLabel>Funcionários</IonLabel>
