@@ -15,7 +15,7 @@ const GeneratePaymentLinkPage = () => {
 
   return (
     <IonPage>
-      <IonContent>
+      <IonContent className='form'>
         <h1>Gerar link de pagamento</h1>
         <IonInput
           placeholder="Valor"
