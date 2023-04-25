@@ -1,13 +1,50 @@
 import { IonContent, IonHeader, IonPage, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonButtons, IonBackButton} from '@ionic/react';
 import './Registerproduct.css';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
+
+interface prodType {
+  code: number,
+  product: string,
+  value: number,
+  stock: number,
+}
 
 const Registerproduct: React.FC = () => {
+
+  const [prodData, setProdData] = useState<prodType[]>([]);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  async function fetchData(client_tolken: number) {
+    try{
+      let res:any = await axios.get(`http://localhost:3000/products/${client_tolken}`);
+      const flatEmpData = res.data.flat();
+      flatEmpData.shift()
+      const newList = flatEmpData.map((products:prodType) => ({
+        code: products.code,
+        product: products.product,
+        value: products.value,
+        stock: products.stock
+      }));
+
+      setProdData(newList);
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  function handleGoBack() {
+    navigate('/register', { state: location.state });
+  }
   return (
-    <IonPage>
+    <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start">
-            <IonBackButton></IonBackButton>
+        <IonButtons slot="start" onClick={handleGoBack}>
+            <IonBackButton defaultHref="/register"></IonBackButton>
           </IonButtons>
           <div className="titleicon">
             <img src = "/logo2.png"></img>
@@ -55,9 +92,12 @@ const Registerproduct: React.FC = () => {
                 </IonCardHeader>
                 <IonCardContent>
                   <IonList>
-                    <IonItem>
-                    <IonLabel></IonLabel>
-                    </IonItem>
+                  {prodData.map((prod, index) => (
+                      <IonItem key={index}>
+                        <IonLabel>#{prod.code} {prod.product}</IonLabel>
+                        <IonLabel>R${prod.value} Estoque: {prod.stock}</IonLabel>
+                      </IonItem>
+                    ))}
                     <IonItem>
                     <IonLabel></IonLabel>
                     </IonItem>
@@ -66,7 +106,6 @@ const Registerproduct: React.FC = () => {
               </IonCard>
               </IonCol>
           </IonRow>
-
         </IonGrid>
       </IonContent>
     </IonPage>

@@ -34,7 +34,7 @@ const Register: React.FC = () => {
                 <IonRow>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
                   <IonNavLink routerDirection="forward" component={() => <Register />}>
-                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/registerproduct'>
+                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/registerproduct' onClick={()=>navigate('/registerproduct', {replace: true, state:{id:location.state.id}})}>
                         <IonIcon icon={pricetagsOutline}></IonIcon>
                       </IonButton>
                   </IonNavLink>
