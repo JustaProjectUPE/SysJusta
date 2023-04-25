@@ -28,6 +28,11 @@
     text-align: center;
 }
 
+.benefits-section p{
+    color: #606D80;
+    font-size: 0.8rem;
+}
+
 .benefits-section ion-card-title{
     font-size: 1.2 rem;
     font-weight: bolder;
