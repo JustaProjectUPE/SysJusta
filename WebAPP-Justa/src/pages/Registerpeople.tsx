@@ -26,6 +26,8 @@ const Registerpeople: React.FC = () => {
   const [empData, setEmpData] = useState<empType[]>([]);
   const location = useLocation();
   const navigate = useNavigate();
+
+  console.log(location.state)
   
   async function fetchData(client_tolken: number) {
     try{
@@ -44,14 +46,14 @@ const Registerpeople: React.FC = () => {
   }
 
   function handleGoBack() {
-    navigate('/register', { replace: true, state:{id: location.state.id, loyalty: location.state.loyalty} });
+    navigate('/register', {state:{id: location.state.id, loyalty: location.state.loyalty} });
   }
 
   return (
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start" onClick={handleGoBack}>
+        <IonButtons slot="start" onClick={()=>handleGoBack()}>
             <IonBackButton defaultHref="/register"></IonBackButton>
           </IonButtons>
           <div className="titleicon">

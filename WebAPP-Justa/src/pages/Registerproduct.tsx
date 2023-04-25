@@ -16,6 +16,7 @@ const Registerproduct: React.FC = () => {
   const [prodData, setProdData] = useState<prodType[]>([]);
   const location = useLocation();
   const navigate = useNavigate();
+  console.log(location.state);
 
   useEffect(() => {
     fetchData(location.state.id);
@@ -40,15 +41,15 @@ const Registerproduct: React.FC = () => {
     }
   }
 
-  const handleGoBack = () => {
-    navigate('/register', { replace: true, state:{id: location.state.id, loyalty: location.state.loyalty} });
-  };
+  function handleGoBack() {
+    navigate('/register', {state:{id:location.state.id, loyalty:location.state.loyalty}});
+  }
 
   return (
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start" onClick={handleGoBack}>
+        <IonButtons slot="start" onClick={()=>handleGoBack()}>
             <IonBackButton defaultHref="/register"></IonBackButton>
           </IonButtons>
           <div className="titleicon">

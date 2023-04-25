@@ -7,6 +7,7 @@ import { useState } from 'react';
 const Register: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  console.log(location.state)
 
   function handleGoBack() {
     navigate('/signin', {replace: true, state:{id:location.state.id, loyalty:location.state.loyalty}});
@@ -17,7 +18,7 @@ const Register: React.FC = () => {
         <IonHeader>
             <section className="register-header">
           <IonToolbar>
-          <IonButtons slot="start" onClick={handleGoBack}>
+          <IonButtons slot="start" onClick={()=>handleGoBack()}>
             <IonBackButton defaultHref="/signin"></IonBackButton>
           </IonButtons>
           <div className="register-title">
