@@ -31,7 +31,7 @@ const Simulator: React.FC = () => {
                   <IonCardTitle>Valores</IonCardTitle>
                 </IonCardHeader>
                 <IonCardContent>
-                  <IonItem>
+                  <IonItem className='form-input'>
                     <IonLabel position="floating">Valor total</IonLabel>
                     <IonInput type="number" value={valorTotal} onIonChange={e => setValorTotal(parseFloat(e.detail.value!))}></IonInput>
                   </IonItem>
@@ -80,7 +80,7 @@ const Simulator: React.FC = () => {
           <IonRow>
             <IonCol size="12">
               <IonCard>
-                <IonCardContent>
+                <IonCardContent className='form-button'>
                   <button onClick={() => calcularParcelas(valorTotal, valorRecebido, valorAPagar, parcelas)}>Calcular parcelas</button>
                 </IonCardContent>
               </IonCard>
