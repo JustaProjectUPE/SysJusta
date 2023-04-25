@@ -1,0 +1,47 @@
+.credit-content{
+    --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
+    background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
+    background-size: cover;
+}
+
+.credit-section{
+    max-width: 600px;
+    margin: auto;
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #EDEDF4;
+    align-items: center;
+    text-align: center;
+}
+
+.credit-content .card-principal ion-card-header{
+    background-color: #0071B8;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    position: relative;
+}
+
+.credit-content .card-principal ion-card-title{
+    margin-top: 10px;
+    font-size: 1.6 rem;
+    font-weight: bolder;
+    color: white;
+}
+
+.credit-content .card-principal ion-card-subtitle{
+    margin-top: 10px;
+    font-size: 27px;
+    font-weight: bolder;
+    color: #EDEDF4;
+}
+.credit-content .card-principal h2{
+    margin-top: 25px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #0071B8;
+}

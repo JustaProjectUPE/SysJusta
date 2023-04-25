@@ -30,6 +30,7 @@ import Registerproduct from './pages/Registerproduct';
 import Registerpeople from './pages/Registerpeople';
 import Mybenefits from './pages/Mybenefits';
 import Menu from './pages/menu';
+import Credit from './pages/Credit';
 
 setupIonicReact();
 
@@ -49,6 +50,7 @@ const App: React.FC = () => (
         <Route path='/registerpeople' element={<Registerpeople/>}/>
         <Route path='/mybenefits' element={<Mybenefits/>}/>
         <Route path='/menu' element={<Menu/>}/>
+        <Route path='/credit' element={<Credit/>}/>
       </Routes>
     </BrowserRouter>
   </IonApp>

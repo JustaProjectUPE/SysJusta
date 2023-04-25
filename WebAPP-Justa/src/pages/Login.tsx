@@ -117,7 +117,7 @@ const Signin = () =>{
                 </IonItem>
               </IonMenuToggle>
               <IonMenuToggle>
-                <IonItem lines="full">
+                <IonItem lines="full" routerLink="/credit">
                 <IonIcon icon={cardOutline}></IonIcon>
                   <IonLabel>Crédito Justo</IonLabel>
                 </IonItem>

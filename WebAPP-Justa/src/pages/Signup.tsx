@@ -38,7 +38,7 @@ const Signup: React.FC = () => {
               <IonCard>
                 <IonCardContent>
                   <IonItem>
-                    <IonInput label="Nome" value={name} onIonChange={(e) => setName(e.detail.value)} color="medium" clearInput={true} type="text"></IonInput>
+                    <IonInput label="Nome" color="medium" clearInput={true} type="text"></IonInput>
                   </IonItem>
                   <IonItem>
                     <IonInput label="Sobrenome" color="medium" clearInput={true} type="text"></IonInput>
