@@ -9,7 +9,7 @@ async function checkEntry(log, passw){
     let pass = [];
     //let client_token = [];
     let client_level;
-    //let client_sum = 0;
+    let sum = 0;
 
     //Adicionando senhas e usuários em arrays
     client.clients.map((obj) => {
@@ -33,6 +33,16 @@ async function checkEntry(log, passw){
                 // });
 
                 client_level = clientLevel(client,i);
+                
+                //Ajustando a Key Finance
+                client.extract[i].forEach((val)=>{
+                    sum+=val.value;
+                });
+            
+                client.clients[i].finance = sum;
+                
+                fs.writeFileSync('db/db.json', JSON.stringify(client),'utf-8')
+                    
 
                 // if(client_sum<5000) client_level = 0;
                 // else if(client_sum>=5000 && client_sum < 20000) client_level = 1;

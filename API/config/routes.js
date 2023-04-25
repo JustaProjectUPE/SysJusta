@@ -22,7 +22,7 @@ routes.get('/signin/:login/:password', async(req,res)=>{// em /:login e /:passwo
         res.status(200).json(response);  //.status(200) significa que o servidor conferiu, .json(response) vai enviar o retorno da função login para o frontend , que no caso vai ser 200 ou 500
       
     }catch(err){
-
+        console.log(err)
         res.status(500).json({err: err});
        
    }
@@ -139,9 +139,10 @@ routes.post('/productRegister',async(req,res)=>{
 routes.get('/products/:client_token',async(req,res)=>{
 
     try{
+
         const response = await giveProduct(req.params.client_token);
         res.status(200).json(response);
-        console.log(response);
+        console.log(req.params.code);
     }catch(err){
 
         res.status(500).json({err:err});

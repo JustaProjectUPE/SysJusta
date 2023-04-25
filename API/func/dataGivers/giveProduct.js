@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 
-async function giveProduct(client_token){
+async function giveProduct(client_token, code = null){
 
     return new Promise((resolve,reject)=>{
         fs.readFile('./db/db.json','utf-8',(err,data)=>{

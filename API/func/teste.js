@@ -1,37 +1,24 @@
 const fs = require('fs');
 
-fs.readFile('../db/db.json','utf-8',(err,data)=>{
-    if(err) throw err;
+const data = fs.readFileSync('../db/db.json','utf-8');
+const db = JSON.parse(data);
+const ext = db.extract[0];
+let sum = 0;
 
-    let obj = JSON.parse(data); 
-    let ext = {};
-    let client = {
-        "name" : "Joao",
-        "surname": "carlos",
-        "birth": "24122005",
-        "cpf":"009900099",
-        "cnpj" : "0",
-        "phone" : "00000000",
-        "email" : "joaocarlos@gmail.com",
-        "login" : "joaocarlos1",
-        "password" : "joaocarlos2",
-        "biz" : "joaocarlos",
-        "finance" : "0",
-        "client_token": obj.extract.length
-        };
+db.extract[0].forEach((item)=>{
 
-    obj.clients.push(client);
-    obj.extract.push(ext);
-    console.log(obj);
-    
-    fs.writeFile('../db/teste.json',JSON.stringify(obj),(err)=>{
-        if(err) throw err;
+    if(item.value>0){
+        sum+=item.value
+    }
 
-        console.log('File updated')
-    });
+})
+
+console.log(sum)
 
 
 
-});
+
+
+
 
 

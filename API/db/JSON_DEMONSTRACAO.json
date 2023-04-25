@@ -11,7 +11,7 @@
     "password" : "gandalfs2",
     "biz" : "Anéis Mágicos LTDA",
     "finance" : "50000",
-    "Client_Token": 0
+    "client_token": 0
 
     },
 
@@ -27,40 +27,131 @@
         "password" : "bilbos2",
         "biz" : "Tolkien",
         "finance" : "100000",
-        "Client_Token": 1
+        "client_token": 1
     
         }],
-    "extract" : [
+    "extract" : [[{
+        "date":"01-01-2022",
+        "type":1,
+        "desc":"Vendas",
+        "value":1500
+    },{
+        "date":"01-01-2022",
+        "type":2,
+        "desc":"Vendas",
+        "value":1500
+    },{
+        "date":"01-01-2022",
+        "type":3,
+        "desc":"Vendas",
+        "value":1500
+    },{
+        "date":"01-01-2022",
+        "type":1,
+        "desc":"Vendas",
+        "value":1500
+    },{
+        "date":"01-01-2022",
+        "type":1,
+        "desc":"Vendas",
+        "value":1500
+    },{
+        "date":"01-01-2022",
+        "type":1,
+        "desc":"Vendas",
+        "value":2000
+    },
         {
-            "jan" : "1000",
-            "feb" : "2000",
-            "mar" : "1500",
-            "apr" : "3500",
-            "may" : "4000",
-            "jun" : "4320",
-            "jul" : "4203",
-            "aug" : "4050",
-            "sep" : "1084",
-            "oct" : "6008",
-            "nov" : "5467",
-            "dec" : "6127"    
+           "date":"01-01-2022",
+           "type":1,
+           "desc":"Salario",
+           "value":-1500
         },
         {
-            "jan" : "3422",
-            "feb" : "9875",
-            "mar" : "1532",
-            "apr" : "7234",
-            "may" : "8192",
-            "jun" : "9745",
-            "jul" : "2439",
-            "aug" : "5889",
-            "sep" : "5384",
-            "oct" : "3878",
-            "nov" : "3249",
-            "dec" : "9837"
-        }
+            "date":"02-01-2022",
+            "type":3,
+            "desc":"Vendas",
+            "value":100
+        },
+        {
+            "date":"02-01-2022",
+            "type":2,
+            "desc":"Vendas",
+            "value":100
+        },
+        {
+            "date":"02-01-2022",
+            "type":1,
+            "desc":"Vendas",
+            "value":200
+        },
+        {
+            "date":"01-02-2022",
+            "type":1,
+            "desc":"Salario",
+            "value":-1500
+        },{
+            "date":"01-03-2022",
+            "type":1,
+            "desc":"Salario",
+            "value":-1500
+        },{
+            "date":"01-04-2022",
+            "type":1,
+            "desc":"Salario",
+            "value":-1500
+        },{
+            "date":"01-05-2022",
+            "type":1,
+            "desc":"Salario",
+            "value":-1500
+        },{
+            "date":"01-06-2022",
+            "type":1,
+            "desc":"Salario",
+            "value":-1500
+        },{
+            "date":"01-07-2022",
+            "type":1,
+            "desc":"Salario",
+            "value":-1500
+        },{
+            "date":"02-07-2022",
+            "type":2,
+            "desc":"Vendas",
+            "value":2000
+        },{
+            "date":"03-07-2022",
+            "type":1,
+            "desc":"Vendas",
+            "value":20000
+        },{
+            "date":"0-08-2022",
+            "type":3,
+            "desc":"Salario",
+            "value":-1500
+        },{
+            "date":"01-09-2022",
+            "type":1,
+            "desc":"Salario",
+            "value":-1500
+        }],[]
         
-    ]
+    ],
+
+    "emp": [[{"name":"Marcelo Arruda","sales":{}},
+              {"name":"Roberto Carlos","sales":{"jan":"5000"}}],
+
+            [{"name":"Robesvânia Costa","sales":{}},
+            {"name":"Jukasline almeida","sales":{}}]
+        
+        ],
+    
+    "products":[[{"code":"000323","product":"maçãs de ouro","value":"25","stock":"58"},
+                {"code":"00043","product":"dente de elfo","value":"50","stock":59}],
+    
+                [{"code":"344323","product":"jujuba","value":"0.5","stock":"159"}]]
+
 }
 
 

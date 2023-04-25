@@ -9,20 +9,9 @@ function clientLevel(client,i){
     // });
 
 
-    for(let val in client.extract[i]){
-
-        client.extract[i][val].forEach((paym) => {
-            Object.values(paym).forEach((money)=>{
-                money.forEach((value)=>{
-                    if(value>0){
-                        client_sum+=value;
-                    }
-
-                });
-            });
-        });
-    }
-
+    client.extract[i].forEach((val)=>{
+        if(val.value>0) client_sum += val.value;
+    })
 
     if(client_sum<5000) return 0;
     else if(client_sum>=5000 && client_sum < 20000) return 1;
