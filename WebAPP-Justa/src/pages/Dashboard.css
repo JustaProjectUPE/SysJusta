@@ -153,6 +153,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-right: 0;
+    margin-left: 0;
 }
 
 .products{
@@ -160,6 +162,7 @@
     padding: 2rem;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
+    text-align: center;
     column-gap: 5vw;
     row-gap: 3vh;
     max-width: 30vw;
@@ -169,7 +172,7 @@
     width: 70px;
     height: 70px;
     justify-content: center;
-
+    --background: #0071B8;
 }
 
 .product-label{

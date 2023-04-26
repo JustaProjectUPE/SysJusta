@@ -2,6 +2,8 @@ import { IonContent, IonHeader, IonPage, IonButton, IonIcon, } from '@ionic/reac
 import { arrowBackOutline } from 'ionicons/icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './ForgotPassword.css';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { arrowBackOutline } from 'ionicons/icons';
 
 const Empty: React.FC = () => {
   const {state} = useLocation();

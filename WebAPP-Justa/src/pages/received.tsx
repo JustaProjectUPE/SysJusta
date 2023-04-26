@@ -50,6 +50,7 @@ function showTransf () {
 /*Conexão com back*/
 const [ExtractData, setExtractData] = useState<TotalExtract[]>([]);
 const location = useLocation();
+const {state} = useLocation();
 const navigate = useNavigate();
 console.log(location.state)
 

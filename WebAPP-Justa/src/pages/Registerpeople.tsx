@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonButtons, IonBackButton} from '@ionic/react';
 import './Registerproduct.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { arrowBackOutline } from 'ionicons/icons'
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -27,9 +27,9 @@ const Registerpeople: React.FC = () => {
   const [empData, setEmpData] = useState<empType[]>([]);
   const location = useLocation();
   const navigate = useNavigate();
-
-  console.log(location.state)
+  console.log(location.state);
   
+
   async function fetchData(client_tolken: number) {
     try{
       let res:any = await axios.get(`http://localhost:3000/emp/${client_tolken}`);
@@ -44,18 +44,6 @@ const Registerpeople: React.FC = () => {
     } catch (error) {
       console.log(error)
     }
-  }
-
-  async function postData(cliente_tolken: number){
-    try{
-      
-    } catch (error){
-      console.log(error)
-    }
-  }
-
-  function handleGoBack() {
-    navigate('/register', {state:{id: location.state.id, loyalty: location.state.loyalty} });
   }
 
   return (

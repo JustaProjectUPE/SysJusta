@@ -2,12 +2,10 @@ import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonGrid, IonH
 import './Register.css'
 import {peopleOutline, pricetagsOutline, arrowBackOutline } from 'ionicons/icons';
 import { To, useLocation, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 
 const Register: React.FC = () => {
   const {state} = useLocation();
   const navigate = useNavigate();
-  console.log(state)
   
     return (
       <IonPage>

@@ -23,7 +23,6 @@ const Signin = () =>{
   const [clientData, setClientData] = useState<ClientData>({ name: "", surname: ""});
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location.state)
 
   async function fetchData(client_tolken: number) {
     try{
@@ -237,16 +236,17 @@ const Signin = () =>{
               <IonRow class="ion-justify-content-center">
                 <IonCol size="12">
               <Balance balance={clientData["finance"]}/>
-              <section className="products-sec">
-                <IonTitle>
-                  Serviços
-                  </IonTitle>
+              </IonCol>
+              </IonRow>
+              <IonRow>
+                <IonCol size="9" className="products-sec">
+                <IonTitle>Serviços</IonTitle>
                 <div className='products'>
                   <div>
                     <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/received', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
                       <IonIcon slot='icon-only' icon={calendarOutline}></IonIcon>
                     </IonButton>
-                    <p className="product-label">Agenda de recebíveis</p>
+                    <p className="product-label">Agenda de Recebíveis</p>
                   </div>
                   <div>
                     <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/register', {replace: true, state:{id:location.state.id, loyalty:location.state.loyalty}})}>
@@ -258,19 +258,19 @@ const Signin = () =>{
                     <IonButton className="product-button" shape='round' size='large'>
                       <IonIcon slot='icon-only' icon={calculatorOutline}></IonIcon>
                     </IonButton>
-                    <p className="product-label">Simulador de vendas</p>
+                    <p className="product-label">Simulador de Vendas</p>
                   </div>
                   <div>
                     <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/empty', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
                       <IonIcon slot='icon-only' icon={statsChartOutline}></IonIcon>
                     </IonButton>
-                    <p className="product-label">Desempenho do negócio</p>
+                    <p className="product-label" >Gráfico de Desempenho</p>
                   </div>
                   <div>
                     <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/credit', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
                       <IonIcon slot='icon-only' icon={cardOutline}></IonIcon>
                     </IonButton>
-                    <p className="product-label">Crédito justo</p>
+                    <p className="product-label">Crédito Justo</p>
                   </div>
                   <div>
                     <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/linkou', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
@@ -279,7 +279,6 @@ const Signin = () =>{
                     <p className="product-label">Linkou</p>
                   </div>
                 </div>
-              </section>
               </IonCol>
               </IonRow>
               </IonGrid>

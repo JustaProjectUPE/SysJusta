@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonBackButton, IonButtons, IonButton, IonIcon } from '@ionic/react';
 import './Simulator.css'
+import { useLocation, useNavigate } from 'react-router-dom';
+import { arrowBackOutline } from 'ionicons/icons';
 
 const Simulator: React.FC = () => {
   const [valorTotal, setValorTotal] = useState(0);
@@ -8,6 +10,9 @@ const Simulator: React.FC = () => {
   const [valorAPagar, setValorAPagar] = useState(0);
   const [parcelas, setParcelas] = useState(1);
   const [valorParcela, setValorParcela] = useState(0);
+
+  const {state} = useLocation();
+  const navigate = useNavigate();
 
   const calcularParcelas = (valorTotal: number, valorRecebido: number, valorAPagar: number, parcelas: number) => {
     const valorRestante = valorTotal - valorRecebido - valorAPagar;
@@ -19,6 +24,9 @@ const Simulator: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+        <IonButton slot="start" fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+            <IonIcon icon={arrowBackOutline}></IonIcon>
+          </IonButton>
           <IonTitle className='page-title'>Simulador de Vendas</IonTitle>
         </IonToolbar>
       </IonHeader>
