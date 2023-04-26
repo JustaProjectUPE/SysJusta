@@ -32,6 +32,8 @@ import Mybenefits from './pages/Mybenefits';
 import Menu from './pages/menu';
 import Credit from './pages/Credit';
 import Linkou from './pages/Linkou';
+import Boleto from './pages/boleto';
+import Empty from './pages/empty';
 
 setupIonicReact();
 
@@ -53,6 +55,8 @@ const App: React.FC = () => (
         <Route path='/menu' element={<Menu/>}/>
         <Route path='/credit' element={<Credit/>}/>
         <Route path='/linkou' element={<Linkou/>}/>
+        <Route path='/boleto' element={<Boleto/>}/>
+        <Route path='/empty' element={<Empty/>}/>
       </Routes>
     </BrowserRouter>
   </IonApp>

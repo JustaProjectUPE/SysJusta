@@ -19,6 +19,7 @@
 
 .credit-content .card-principal ion-card-header{
     background-color: #0071B8;
+    background-image: linear-gradient(to right,  #499BDD, #002E5D);
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 25px;

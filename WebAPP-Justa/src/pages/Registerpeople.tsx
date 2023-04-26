@@ -45,6 +45,14 @@ const Registerpeople: React.FC = () => {
     }
   }
 
+  async function postData(cliente_tolken: number){
+    try{
+      
+    } catch (error){
+      console.log(error)
+    }
+  }
+
   function handleGoBack() {
     navigate('/register', {state:{id: location.state.id, loyalty: location.state.loyalty} });
   }

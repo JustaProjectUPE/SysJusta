@@ -48,14 +48,14 @@ const Home: React.FC = () => {
               <IonItem>
                 <IonIcon className="iconsInput" icon={personOutline}></IonIcon>
                 <IonLabel className = "labelInput" position="floating">Login</IonLabel>
-                <IonInput id="input-email" color="medium" shape="round"  onIonInput={(e: any)=>setLog(e.target.value)}></IonInput>
+                <IonInput id="input-email" color="medium" autocomplete="off" shape="round"  onIonInput={(e: any)=>setLog(e.target.value)}></IonInput>
               </IonItem>
             </section>
             <section className="form-input">
               <IonItem>
                 <IonIcon className="iconsInput" icon={lockClosedOutline}></IonIcon>
                 <IonLabel className = "labelInput" position="floating">Senha</IonLabel>
-                <IonInput id="input-senha" color="medium" type="password" onIonInput={(e: any)=>setPass(e.target.value)}></IonInput>
+                <IonInput id="input-senha" color="medium"  autocomplete="off" type="password" onIonInput={(e: any)=>setPass(e.target.value)}></IonInput>
               </IonItem>
             </section>
           </div>

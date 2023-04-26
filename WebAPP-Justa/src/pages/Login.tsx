@@ -7,6 +7,12 @@ import axios from "axios";
 import Register from "./Register";
 import Received from "./received";
 import { useLocation, useNavigate } from "react-router-dom";
+import Mybenefits from "./Mybenefits";
+import Linkou from "./Linkou";
+import Credit from "./Credit";
+import Simulator from "./Simulator";
+import Boleto from "./boleto";
+import Empty from "./empty";
 
 interface ClientData {
   name: string;
@@ -72,14 +78,19 @@ const Signin = () =>{
             </IonHeader>
           </section>
           <IonContent className="body-menu">
-          <IonSearchbar className="search-menu" showCancelButton="focus" placeholder="Pesquisar"></IonSearchbar>
             <IonList className="options-menu">
             <IonMenuToggle auto-hide="false">
-                <IonItem lines="full" routerLink="/mybenefits">
-                  <IonIcon icon={trophyOutline}></IonIcon>
-                  <IonLabel>Meus Benefícios</IonLabel>
-                </IonItem>
-              </IonMenuToggle>
+            <IonNavLink routerDirection="forward" component={() => <Mybenefits />}>
+                        <IonItem lines="full">
+                            <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/mybenefits', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
+                                <span>
+                                <IonIcon icon={trophyOutline}></IonIcon>
+                                <IonLabel>Meus Benefícios</IonLabel>
+                                </span>
+                            </IonButton>
+                        </IonItem>
+                    </IonNavLink>
+                    </IonMenuToggle>
               <IonMenuToggle auto-hide="false">
                     <IonNavLink routerDirection="forward" component={() => <Received />}>
                         <IonItem lines="full">
@@ -92,11 +103,17 @@ const Signin = () =>{
                         </IonItem>
                     </IonNavLink>
                 </IonMenuToggle>
-              <IonMenuToggle>
+                <IonMenuToggle>
+              <IonNavLink routerDirection="forward" component={() => <Boleto />}>
                 <IonItem lines="full">
-                  <IonIcon icon={barcodeOutline}></IonIcon>
-                  <IonLabel>Pagar Boleto</IonLabel>
+                  <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/boleto', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
+                    <span>
+                      <IonIcon icon={barcodeOutline}></IonIcon>
+                      <IonLabel>Pagar Boleto</IonLabel>
+                    </span>
+                  </IonButton>
                 </IonItem>
+                </IonNavLink>
               </IonMenuToggle>
               <IonMenuToggle>
               <IonNavLink routerDirection="forward" component={() => <Register />}>
@@ -111,40 +128,76 @@ const Signin = () =>{
                 </IonNavLink>
               </IonMenuToggle>
               <IonMenuToggle>
+              <IonNavLink routerDirection="forward" component={() => <Linkou />}>
                 <IonItem lines="full">
-                <IonIcon icon={sendOutline}></IonIcon>
-                  <IonLabel>Linkou</IonLabel>
+                  <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/linkou', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
+                    <span>
+                      <IonIcon icon={sendOutline}></IonIcon>
+                      <IonLabel>Linkou</IonLabel>
+                    </span>
+                  </IonButton>
                 </IonItem>
+                </IonNavLink>
               </IonMenuToggle>
               <IonMenuToggle>
-                <IonItem lines="full" routerLink="/credit">
-                <IonIcon icon={cardOutline}></IonIcon>
-                  <IonLabel>Crédito Justo</IonLabel>
-                </IonItem>
-              </IonMenuToggle>
-              <IonMenuToggle>
-                <IonItem lines="full" routerLink="/simulator">
-                <IonIcon icon={calculatorOutline}></IonIcon>
-                  <IonLabel>Simulador de Vendas</IonLabel>
-                </IonItem>
-              </IonMenuToggle>
-              <IonMenuToggle>
+              <IonNavLink routerDirection="forward" component={() => <Credit />}>
                 <IonItem lines="full">
-                <IonIcon icon={statsChartOutline}></IonIcon>
-                  <IonLabel>Estatística de Desempenho</IonLabel>
+                  <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/credit', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
+                    <span>
+                      <IonIcon icon={cardOutline}></IonIcon>
+                      <IonLabel>Crédito Justo</IonLabel>
+                    </span>
+                  </IonButton>
                 </IonItem>
+                </IonNavLink>
               </IonMenuToggle>
               <IonMenuToggle>
+              <IonNavLink routerDirection="forward" component={() => <Simulator />}>
                 <IonItem lines="full">
-                <IonIcon icon={hourglassOutline}></IonIcon>
-                  <IonLabel>Vendas em Tempo Real</IonLabel>
+                  <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/simulator', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
+                    <span>
+                      <IonIcon icon={calculatorOutline}></IonIcon>
+                      <IonLabel>Simulador de Vendas</IonLabel>
+                    </span>
+                  </IonButton>
                 </IonItem>
+                </IonNavLink>
               </IonMenuToggle>
               <IonMenuToggle>
+              <IonNavLink routerDirection="forward" component={() => <Empty/>}>
                 <IonItem lines="full">
-                <IonIcon icon={shuffleOutline}></IonIcon>
-                  <IonLabel>Transferência de Vendas</IonLabel>
+                  <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/empty', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
+                    <span>
+                      <IonIcon icon={statsChartOutline}></IonIcon>
+                      <IonLabel>Gráficos de Desempenho</IonLabel>
+                    </span>
+                  </IonButton>
                 </IonItem>
+                </IonNavLink>
+              </IonMenuToggle>
+              <IonMenuToggle>
+              <IonNavLink routerDirection="forward" component={() => <Empty/>}>
+                <IonItem lines="full">
+                  <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/empty', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
+                    <span>
+                      <IonIcon icon={hourglassOutline}></IonIcon>
+                      <IonLabel>Vendas em Tempo Real</IonLabel>
+                    </span>
+                  </IonButton>
+                </IonItem>
+                </IonNavLink>
+              </IonMenuToggle>
+              <IonMenuToggle>
+              <IonNavLink routerDirection="forward" component={() => <Empty/>}>
+                <IonItem lines="full">
+                  <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/empty', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
+                    <span>
+                      <IonIcon icon={shuffleOutline}></IonIcon>
+                      <IonLabel>Transferência de Vendas</IonLabel>
+                    </span>
+                  </IonButton>
+                </IonItem>
+                </IonNavLink>
               </IonMenuToggle>
 
             </IonList>
