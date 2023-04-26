@@ -12,9 +12,6 @@ const GeneratePaymentLinkPage = () => {
   const [description, setDescription] = useState('');
   const [paymentLink, setPaymentLink] = useState('');
 
-  const {state} = useLocation();
-  const navigate = useNavigate();
-
   const generatePaymentLink = () => {
     // Simula a geração do link de pagamento com base nos valores inseridos
     const paymentLink = `https://www.exemplo.com.br/checkout?amount=${amount}&description=${description}`;
