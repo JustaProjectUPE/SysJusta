@@ -1,8 +1,9 @@
 import { IonContent, IonHeader, IonPage, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonButtons, IonBackButton} from '@ionic/react';
 import './Registerproduct.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { To, useLocation, useNavigate } from 'react-router-dom';
+import { arrowBackOutline } from 'ionicons/icons';
 
 interface empType {
   name: string,
@@ -26,9 +27,9 @@ const Registerpeople: React.FC = () => {
   const [empData, setEmpData] = useState<empType[]>([]);
   const location = useLocation();
   const navigate = useNavigate();
-
-  console.log(location.state)
+  console.log(location.state);
   
+
   async function fetchData(client_tolken: number) {
     try{
       let res:any = await axios.get(`http://localhost:3000/emp/${client_tolken}`);
@@ -45,25 +46,13 @@ const Registerpeople: React.FC = () => {
     }
   }
 
-  async function postData(cliente_tolken: number){
-    try{
-      
-    } catch (error){
-      console.log(error)
-    }
-  }
-
-  function handleGoBack() {
-    navigate('/register', {state:{id: location.state.id, loyalty: location.state.loyalty} });
-  }
-
   return (
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start" onClick={()=>handleGoBack()}>
-            <IonBackButton defaultHref="/register"></IonBackButton>
-          </IonButtons>
+        <IonButton slot="start" fill='clear' onClick={()=>navigate('/register', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+          <IonIcon icon={arrowBackOutline}></IonIcon>
+        </IonButton>
           <div className="titleicon">
             <img src = "/logo2.png"></img>
           </div>

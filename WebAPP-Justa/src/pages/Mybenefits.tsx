@@ -10,6 +10,7 @@ import { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import { arrowBackOutline } from 'ionicons/icons';
 
 interface ClientData {
   name: string;
@@ -18,7 +19,7 @@ interface ClientData {
 
 const Mybenefits: React.FC = () => {
   const [clientData, setClientData] = useState<ClientData>({ name: "", surname: ""});
-  const location = useLocation();
+  const {state} = useLocation();
   const navigate = useNavigate();
 
   async function fetchData(client_tolken: number) {
@@ -49,9 +50,9 @@ const Mybenefits: React.FC = () => {
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
     <IonHeader>
       <IonToolbar>
-      <IonButtons slot="start">
-          <IonBackButton></IonBackButton>
-        </IonButtons>
+      <IonButton slot="start" fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+            <IonIcon icon={arrowBackOutline}></IonIcon>
+          </IonButton>
         <div className="titleicon">
           <img src = "/logo2.png"></img>
         </div>

@@ -46,7 +46,7 @@ const Registerproduct: React.FC = () => {
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>
         <IonToolbar>
-        <IonButton fill='clear' onClick={()=>navigate('/register', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+        <IonButton slot="start" fill='clear' onClick={()=>navigate('/register', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
           <IonIcon icon={arrowBackOutline}></IonIcon>
         </IonButton>
           <div className="titleicon">

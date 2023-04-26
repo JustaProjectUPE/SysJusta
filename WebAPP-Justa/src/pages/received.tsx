@@ -1,5 +1,5 @@
 import { IonPage, IonHeader, IonFooter, IonText,IonList, IonToolbar, IonIcon, IonRow, IonCol, IonSelect, IonContent, IonButton, IonDatetime, IonGrid, IonItem, IonTitle, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal, IonButtons, IonBackButton, IonSelectOption, IonCardSubtitle, IonCardTitle  } from '@ionic/react';
-import { calendarOutline } from 'ionicons/icons';
+import { arrowBackOutline, calendarOutline } from 'ionicons/icons';
 import './received.css'
 import { useState} from 'react';
 import { format, parseISO} from 'date-fns';
@@ -50,6 +50,7 @@ function showTransf () {
 /*Conexão com back*/
 const [ExtractData, setExtractData] = useState<TotalExtract[]>([]);
 const location = useLocation();
+const {state} = useLocation();
 const navigate = useNavigate();
 console.log(location.state)
 
@@ -90,9 +91,9 @@ return (
 <IonPage onLoad={()=>{fetchData(location.state.id)}}>
   <IonHeader>
     <IonToolbar>
-      <IonButtons slot="start" >
-          <IonBackButton defaultHref="/Login"></IonBackButton>
-      </IonButtons>
+      <IonButton slot="start" fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+        <IonIcon icon={arrowBackOutline}></IonIcon>
+      </IonButton>
       <div className="title-icon">
       <img src = "/logo2.png"></img>
       </div>

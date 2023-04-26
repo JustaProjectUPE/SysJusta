@@ -2,19 +2,17 @@ import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonGrid, IonH
 import './Register.css'
 import {peopleOutline, pricetagsOutline, arrowBackOutline } from 'ionicons/icons';
 import { To, useLocation, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 
 const Register: React.FC = () => {
   const {state} = useLocation();
   const navigate = useNavigate();
-  console.log(state)
   
     return (
       <IonPage>
         <IonHeader>
             <section className="register-header">
           <IonToolbar>
-          <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+          <IonButton slot="start" fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
             <IonIcon icon={arrowBackOutline}></IonIcon>
           </IonButton>
           <div className="register-title">
@@ -23,7 +21,6 @@ const Register: React.FC = () => {
           </IonToolbar>
           </section>
         </IonHeader>
-  
         <IonContent className="background-forgotpass">
           <div className="register-section ion-padding">
               <h1>Cadastros</h1>
@@ -39,7 +36,7 @@ const Register: React.FC = () => {
                       <IonLabel>Produtos</IonLabel>
                   </IonCol>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
-                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/registerpeople' onClick={()=>navigate('/registerpeople', {replace: true, state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/registerpeople' onClick={()=>navigate('/registerpeople', {state:{id:state.id, loyalty:state.loyalty}})}>
                     <IonIcon icon={peopleOutline}></IonIcon>
                   </IonButton>
                   <IonLabel>Funcionários</IonLabel>
