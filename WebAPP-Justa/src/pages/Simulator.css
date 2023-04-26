@@ -9,13 +9,24 @@
   
   /* Estilos para o formulário */
   .form {
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 40px;
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: #EDEDF4;
+  }
+
+  #titulo-simulator{
+    margin-top: 20px;
+    font-size: 1.6rem;
+    font-weight: bolder;
+    color: #0071B8;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
   }
   
   /* Estilos para os rótulos */
@@ -25,6 +36,10 @@
     color: #1c1c1c;
     font-size: 16px;
     font-weight: bold;
+  }
+
+  .form ion-card-title{
+    color: #0071B8;
   }
   
   /* Estilos para as entradas */
@@ -41,22 +56,16 @@
   
   /* Estilos para os botões */
   .form-button {
-    display: block;
+    margin: auto;
     margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4285f4;
+    --background: #0071B8;
     color: #fff;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
-    cursor: pointer;
   }
   
-  .form-button:hover {
-    background-color: #0d0d0d;
-  }
+
   
   /* Estilos para mensagens de erro */
   .form-error {
@@ -64,4 +73,10 @@
     font-size: 14px;
     margin-top: 10px;
   }
+
+.simulator-content{
+  --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
+  background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
+  background-size: cover;
+}
   
