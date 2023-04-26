@@ -2,8 +2,8 @@ import { IonContent, IonHeader, IonPage, IonToolbar, IonLabel, IonItem, IonInput
 import './Registerproduct.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { To, useLocation, useNavigate } from 'react-router-dom';
-import { arrowBackOutline } from 'ionicons/icons';
+import { arrowBackOutline } from 'ionicons/icons'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface empType {
   name: string,
@@ -49,14 +49,14 @@ const Registerpeople: React.FC = () => {
   return (
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>
-        <IonToolbar>
-        <IonButton slot="start" fill='clear' onClick={()=>navigate('/register', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
-          <IonIcon icon={arrowBackOutline}></IonIcon>
-        </IonButton>
+        <section className="register-header">
+          <IonButton fill='clear' onClick={()=>navigate('/register', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+            <IonIcon icon={arrowBackOutline}></IonIcon>
+          </IonButton>
           <div className="titleicon">
             <img src = "/logo2.png"></img>
           </div>
-        </IonToolbar>
+        </section>
       </IonHeader>
       <IonContent className="register-product-content">
         <IonGrid className="register-product-section">

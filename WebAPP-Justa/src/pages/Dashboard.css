@@ -175,10 +175,8 @@
 
 .product-label{
     text-align: center;
-    font-size: 9pt;
-    width: 80px;
-    font-weight: bold;
-    color: #666666;
+    font-size: 7.5pt;
+    width: 100%;
 }
 
 .card-loyalty{

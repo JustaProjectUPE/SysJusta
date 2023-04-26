@@ -10,15 +10,13 @@ const Register: React.FC = () => {
     return (
       <IonPage>
         <IonHeader>
-            <section className="register-header">
-          <IonToolbar>
-          <IonButton slot="start" fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
-            <IonIcon icon={arrowBackOutline}></IonIcon>
-          </IonButton>
-          <div className="register-title">
-            <img src = "/logo2.png"></img>
-          </div>
-          </IonToolbar>
+          <section className="register-header">
+            <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+              <IonIcon icon={arrowBackOutline}></IonIcon>
+            </IonButton>
+            <div className="register-title">
+              <img src = "/logo2.png"></img>
+            </div>
           </section>
         </IonHeader>
         <IonContent className="background-forgotpass">
@@ -36,7 +34,7 @@ const Register: React.FC = () => {
                       <IonLabel>Produtos</IonLabel>
                   </IonCol>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
-                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/registerpeople' onClick={()=>navigate('/registerpeople', {state:{id:state.id, loyalty:state.loyalty}})}>
+                  <IonButton  id = "people-button" fill="solid" expand="block" size="large" routerLink='/registerpeople' onClick={()=>navigate('/registerpeople', {replace: true, state:{id:state.id, loyalty:state.loyalty}})}>
                     <IonIcon icon={peopleOutline}></IonIcon>
                   </IonButton>
                   <IonLabel>Funcionários</IonLabel>

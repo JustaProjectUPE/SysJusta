@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonInput, IonButton, IonHeader, IonToolbar, IonButtons, IonBackButton, IonGrid, IonRow, IonCol, IonLabel, IonCardContent, IonCard, IonItem, IonIcon } from '@ionic/react';
+import { IonContent, IonPage, IonInput, IonButton, IonHeader, IonGrid, IonRow, IonCol, IonLabel, IonCardContent, IonCard, IonItem, IonIcon } from '@ionic/react';
+import { arrowBackOutline } from 'ionicons/icons';
 import './Linkou.css'
 import ReactInputMask from 'react-input-mask';
-import { arrowBackOutline } from 'ionicons/icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const GeneratePaymentLinkPage = () => {
+  const {state} = useLocation();
+  const navigate = useNavigate();
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [paymentLink, setPaymentLink] = useState('');
@@ -22,14 +24,14 @@ const GeneratePaymentLinkPage = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-        <IonButton slot="start" fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+        <section className="register-header">
+          <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
             <IonIcon icon={arrowBackOutline}></IonIcon>
           </IonButton>
-          <div className="titleicon">
+          <div className="register-title">
             <img src = "/logo2.png"></img>
           </div>
-        </IonToolbar>
+        </section>
       </IonHeader>
 
       <IonContent className='linkou-form'>
