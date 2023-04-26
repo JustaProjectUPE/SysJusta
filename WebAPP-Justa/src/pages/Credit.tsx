@@ -1,20 +1,23 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg, IonList, IonCardContent, IonCard, IonCol, IonRow, IonGrid, IonCardHeader, IonCardTitle, IonButtons, IonBackButton, IonSelectOption, IonSelect, IonCardSubtitle} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonItem, IonButton, IonIcon, IonList, IonCardContent, IonCard, IonCol, IonRow, IonGrid, IonCardHeader, IonCardTitle, IonCardSubtitle} from '@ionic/react';
 import './Signup.css';
 import './Credit.css';
-import { mailOutline } from 'ionicons/icons';
+import { arrowBackOutline } from 'ionicons/icons';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Credit: React.FC = () => {
+  const {state} = useLocation();
+  const navigate = useNavigate();
   return (
 <IonPage>
       <IonHeader>
-        <IonToolbar>
-        <IonButtons slot="start">
-            <IonBackButton defaultHref="/signin"></IonBackButton>
-          </IonButtons>
-          <div className="titleicon">
+        <section className="register-header">
+          <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+            <IonIcon icon={arrowBackOutline}></IonIcon>
+          </IonButton>
+          <div className="register-title">
             <img src = "/logo2.png"></img>
           </div>
-        </IonToolbar>
+        </section>
       </IonHeader>
       <IonContent className="credit-content">
         <IonGrid className="credit-section">

@@ -1,5 +1,5 @@
 import { IonPage, IonHeader, IonFooter, IonText,IonList, IonToolbar, IonIcon, IonRow, IonCol, IonSelect, IonContent, IonButton, IonDatetime, IonGrid, IonItem, IonTitle, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal, IonButtons, IonBackButton, IonSelectOption, IonCardSubtitle, IonCardTitle  } from '@ionic/react';
-import { calendarOutline } from 'ionicons/icons';
+import { calendarOutline, arrowBackOutline } from 'ionicons/icons';
 import './received.css'
 import { useState} from 'react';
 import { format, parseISO} from 'date-fns';
@@ -89,16 +89,15 @@ return (
 <>
 <IonPage onLoad={()=>{fetchData(location.state.id)}}>
   <IonHeader>
-    <IonToolbar>
-      <IonButtons slot="start" >
-          <IonBackButton defaultHref="/Login"></IonBackButton>
-      </IonButtons>
-      <div className="title-icon">
-      <img src = "/logo2.png"></img>
+    <section className="register-header">
+      <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+        <IonIcon icon={arrowBackOutline}></IonIcon>
+      </IonButton>
+      <div className="titleicon">
+        <img src = "/logo2.png"></img>
       </div>
-    </IonToolbar>
+    </section>
   </IonHeader>
- 
   <IonContent className="background-received">
     <IonGrid className='gridReceived'>
       <h1>Recebimentos</h1>

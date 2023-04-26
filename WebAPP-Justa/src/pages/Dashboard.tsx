@@ -1,6 +1,6 @@
 import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon, IonSearchbar, IonMenuToggle, IonNavLink, IonGrid, IonRow, IonCol, IonCardContent } from "@ionic/react";
 import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, hourglassOutline, statsChartOutline, shuffleOutline, addCircleOutline} from "ionicons/icons";
-import './Login.css'
+import './Dashboard.css'
 import { Balance } from "../components/Balance";
 import { useState } from "react";
 import axios from "axios";
@@ -261,19 +261,19 @@ const Signin = () =>{
                     <p className="product-label">Simulador de vendas</p>
                   </div>
                   <div>
-                    <IonButton className="product-button" shape='round' size='large'>
+                    <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/empty', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
                       <IonIcon slot='icon-only' icon={statsChartOutline}></IonIcon>
                     </IonButton>
                     <p className="product-label">Desempenho do negócio</p>
                   </div>
                   <div>
-                    <IonButton className="product-button" shape='round' size='large'>
+                    <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/credit', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
                       <IonIcon slot='icon-only' icon={cardOutline}></IonIcon>
                     </IonButton>
                     <p className="product-label">Crédito justo</p>
                   </div>
                   <div>
-                    <IonButton className="product-button" shape='round' size='large'>
+                    <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/linkou', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
                       <IonIcon slot='icon-only' icon={sendOutline}></IonIcon>
                     </IonButton>
                     <p className="product-label">Linkou</p>

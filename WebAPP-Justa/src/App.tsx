@@ -20,7 +20,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Signin from './pages/Login';
+import Signin from './pages/Dashboard';
 import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
 import Received from './pages/received';

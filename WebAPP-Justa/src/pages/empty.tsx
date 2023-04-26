@@ -1,15 +1,22 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonItem, IonInput, IonButton, IonIcon, IonMenu, IonFab, IonImg} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonButton, IonIcon, } from '@ionic/react';
+import { arrowBackOutline } from 'ionicons/icons';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './ForgotPassword.css';
 
 const Empty: React.FC = () => {
+  const {state} = useLocation();
+  const navigate = useNavigate();
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-            <div className="titleicon">
-                <img src = "/logo2.png"></img>
-            </div>
-        </IonToolbar>
+        <section className="register-header">
+          <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+            <IonIcon icon={arrowBackOutline}></IonIcon>
+          </IonButton>
+          <div className="register-title">
+            <img src = "/logo2.png"></img>
+          </div>
+        </section>
       </IonHeader>
       <IonContent>
       </IonContent>
