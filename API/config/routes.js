@@ -199,24 +199,5 @@ routes.post('/menu/balance',async(req,res)=>{
 
 });
 
-//EXTRATO
-routes.post('/menu/extract',async(req,res)=>{
-
-    const client_token = req.body.client_token; //Recebe o ID do cliente
-    const month = req.body.month; //Recebe os meses que o cliente pediu o extrato
-    const extract_type = req.body.extract_type; //Escolhe o tipo de extrato
-    let response;        
-    
-    try{
-        response = await extract(client_token, month, extract_type); //Função para verificar o extrato      
-        res.status(response);
-
-    }catch(err){
-        res.status(500);
-    }
-
-
-});
-
 
 module.exports = routes;
