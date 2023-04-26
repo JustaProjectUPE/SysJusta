@@ -1,8 +1,10 @@
-import { IonPage, IonHeader, IonFooter, IonText, IonToolbar, IonIcon, IonRow, IonCol, IonSelect, IonContent, IonButton, IonDatetime, IonGrid, IonItem, IonTitle, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal, IonButtons, IonBackButton, IonSelectOption, IonCardSubtitle, IonCardTitle  } from '@ionic/react';
+import { IonPage, IonHeader, IonFooter, IonText,IonList, IonToolbar, IonIcon, IonRow, IonCol, IonSelect, IonContent, IonButton, IonDatetime, IonGrid, IonItem, IonTitle, IonLabel, IonSegment, IonSegmentButton, IonCard, IonCardContent, IonCardHeader, IonDatetimeButton, IonModal, IonButtons, IonBackButton, IonSelectOption, IonCardSubtitle, IonCardTitle  } from '@ionic/react';
 import { calendarOutline } from 'ionicons/icons';
 import './received.css'
 import { useState} from 'react';
 import { format, parseISO} from 'date-fns';
+import axios from 'axios';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 let quantidade = 10, valorTotal=1;
 
@@ -12,6 +14,15 @@ var btnB:any = document.querySelector("#button-bol");
 var dadosBol:any = document.querySelector(".boleto");
 var btnT:any = document.querySelector("#button-trans");
 var dadosTrans:any = document.querySelector(".transferencia");
+
+interface TotalExtract {
+  date: string;
+  desc: string;
+  value: number;
+  type: number;
+}
+
+const Received: React.FC = () => {
 
 /*funções para mostrar card dependendo a seleção do usuario*/
 function showCar () {
@@ -35,26 +46,52 @@ function showTransf () {
     dadosBol.style.display="none";
   });
 }
-const Received: React.FC = () => {
-  
 
-const[selectDateStart,setSelectdateStart] = useState("");
+/*Conexão com back*/
+const [ExtractData, setExtractData] = useState<TotalExtract[]>([]);
+const location = useLocation();
+const navigate = useNavigate();
+console.log(location.state)
+
+async function fetchData(client_tolken: number) {
+  try{
+    let res:any = await axios.get(`http://localhost:3000/extract/${client_tolken}`);
+    const flatEmpData = res.data.flat();
+    flatEmpData.shift()
+    const newList = flatEmpData.map((extract:TotalExtract) => ({
+      date: extract.date,
+      desc: extract.desc,
+      value: extract.value,
+      type: extract.type
+    }));
+
+    setExtractData(newList);
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+/*seleção de datas*/
+const [selectDateStart,setSelectdateStart] = useState("--/--/--");
 const handleDateSelectionStart = (event:CustomEvent) => {
   setSelectdateStart(event.detail.value);
 }
-const[selectDateEnd,setSelectdateEnd] = useState("");
+const[selectDateEnd,setSelectdateEnd] = useState("--/--/--");
 const handleDateSelectionEnd = (event:CustomEvent) => {
   setSelectdateEnd(event.detail.value);
 }
-
-
+/*formatação das datas 
+const formattedDataStart = format(parseISO(selectDateStart), "dd/MM/yyyy");
+const formattedDataEnd = format(parseISO(selectDateEnd), "dd/MM/yyyy");
+*/
 return (
 <>
-<IonPage onLoad={()=>{fetchdata(location.state.id)}}>
+<IonPage onLoad={()=>{fetchData(location.state.id)}}>
   <IonHeader>
     <IonToolbar>
-      <IonButtons slot="start">
-          <IonBackButton></IonBackButton>
+      <IonButtons slot="start" >
+          <IonBackButton defaultHref="/Login"></IonBackButton>
       </IonButtons>
       <div className="title-icon">
       <img src = "/logo2.png"></img>
@@ -65,11 +102,11 @@ return (
   <IonContent className="background-received">
     <IonGrid className='gridReceived'>
       <h1>Recebimentos</h1>
-      <IonButton size='default' id="Data" expand="block" fill='clear'>
+      <IonButton size='default' id="DataStart" expand="block" fill='clear'>
         Data inicial: {selectDateStart}
-        <IonIcon icon={calendarOutline}></IonIcon>
+        <IonIcon slot="end" color="primary" icon={calendarOutline}></IonIcon>
       </IonButton>
-      <IonModal id="selectdate" trigger="Data">
+      <IonModal id="selectdateStart" trigger="DataStart">
         <IonContent>
           <IonDatetime
             onIonChange={handleDateSelectionStart}
@@ -85,7 +122,7 @@ return (
 
       <IonButton size='default' id="DataEnd" expand="block" fill='clear'>
         Data final: {selectDateEnd}
-        <IonIcon icon={calendarOutline}></IonIcon>
+        <IonIcon slot='end' color="primary"  icon={calendarOutline}></IonIcon>
       </IonButton>
       <IonModal id="selectdateEnd" trigger="DataEnd">
         <IonContent>
@@ -145,7 +182,14 @@ return (
             </IonCardHeader>
             <div className='cartao'>
               <IonCardContent>
-              <IonText>cartao</IonText>
+                <IonList>
+                  {ExtractData.map((ext, index) => (
+                      <IonItem key={index}>
+                        <IonLabel>{ext.date} {ext.value}</IonLabel>
+                        <IonLabel>{ext.type} {ext.desc}</IonLabel>
+                      </IonItem>
+                    ))}
+                </IonList>
               </IonCardContent>
             </div>
 
@@ -166,10 +210,6 @@ return (
         </IonCard>
         </IonCol>
     </IonRow>
-
-    
-  
-   
     </IonGrid>
   </IonContent>
 </IonPage>

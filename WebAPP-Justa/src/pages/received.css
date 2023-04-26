@@ -11,7 +11,7 @@
   max-width: 600px;
   margin: auto;
   margin-top: 40px;
-  padding: 20px;
+  padding: 0px;
   border: 1px solid #ddd;
   border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -25,27 +25,30 @@
   text-align: center;
 }
 /*Seleção de data*/
-.gridReceived ion-button#Data{
+.gridReceived ion-button#DataStart{
   margin-top: 20px;
   text-align: left;
-  width: 100%;
-  max-width: 400px;
+  width: 60%;
+  max-width: 300px;
   background:#ffffff;
+  margin-left: 15px;
+  --color: #6d6d6d;
 }
 .gridReceived ion-button#DataEnd{
-  margin-top: 20px;
-  text-align: left;
-  width: 100%;
-  max-width: 400px;
+  margin-top: 10px;
+  width: 60%;
+  max-width: 300px;
   background:#ffffff;
+  margin-left: 15px;
+  --color: #6d6d6d;
 }
-ion-modal#selectdate{
+ion-modal#selectdateStart{
   --width:100%;
   --max-width: 350px;
   --height: 100%;
   --max-height: 550px;
-
 }
+
 ion-modal#selectdateEnd{
   --width:100%;
   --max-width: 350px;
@@ -53,6 +56,7 @@ ion-modal#selectdateEnd{
   --max-height: 550px;
 
 }
+
 /*segment*/
 .gridReceived ion-segment{
   margin-top: 20px;
