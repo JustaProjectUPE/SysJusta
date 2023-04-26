@@ -1,26 +1,22 @@
 import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonNavLink, IonPage, IonRow, IonSelect, IonSelectOption, IonToolbar } from '@ionic/react';
 import './Register.css'
-import {peopleOutline, pricetagsOutline } from 'ionicons/icons';
+import {peopleOutline, pricetagsOutline, arrowBackOutline } from 'ionicons/icons';
 import { To, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const Register: React.FC = () => {
-  const location = useLocation();
+  const {state} = useLocation();
   const navigate = useNavigate();
-  console.log(location.state)
-
-  function handleGoBack() {
-    navigate('/signin', {replace: true, state:{id:location.state.id, loyalty:location.state.loyalty}});
-  }
+  console.log(state)
   
     return (
       <IonPage>
         <IonHeader>
             <section className="register-header">
           <IonToolbar>
-          <IonButtons slot="start" onClick={()=>handleGoBack()}>
-            <IonBackButton defaultHref="/signin"></IonBackButton>
-          </IonButtons>
+          <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+            <IonIcon icon={arrowBackOutline}></IonIcon>
+          </IonButton>
           <div className="register-title">
             <img src = "/logo2.png"></img>
           </div>
@@ -36,7 +32,7 @@ const Register: React.FC = () => {
                 <IonRow>
                   <IonCol size-sm="6" size="6"  class="ion-text-center">
                   <IonNavLink routerDirection="forward" component={() => <Register />}>
-                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/registerproduct'onClick={()=>navigate('/registerproduct', {replace: true, state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+                      <IonButton id="product-button" fill="solid" expand="block" size="large" routerLink='/registerproduct'onClick={()=>navigate('/registerproduct', {state:{id:state.id, loyalty:state.loyalty}})}>
                         <IonIcon icon={pricetagsOutline}></IonIcon>
                       </IonButton>
                   </IonNavLink>

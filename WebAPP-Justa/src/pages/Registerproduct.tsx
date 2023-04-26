@@ -2,6 +2,7 @@ import { IonContent, IonHeader, IonPage, IonToolbar, IonLabel, IonItem, IonInput
 import './Registerproduct.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { arrowBackOutline } from 'ionicons/icons'
 import axios from 'axios';
 
 interface prodType {
@@ -41,17 +42,13 @@ const Registerproduct: React.FC = () => {
     }
   }
 
-  function handleGoBack() {
-    navigate('/register', {state:{id:location.state.id, loyalty:location.state.loyalty}});
-  }
-
   return (
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start" onClick={()=>handleGoBack()}>
-            <IonBackButton defaultHref="/register"></IonBackButton>
-          </IonButtons>
+        <IonButton fill='clear' onClick={()=>navigate('/register', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+          <IonIcon icon={arrowBackOutline}></IonIcon>
+        </IonButton>
           <div className="titleicon">
             <img src = "/logo2.png"></img>
           </div>

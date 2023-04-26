@@ -23,6 +23,7 @@ const Signin = () =>{
   const [clientData, setClientData] = useState<ClientData>({ name: "", surname: ""});
   const location = useLocation();
   const navigate = useNavigate();
+  console.log(location.state)
 
   async function fetchData(client_tolken: number) {
     try{
