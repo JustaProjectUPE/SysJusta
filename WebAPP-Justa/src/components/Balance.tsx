@@ -13,7 +13,7 @@ export const Balance = ({balance}:any) => {
         <IonCard>
             <IonCardHeader>
                 <IonCardTitle>SALDO ATUAL</IonCardTitle>
-                <IonCardTitle class="balance-future">Recebiveis</IonCardTitle>
+                <IonCardTitle class="balance-future">Recebíveis</IonCardTitle>
                 <IonCardSubtitle>{Number(balance).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</IonCardSubtitle>
                 <IonCardSubtitle class="balance-future">R${futuros.toFixed(2)}</IonCardSubtitle>
             </IonCardHeader>

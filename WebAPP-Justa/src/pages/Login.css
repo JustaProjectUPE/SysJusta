@@ -1,9 +1,32 @@
-main h1{
+.signin-grid h1{
     margin: auto;
     padding-top: 3vh;
     padding-bottom: 3vh;
+    padding-left: 2vh;
     font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
     color: #0071B8;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.signin-back{
+    --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
+    background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
+    background-size: cover;
+}
+
+.signin-grid{
+    max-width: 600px;
+    margin: auto;
+    padding: auto;
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #EDEDF4;
+
+    align-items: center;
 }
 
 .body-menu{
@@ -120,22 +143,16 @@ main h1{
     margin-left: 10px;
 }
 
-main{
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    flex-direction: column;
-    width: 30vw;
-}
-
-main > ion-card{
-    width: 30vw !important;
-}
-
 .products-sec ion-title{
-    font-size: 2em;
+    font-size: 1.6em;
     text-align: left;
     padding-top: 4vh;
+}
+
+.products-sec{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .products{
@@ -149,8 +166,9 @@ main > ion-card{
 }
 
 .product-button{
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
+    justify-content: center;
 
 }
 
@@ -158,6 +176,23 @@ main > ion-card{
     text-align: center;
     font-size: 7.5pt;
     width: 60px;
+}
+
+.card-loyalty{
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+
+}
+
+.card-loyalty ion-button{
+    font-size: .9rem;
+    color: #38A047;
+    padding-top: 5px;
+}
+
+.card-loyalty ion-card-title{
+    color: #002E5D;
 }
 
 @media screen and (max-width:900px) {

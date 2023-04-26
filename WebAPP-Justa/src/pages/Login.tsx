@@ -1,4 +1,4 @@
-import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon, IonSearchbar, IonMenuToggle, IonNavLink } from "@ionic/react";
+import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon, IonSearchbar, IonMenuToggle, IonNavLink, IonGrid, IonRow, IonCol, IonCardContent } from "@ionic/react";
 import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, hourglassOutline, statsChartOutline, shuffleOutline, addCircleOutline} from "ionicons/icons";
 import './Login.css'
 import { Balance } from "../components/Balance";
@@ -79,8 +79,8 @@ const Signin = () =>{
           </section>
           <IonContent className="body-menu">
             <IonList className="options-menu">
-            <IonMenuToggle auto-hide="false">
-            <IonNavLink routerDirection="forward" component={() => <Mybenefits />}>
+              <IonMenuToggle auto-hide="false">
+                <IonNavLink routerDirection="forward" component={() => <Mybenefits />}>
                         <IonItem lines="full">
                             <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/mybenefits', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
                                 <span>
@@ -199,7 +199,6 @@ const Signin = () =>{
                 </IonItem>
                 </IonNavLink>
               </IonMenuToggle>
-
             </IonList>
           </IonContent>
           </IonMenu>
@@ -216,22 +215,31 @@ const Signin = () =>{
               </div>
             </IonToolbar>
           </IonHeader>
-          <IonContent>
-            <main>
+          <IonContent className="signin-back">
+            <IonGrid className="signin-grid">
+              <IonRow class="ion-justify-content-center">
               <h1>Seja bem-vindo, {clientData["name"]}!</h1>
-              <IonCard>
+                <IonCol size="11">
+              <IonCard className="card-loyalty">
+                <img src="./card1.jpg"></img>
                 <IonCardHeader>
                   <IonCardSubtitle>Nível de lealdade: {location.state.loyalty}</IonCardSubtitle>
                   <IonCardTitle>{checkLevel(location.state.loyalty)}</IonCardTitle>
-                  <IonButton fill="clear" onClick={()=>navigate('/mybenefits', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
-                    Acesse os benefícios
+                  <IonButton className="button-loyalty" fill="clear" onClick={()=>navigate('/mybenefits', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
+                    <IonLabel>Acesse os benefícios</IonLabel>
                     <IonIcon icon={arrowForwardOutline} slot="end"></IonIcon>
                   </IonButton>
                 </IonCardHeader>
               </IonCard>
+              </IonCol>
+              </IonRow>
+              <IonRow class="ion-justify-content-center">
+                <IonCol size="12">
               <Balance balance={clientData["finance"]}/>
               <section className="products-sec">
-                <IonTitle >Produtos</IonTitle>
+                <IonTitle>
+                  Serviços
+                  </IonTitle>
                 <div className='products'>
                   <div>
                     <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/received', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
@@ -271,7 +279,9 @@ const Signin = () =>{
                   </div>
                 </div>
               </section>
-            </main>
+              </IonCol>
+              </IonRow>
+              </IonGrid>
           </IonContent>
         </IonPage>
       </>

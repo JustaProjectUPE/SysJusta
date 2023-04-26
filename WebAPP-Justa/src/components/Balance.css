@@ -1,5 +1,9 @@
 .balance-sec > ion-card{
   width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 7px;
+  background-image: linear-gradient(to right,  #499BDD, #2A6D9E);
 }
 
 .balance-sec > ion-card > ion-card-header{
@@ -7,8 +11,16 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.balance-sec ion-card-title{
+  color:#C9C9C9;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+
 .balance-sec > ion-card > ion-card-header > ion-card-subtitle{
   font-size: 2em;
+  color:white;
+  font-weight: bold;
 }
 
 .balance-future{
