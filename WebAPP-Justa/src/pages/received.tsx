@@ -74,23 +74,19 @@ async function fetchData(client_tolken: number) {
 }
 
 /seleção de datas/
-const [selectDateStart,setSelectdateStart] = useState("--/--/--");
+const [selectDateStart,setSelectdateStart] = useState("2022-01-01T00:06:00");
 const handleDateSelectionStart = (event:CustomEvent) => {
   setSelectdateStart(event.detail.value);
 }
-const[selectDateEnd,setSelectdateEnd] = useState("--/--/--");
+const[selectDateEnd,setSelectdateEnd] = useState("2022-09-01T00:06:00");
 const handleDateSelectionEnd = (event:CustomEvent) => {
   setSelectdateEnd(event.detail.value);
 }
-/*
-function formattedDate (data:string){
-  data = format(parseISO(data), "dd/MM/yyyy");
-  return data;
-}*/
-/*formatação das datas 
+
+/*formatação das datas */
 const formattedDataStart = format(parseISO(selectDateStart), "dd/MM/yyyy");
 const formattedDataEnd = format(parseISO(selectDateEnd), "dd/MM/yyyy");
-*/
+
 
 return (
 <>
@@ -109,7 +105,7 @@ return (
     <IonGrid className='gridReceived'>
       <h1>Recebimentos</h1>
       <IonButton size='default' id="DataStart" expand="block" fill='clear'>
-        Data inicial: {selectDateStart}
+        Data inicial: {formattedDataStart}
         <IonIcon slot="end" color="primary" icon={calendarOutline}></IonIcon>
       </IonButton>
       <IonModal id="selectdateStart" trigger="DataStart">
@@ -127,7 +123,7 @@ return (
       </IonModal>
 
       <IonButton size='default' id="DataEnd" expand="block" fill='clear'>
-        Data final: {selectDateEnd}
+        Data final: {formattedDataEnd}
         <IonIcon slot='end' color="primary"  icon={calendarOutline}></IonIcon>
       </IonButton>
       <IonModal id="selectdateEnd" trigger="DataEnd">
