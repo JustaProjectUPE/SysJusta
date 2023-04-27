@@ -10,14 +10,14 @@ const Register: React.FC = () => {
     return (
       <IonPage>
         <IonHeader>
-          <section className="register-header">
-            <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+          <IonToolbar>
+            <IonButton slot="start" fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
               <IonIcon icon={arrowBackOutline}></IonIcon>
             </IonButton>
             <div className="register-title">
               <img src = "/logo2.png"></img>
             </div>
-          </section>
+            </IonToolbar>
         </IonHeader>
         <IonContent className="background-forgotpass">
           <div className="register-section ion-padding">

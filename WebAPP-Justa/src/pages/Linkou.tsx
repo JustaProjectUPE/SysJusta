@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonInput, IonButton, IonHeader, IonGrid, IonRow, IonCol, IonLabel, IonCardContent, IonCard, IonItem, IonIcon } from '@ionic/react';
+import { IonContent, IonPage, IonInput, IonButton, IonHeader, IonGrid, IonRow, IonCol, IonLabel, IonCardContent, IonCard, IonItem, IonIcon, IonToolbar } from '@ionic/react';
 import { arrowBackOutline } from 'ionicons/icons';
 import './Linkou.css'
 import ReactInputMask from 'react-input-mask';
@@ -22,13 +22,13 @@ const GeneratePaymentLinkPage = () => {
     <IonPage>
       <IonHeader>
         <section className="register-header">
-          <IonButton  fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+          <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
             <IonIcon icon={arrowBackOutline}></IonIcon>
           </IonButton>
           <div className="register-title">
             <img src = "/logo2.png"></img>
           </div>
-        </section>
+          </IonToolbar>
       </IonHeader>
 
       <IonContent className='linkou-form'>
@@ -40,11 +40,11 @@ const GeneratePaymentLinkPage = () => {
                 <IonCardContent>
                 <IonItem>
                 <IonLabel position="floating">Valor</IonLabel>
-                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonChange={(e:any) => setAmount(e.detail.value!)}></IonInput>
+                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonChange={(e) => setAmount(e.detail.value!)}></IonInput>
                 </IonItem>
                 <IonItem>
                 <IonLabel position="floating">Descrição</IonLabel>
-                <IonInput color="medium"  min="0" clearInput={true} type="text" onIonChange={(e:any) => setDescription(e.detail.value!)}></IonInput>
+                <IonInput color="medium"min="0" clearInput={true} type="number" onIonChange={(e) => setDescription(e.detail.value!)}></IonInput>
                 </IonItem>
                 </IonCardContent>
               </IonCard>
