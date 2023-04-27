@@ -8,13 +8,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 let quantidade = 10, valorTotal=1;
 
-var btnC:any = document.querySelector("#button-cartao");
-var dadosCar:any = document.querySelector(".cartao");
-var btnB:any = document.querySelector("#button-bol");
-var dadosBol:any = document.querySelector(".boleto");
-var btnT:any = document.querySelector("#button-trans");
-var dadosTrans:any = document.querySelector(".transferencia");
-
 interface TotalExtract {
   date: string;
   desc: string;
@@ -23,8 +16,15 @@ interface TotalExtract {
 }
 
 const Received: React.FC = () => {
+  var btnC:any = document.querySelector("#button-cartao");
+var dadosCar:any = document.querySelector(".cartao");
+var btnB:any = document.querySelector("#button-bol");
+var dadosBol:any = document.querySelector(".boleto");
+var btnT:any = document.querySelector("#button-trans");
+var dadosTrans:any = document.querySelector(".transferencia");
 
-/*funções para mostrar card dependendo a seleção do usuario*/
+
+/funções para mostrar card dependendo a seleção do usuario/
 function showCar () {
   btnC.addEventListener("click", function(){
     dadosCar.style.display = "block";
@@ -47,7 +47,7 @@ function showTransf () {
   });
 }
 
-/*Conexão com back*/
+/Conexão com back/
 const [ExtractData, setExtractData] = useState<TotalExtract[]>([]);
 const location = useLocation();
 const {state} = useLocation();
@@ -73,7 +73,7 @@ async function fetchData(client_tolken: number) {
   }
 }
 
-/*seleção de datas*/
+/seleção de datas/
 const [selectDateStart,setSelectdateStart] = useState("--/--/--");
 const handleDateSelectionStart = (event:CustomEvent) => {
   setSelectdateStart(event.detail.value);
@@ -82,10 +82,16 @@ const[selectDateEnd,setSelectdateEnd] = useState("--/--/--");
 const handleDateSelectionEnd = (event:CustomEvent) => {
   setSelectdateEnd(event.detail.value);
 }
+/*
+function formattedDate (data:string){
+  data = format(parseISO(data), "dd/MM/yyyy");
+  return data;
+}*/
 /*formatação das datas 
 const formattedDataStart = format(parseISO(selectDateStart), "dd/MM/yyyy");
 const formattedDataEnd = format(parseISO(selectDateEnd), "dd/MM/yyyy");
 */
+
 return (
 <>
 <IonPage onLoad={()=>{fetchData(location.state.id)}}>
@@ -171,7 +177,6 @@ return (
 
     <IonRow>
       <IonCol size="12">
-        
           <IonCard>
             <IonCardHeader>
               <IonCardTitle color="medium" >Extrato</IonCardTitle>
@@ -181,33 +186,63 @@ return (
                   <IonCardSubtitle color="dark" >DESCRIÇÃO </IonCardSubtitle>
                 </div>
             </IonCardHeader>
+
             <div className='cartao'>
-              <IonCardContent>
+            <IonCardContent>
                 <IonList>
-                  {ExtractData.map((ext, index) => (
-                    <IonItem key={index}>
-                      <IonLabel>{ext.date}</IonLabel>
-                      <IonLabel>R$ {ext.value}</IonLabel>
-                      <IonLabel>{ext.desc}</IonLabel>
-                    </IonItem>
-                    ))}
+                  {ExtractData.map((ext, index) => {
+                    if(ext.type == 1){
+                      return(
+                      <IonItem key={index}>
+                        <IonLabel>{ext.date}</IonLabel>
+                        <IonLabel>R$ {ext.value}</IonLabel>
+                        <IonLabel>{ext.desc}</IonLabel>
+                      </IonItem>
+                  )
+                }
+                return null;
+                })}
                 </IonList>
               </IonCardContent>
             </div>
 
             <div className='boleto'>
-              <IonCardContent>
-              <IonText>boleto</IonText>
+            <IonCardContent>
+                <IonList>
+                  {ExtractData.map((ext, index) => {
+                    if(ext.type == 2){
+                      return(
+                      <IonItem key={index}>
+                        <IonLabel>{ext.date}</IonLabel>
+                        <IonLabel>R$ {ext.value}</IonLabel>
+                        <IonLabel>{ext.desc}</IonLabel>
+                      </IonItem>
+                  )
+                }
+                return null;
+                })}
+                </IonList>
               </IonCardContent>
             </div>
 
             <div className='transferencia'>
-              <IonCardContent>
-                <IonText>transferencia</IonText>
+            <IonCardContent>
+                <IonList>
+                  {ExtractData.map((ext, index) => {
+                    if(ext.type == 3){
+                      return(
+                      <IonItem key={index}>
+                        <IonLabel>{ext.date}</IonLabel>
+                        <IonLabel>R$ {ext.value}</IonLabel>
+                        <IonLabel>{ext.desc}</IonLabel>
+                      </IonItem>
+                  )
+                }
+                return null;
+                })}
+                </IonList>
               </IonCardContent>
             </div>
-
-
 
         </IonCard>
         </IonCol>
