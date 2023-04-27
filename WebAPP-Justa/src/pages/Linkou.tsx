@@ -46,7 +46,7 @@ const GeneratePaymentLinkPage = () => {
                 </IonItem>
                 </IonCardContent>
               </IonCard>
-        <IonButton onClick={generatePaymentLink}>Gerar link de pagamento</IonButton>
+        <IonButton className='buttonLINK' onClick={generatePaymentLink}>Gerar link de pagamento</IonButton>
         {paymentLink && (
           <div>
             <p>Aqui está o seu link de pagamento:</p>
