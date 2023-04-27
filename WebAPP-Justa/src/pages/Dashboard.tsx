@@ -213,6 +213,9 @@ const Signin = () =>{
               <div className="titleicon">
                 <img src = "/logo2.png"></img>
               </div>
+              <IonButton slot="end" className="logout-general" fill="clear" routerLink="/home">
+                    <IonIcon icon={logOutOutline} slot="start"></IonIcon> Sair
+                  </IonButton>
             </IonToolbar>
           </IonHeader>
           <IonContent className="signin-back">
@@ -221,7 +224,9 @@ const Signin = () =>{
               <h1>Seja bem-vindo, {clientData["name"]}!</h1>
                 <IonCol size="11">
               <IonCard className="card-loyalty">
+                <div className="loyalty-image">
                 <img src="./card1.jpg"></img>
+                </div>
                 <IonCardHeader>
                   <IonCardSubtitle>Nível de lealdade: {location.state.loyalty}</IonCardSubtitle>
                   <IonCardTitle>{checkLevel(location.state.loyalty)}</IonCardTitle>

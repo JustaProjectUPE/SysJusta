@@ -90,14 +90,14 @@ return (
 <>
 <IonPage onLoad={()=>{fetchData(location.state.id)}}>
   <IonHeader>
-    <section className="register-header">
-      <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+    <IonToolbar>
+      <IonButton fill='clear' slot = "start" onClick={()=>navigate('/signin', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
         <IonIcon icon={arrowBackOutline}></IonIcon>
       </IonButton>
       <div className="titleicon">
         <img src = "/logo2.png"></img>
       </div>
-    </section>
+      </IonToolbar>
   </IonHeader>
   <IonContent className="background-received">
     <IonGrid className='gridReceived'>
@@ -146,7 +146,7 @@ return (
         <IonLabel>Boleto</IonLabel>
       </IonSegmentButton>
       <IonSegmentButton id="button-trans" value="Transferencia" onClick={() => showTransf()}>
-        <IonLabel>Transferencia</IonLabel>
+        <IonLabel>Transferência</IonLabel>
       </IonSegmentButton>
     </IonSegment>
     
@@ -176,18 +176,20 @@ return (
             <IonCardHeader>
               <IonCardTitle color="medium" >Extrato</IonCardTitle>
                 <div className='informacao'>
+                <IonCardSubtitle color="dark" > DATA</IonCardSubtitle>
+                <IonCardSubtitle color="dark" >VALOR LÍQUIDO </IonCardSubtitle>
                   <IonCardSubtitle color="dark" >DESCRIÇÃO </IonCardSubtitle>
-                  <IonCardSubtitle color="dark" >VALOR LÍQUIDO </IonCardSubtitle>
                 </div>
             </IonCardHeader>
             <div className='cartao'>
               <IonCardContent>
                 <IonList>
                   {ExtractData.map((ext, index) => (
-                      <IonItem key={index}>
-                        <IonLabel>{ext.date} {ext.value}</IonLabel>
-                        <IonLabel>{ext.type} {ext.desc}</IonLabel>
-                      </IonItem>
+                    <IonItem key={index}>
+                      <IonLabel>{ext.date}</IonLabel>
+                      <IonLabel>R$ {ext.value}</IonLabel>
+                      <IonLabel>{ext.desc}</IonLabel>
+                    </IonItem>
                     ))}
                 </IonList>
               </IonCardContent>

@@ -24,19 +24,22 @@ const Simulator: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+        <div className="titleicon">
+          <img src = "/logo2.png"></img>
+        </div>
         <IonButton slot="start" fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
             <IonIcon icon={arrowBackOutline}></IonIcon>
           </IonButton>
-          <IonTitle className='page-title'>Simulador de Vendas</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="simulator-content">
         <IonGrid className='form'>
           <IonRow>
+          <IonLabel id="titulo-simulator">Simulador de Vendas</IonLabel>
             <IonCol size="12">
               <IonCard>
                 <IonCardHeader>
-                  <IonCardTitle>Valores</IonCardTitle>
+                  <IonCardTitle>Parâmetros</IonCardTitle>
                 </IonCardHeader>
                 <IonCardContent>
                   <IonItem className='form-input'>
@@ -70,6 +73,7 @@ const Simulator: React.FC = () => {
               </IonCard>
             </IonCol>
           </IonRow>
+          <IonButton className='form-button' onClick={() => calcularParcelas(valorTotal, valorRecebido, valorAPagar, parcelas)}>Calcular parcelas</IonButton>
           <IonRow>
             <IonCol size="12">
               <IonCard>
@@ -81,15 +85,6 @@ const Simulator: React.FC = () => {
                     <IonLabel>Valor da parcela</IonLabel>
                     <IonLabel>{valorParcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</IonLabel>
                   </IonItem>
-                </IonCardContent>
-              </IonCard>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol size="12">
-              <IonCard>
-                <IonCardContent className='form-button'>
-                  <button onClick={() => calcularParcelas(valorTotal, valorRecebido, valorAPagar, parcelas)}>Calcular parcelas</button>
                 </IonCardContent>
               </IonCard>
             </IonCol>

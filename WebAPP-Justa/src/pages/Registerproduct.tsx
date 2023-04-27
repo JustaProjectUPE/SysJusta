@@ -45,14 +45,14 @@ const Registerproduct: React.FC = () => {
   return (
     <IonPage onLoad={()=>{fetchData(location.state.id)}}>
       <IonHeader>
-        <section className="register-header">
-          <IonButton fill='clear' onClick={()=>navigate('/register', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+        <IonToolbar>
+          <IonButton slot="start" fill='clear' onClick={()=>navigate('/register', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
             <IonIcon icon={arrowBackOutline}></IonIcon>
           </IonButton>
           <div className="titleicon">
             <img src = "/logo2.png"></img>
           </div>
-        </section>
+          </IonToolbar>
       </IonHeader>
       <IonContent className="register-product-content">
         <IonGrid className="register-product-section">
