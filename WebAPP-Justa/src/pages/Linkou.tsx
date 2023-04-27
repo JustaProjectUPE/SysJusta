@@ -6,8 +6,6 @@ import ReactInputMask from 'react-input-mask';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const GeneratePaymentLinkPage = () => {
-  const {state} = useLocation();
-  const navigate = useNavigate();
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [paymentLink, setPaymentLink] = useState('');
@@ -21,8 +19,8 @@ const GeneratePaymentLinkPage = () => {
   return (
     <IonPage>
       <IonHeader>
-        <section className="register-header">
-          <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+        <IonToolbar>
+          <IonButton slot='start' fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
             <IonIcon icon={arrowBackOutline}></IonIcon>
           </IonButton>
           <div className="register-title">
@@ -36,19 +34,19 @@ const GeneratePaymentLinkPage = () => {
           <IonRow>
             <IonCol size="12">
               <h1>Gerar link de pagamento</h1>
-              <IonCard className='teste'>
+              <IonCard>
                 <IonCardContent>
                 <IonItem>
                 <IonLabel position="floating">Valor</IonLabel>
-                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonChange={(e) => setAmount(e.detail.value!)}></IonInput>
+                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonInput={(e:any) => setAmount(e.detail.value!)}></IonInput>
                 </IonItem>
                 <IonItem>
                 <IonLabel position="floating">Descrição</IonLabel>
-                <IonInput color="medium"min="0" clearInput={true} type="number" onIonChange={(e) => setDescription(e.detail.value!)}></IonInput>
+                <IonInput color="medium"min="0" clearInput={true} type="number" onIonInput={(e:any) => setDescription(e.detail.value!)}></IonInput>
                 </IonItem>
                 </IonCardContent>
               </IonCard>
-        <IonButton className='buttonLINK' onClick={generatePaymentLink}>Gerar link de pagamento</IonButton>
+        <IonButton onClick={generatePaymentLink}>Gerar link de pagamento</IonButton>
         {paymentLink && (
           <div>
             <p>Aqui está o seu link de pagamento:</p>
