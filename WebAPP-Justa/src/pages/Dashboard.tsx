@@ -1,5 +1,5 @@
 import { IonButtons,IonItem, IonList, IonLabel, IonAvatar, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonIcon, IonSearchbar, IonMenuToggle, IonNavLink, IonGrid, IonRow, IonCol, IonCardContent } from "@ionic/react";
-import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, hourglassOutline, statsChartOutline, shuffleOutline, addCircleOutline} from "ionicons/icons";
+import { arrowForwardOutline, notificationsOutline, settingsOutline, logOutOutline, calendarOutline, barcodeOutline, sendOutline, cardOutline, calculatorOutline, trophyOutline, hourglassOutline, statsChartOutline, shuffleOutline, addCircleOutline, cashOutline} from "ionicons/icons";
 import './Dashboard.css'
 import { Balance } from "../components/Balance";
 import { useState } from "react";
@@ -96,8 +96,8 @@ const Signin = () =>{
                         <IonItem lines="full">
                             <IonButton fill="clear" class="menu-button" onClick={()=>navigate('/received', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
                                 <span>
-                                <IonIcon icon={calendarOutline}></IonIcon>
-                                <IonLabel>Agenda de Recebíveis</IonLabel>
+                                <IonIcon icon={cashOutline}></IonIcon>
+                                <IonLabel>Recebimentos</IonLabel>
                                 </span>
                             </IonButton>
                         </IonItem>
@@ -249,9 +249,9 @@ const Signin = () =>{
                 <div className='products'>
                   <div>
                     <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/received', {replace: true, state:{id:location.state.id, loyalty: location.state.loyalty}})}>
-                      <IonIcon slot='icon-only' icon={calendarOutline}></IonIcon>
+                      <IonIcon slot='icon-only' icon={cashOutline}></IonIcon>
                     </IonButton>
-                    <p className="product-label">Agenda de Recebíveis</p>
+                    <p className="product-label">Recebimentos</p>
                   </div>
                   <div>
                     <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/register', {replace: true, state:{id:location.state.id, loyalty:location.state.loyalty}})}>
@@ -260,7 +260,7 @@ const Signin = () =>{
                     <p className="product-label">Cadastros</p>
                   </div>
                   <div>
-                    <IonButton className="product-button" shape='round' size='large'>
+                    <IonButton className="product-button" shape='round' size='large' onClick={()=>navigate('/simulator', {replace: true, state:{id: location.state.id, loyalty: location.state.loyalty}})}>
                       <IonIcon slot='icon-only' icon={calculatorOutline}></IonIcon>
                     </IonButton>
                     <p className="product-label">Simulador de Vendas</p>

@@ -36,7 +36,8 @@ const GeneratePaymentLinkPage = () => {
         <IonGrid className="linkou-section">
           <IonRow>
             <IonCol size="12">
-              <h1>Gerar link de pagamento</h1>
+              <h1>Linkou</h1>
+              <p>Insira as informações abaixo para gerar um link de pagamento.</p>
               <IonCard>
                 <IonCardContent>
                 <IonItem>
@@ -49,7 +50,7 @@ const GeneratePaymentLinkPage = () => {
                 </IonItem>
                 </IonCardContent>
               </IonCard>
-        <IonButton className='buttonLINK' onClick={generatePaymentLink}>Gerar link de pagamento</IonButton>
+        <IonButton id='buttonLINK' onClick={generatePaymentLink}>Gerar link de pagamento</IonButton>
         {paymentLink && (
           <div>
             <p>Aqui está o seu link de pagamento:</p>

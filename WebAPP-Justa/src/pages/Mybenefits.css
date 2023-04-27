@@ -1,7 +1,8 @@
 #subtitle-benefits{
-    font-size: 20px;
+    font-size: 1.2rem;
     color: #0E4EAD;
     font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .benefits-content{
@@ -22,10 +23,11 @@
 }
 .benefits-section h1{
     margin-top: 20px;
-    font-size: 1.6 rem;
+    font-size: 1.6rem;
     font-weight: bolder;
     color: #0071B8;
     text-align: center;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .benefits-section p{
@@ -34,10 +36,10 @@
 }
 
 .benefits-section ion-card-title{
-    font-size: 1.2 rem;
-    font-weight: bolder;
+    font-size: 1.2rem;
     color: #0071B8;
     text-align: center;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .benefits-content ion-progress-bar{

@@ -28,6 +28,7 @@
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
   }
   
   /* Estilos para os rótulos */
@@ -41,6 +42,8 @@
 
   .form ion-card-title{
     color: #0071B8;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
   }
   
   /* Estilos para as entradas */

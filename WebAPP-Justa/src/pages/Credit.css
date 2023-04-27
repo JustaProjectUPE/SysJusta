@@ -28,21 +28,23 @@
 
 .credit-content .card-principal ion-card-title{
     margin-top: 10px;
-    font-size: 1.6 rem;
+    font-size: 1.6rem;
     font-weight: bolder;
-    color: white;
+    color: #C9C9C9;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .credit-content .card-principal ion-card-subtitle{
     margin-top: 10px;
-    font-size: 27px;
+    font-size: 1.8rem;
     font-weight: bolder;
     color: #EDEDF4;
+    font-family: 'Quicksand', sans-serif;
 }
 .credit-content .card-principal h2{
     margin-top: 25px;
     margin-bottom: 0px;
     font-size: 20px;
-    font-weight: bolder;
     color: #0071B8;
+    font-family: 'Quicksand', sans-serif;
 }
