@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonItem, IonButton, IonIcon, IonList, IonCardContent, IonCard, IonCol, IonRow, IonGrid, IonCardHeader, IonCardTitle, IonCardSubtitle} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonItem, IonButton, IonIcon, IonList, IonCardContent, IonCard, IonCol, IonRow, IonGrid, IonCardHeader, IonCardTitle, IonCardSubtitle, IonToolbar} from '@ionic/react';
 import './Signup.css';
 import './Credit.css';
 import { arrowBackOutline } from 'ionicons/icons';
@@ -10,14 +10,14 @@ const Credit: React.FC = () => {
   return (
 <IonPage>
       <IonHeader>
-        <section className="register-header">
-          <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+        <IonToolbar>
+          <IonButton slot="start" fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
             <IonIcon icon={arrowBackOutline}></IonIcon>
           </IonButton>
           <div className="register-title">
             <img src = "/logo2.png"></img>
           </div>
-        </section>
+          </IonToolbar>
       </IonHeader>
       <IonContent className="credit-content">
         <IonGrid className="credit-section">

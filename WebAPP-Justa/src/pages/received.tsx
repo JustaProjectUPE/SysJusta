@@ -90,14 +90,14 @@ return (
 <>
 <IonPage onLoad={()=>{fetchData(location.state.id)}}>
   <IonHeader>
-    <section className="register-header">
-      <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
+    <IonToolbar>
+      <IonButton fill='clear' slot = "start" onClick={()=>navigate('/signin', {state:{id:location.state.id, loyalty:location.state.loyalty}})}>
         <IonIcon icon={arrowBackOutline}></IonIcon>
       </IonButton>
       <div className="titleicon">
         <img src = "/logo2.png"></img>
       </div>
-    </section>
+      </IonToolbar>
   </IonHeader>
   <IonContent className="background-received">
     <IonGrid className='gridReceived'>

@@ -4,7 +4,9 @@
 }
 /*cor do content*/
 .background-received{
-  --background: #EDEDF4;
+  --background: url(../assets/img/background-login.jpg) no-repeat cover fixed center;
+  background: url(../assets/img/background-login.jpg) no-repeat fixed center; 
+  background-size: cover;
 }
 
 .gridReceived{

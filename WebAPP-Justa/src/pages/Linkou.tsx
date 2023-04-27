@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonInput, IonButton, IonHeader, IonGrid, IonRow, IonCol, IonLabel, IonCardContent, IonCard, IonItem, IonIcon } from '@ionic/react';
+import { IonContent, IonPage, IonInput, IonButton, IonHeader, IonGrid, IonRow, IonCol, IonLabel, IonCardContent, IonCard, IonItem, IonIcon, IonToolbar } from '@ionic/react';
 import { arrowBackOutline } from 'ionicons/icons';
 import './Linkou.css'
 import ReactInputMask from 'react-input-mask';
@@ -21,14 +21,14 @@ const GeneratePaymentLinkPage = () => {
   return (
     <IonPage>
       <IonHeader>
-        <section className="register-header">
-          <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+        <IonToolbar>
+          <IonButton slot="start" fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
             <IonIcon icon={arrowBackOutline}></IonIcon>
           </IonButton>
           <div className="register-title">
             <img src = "/logo2.png"></img>
           </div>
-        </section>
+          </IonToolbar>
       </IonHeader>
 
       <IonContent className='linkou-form'>
