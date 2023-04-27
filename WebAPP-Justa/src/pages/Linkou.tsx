@@ -12,9 +12,6 @@ const GeneratePaymentLinkPage = () => {
   const [description, setDescription] = useState('');
   const [paymentLink, setPaymentLink] = useState('');
 
-  const {state} = useLocation();
-  const navigate = useNavigate();
-
   const generatePaymentLink = () => {
     // Simula a geração do link de pagamento com base nos valores inseridos
     const paymentLink = `https://www.exemplo.com.br/checkout?amount=${amount}&description=${description}`;
@@ -43,11 +40,11 @@ const GeneratePaymentLinkPage = () => {
                 <IonCardContent>
                   <IonItem>
                 <IonLabel position="floating">Valor</IonLabel>
-                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonChange={(e) => setAmount(e.detail.value!)}></IonInput>
+                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonInput={(e) => setAmount(e.detail.value!)}></IonInput>
                 </IonItem>
                 <IonItem>
                 <IonLabel position="floating">Descrição</IonLabel>
-                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonChange={(e) => setDescription(e.detail.value!)}></IonInput>
+                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonInput={(e) => setDescription(e.detail.value!)}></IonInput>
                 </IonItem>
                 </IonCardContent>
               </IonCard>

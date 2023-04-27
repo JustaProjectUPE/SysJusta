@@ -41,15 +41,15 @@ const Simulator: React.FC = () => {
                 <IonCardContent>
                   <IonItem className='form-input'>
                     <IonLabel position="floating">Valor total</IonLabel>
-                    <IonInput type="number" value={valorTotal} onIonChange={e => setValorTotal(parseFloat(e.detail.value!))}></IonInput>
+                    <IonInput type="number" value={valorTotal} onIonInput={e => setValorTotal(parseFloat(e.detail.value!))}></IonInput>
                   </IonItem>
                   <IonItem>
                     <IonLabel position="floating">Valor recebido</IonLabel>
-                    <IonInput type="number" value={valorRecebido} onIonChange={e => setValorRecebido(parseFloat(e.detail.value!))}></IonInput>
+                    <IonInput type="number" value={valorRecebido} onIonInput={e => setValorRecebido(parseFloat(e.detail.value!))}></IonInput>
                   </IonItem>
                   <IonItem>
                     <IonLabel position="floating">Valor a pagar</IonLabel>
-                    <IonInput type="number" value={valorAPagar} onIonChange={e => setValorAPagar(parseFloat(e.detail.value!))}></IonInput>
+                    <IonInput type="number" value={valorAPagar} onIonInput={e => setValorAPagar(parseFloat(e.detail.value!))}></IonInput>
                   </IonItem>
                   <IonItem>
                     <IonLabel>Parcelas</IonLabel>

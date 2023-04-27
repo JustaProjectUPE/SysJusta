@@ -5,27 +5,32 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const Signup: React.FC = () => {
-  const [register, setRegister] = useState({
-    name: '',
-    surname: '',
-    birthdate: '',
-    document: '',
-    phone: '',
-    email: '',
-    login: '',
-    password: ''
-  })
+  const [name, setName] = useState("")
+  const [surname, setSurname] = useState("")
+  const [birthdate, setBirthdate] = useState("")
+  const [document, setDocument] = useState("")
+  const [phone, setPhone] = useState("")
+  const [email, setEmail] = useState("")
+  const [login, setLogin] = useState("")
+  const [password, setPassword] = useState("")
 
   async function postData(){
     try {
-     await axios.post("localhost:3000/register", register);
+     await axios.post("http://localhost:3000/register", {
+      name: name,
+      surname: surname,
+      document: document,
+      birth:birthdate,
+      cnpj:document,
+      phone:phone,
+      email: email,
+      login: login,
+      password: password
+     });
+     console.log(name, surname)
     } catch (error) {
       console.log(error);
     }
-  }
-
-  function handleChange () {
-    setRegister({...register})
   }
 
   return (
@@ -51,41 +56,41 @@ const Signup: React.FC = () => {
               <IonCard>
                 <IonCardContent>
                   <IonItem>
-                    <IonInput label="Nome" value={register.name} color="medium" clearInput={true} type="text" onIonChange={handleChange}></IonInput>
+                    <IonInput label="Nome" color="medium" clearInput={true} type="text" onIonInput={(e:any)=>{setName(e.target.value)}}></IonInput>
                   </IonItem>
                   <IonItem>
-                    <IonInput label="Sobrenome" value={register.surname} color="medium" clearInput={true} type="text" onIonChange={handleChange}></IonInput>
+                    <IonInput label="Sobrenome" color="medium" clearInput={true} type="text" onIonInput={(e:any)=>{setSurname(e.target.value)}}></IonInput>
                   </IonItem>
                   <IonItem>
                     <IonLabel position="floating">Data de Nascimento</IonLabel>
-                    <ReactInputMask value={register.birthdate} className="input-Date" mask="99/99/9999"/>
+                    <ReactInputMask value={birthdate} className="input-Date" mask="99/99/9999"/>
                   </IonItem>
                   <IonItem>
                     <IonSelect placeholder="Selecione uma opção">
                       <IonSelectOption value="1">CPF</IonSelectOption>
                       <IonSelectOption value="2">CNPJ</IonSelectOption>
                     </IonSelect>
-                    <IonInput  color="medium" value={register.document} clearInput={true} onIonChange={handleChange}></IonInput>
+                    <IonInput  color="medium" value={document} clearInput={true} onIonInput={(e:any)=>{setDocument(e.target.value)}}></IonInput>
                   </IonItem>
                   <IonItem>
                   <IonLabel position="floating">Telefone</IonLabel>
-                  <ReactInputMask value={register.phone} className="input-Telefone" mask="+99 (99) 99999-9999" />
+                  <ReactInputMask value={phone} className="input-Telefone" mask="+99 (99) 99999-9999" />
                   </IonItem>
                   <IonItem>
-                    <IonInput label="E-mail" value={register.email} onIonChange={handleChange} color="medium" clearInput={true} type="email"></IonInput>
+                    <IonInput label="E-mail" value={email} onIonInput={(e:any)=>{setEmail(e.target.value)}} color="medium" clearInput={true} type="email"></IonInput>
                   </IonItem>
                   <IonItem>
-                    <IonInput label="Login" value={register.login} onIonChange={handleChange} color="medium" clearInput={true}></IonInput>
+                    <IonInput label="Login" value={login} onIonInput={(e:any)=>{setLogin(e.target.value)}} color="medium" clearInput={true}></IonInput>
                   </IonItem>
                   <IonItem>
-                    <IonInput label="Senha" value={register.password} onIonChange={handleChange} color="medium" clearInput={true} type="password"></IonInput>
+                    <IonInput label="Senha" value={password} onIonInput={(e:any)=>{setPassword(e.target.value)}} color="medium" clearInput={true} type="password"></IonInput>
                   </IonItem>
                 </IonCardContent>
               </IonCard>
             </IonCol>
           </IonRow>
           </form>
-          <IonButton size="default" className="signup-button" onClick={postData}>Criar</IonButton>
+          <IonButton size="default" className="signup-button" onClick={()=>postData()}>Criar</IonButton>
         </IonGrid>
       </IonContent>
     </IonPage>
