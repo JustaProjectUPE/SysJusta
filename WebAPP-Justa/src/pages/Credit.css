@@ -42,9 +42,10 @@
     font-family: 'Quicksand', sans-serif;
 }
 .credit-content .card-principal h2{
-    margin-top: 25px;
-    margin-bottom: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 20px;
     color: #0071B8;
+    font-weight: bolder;
     font-family: 'Quicksand', sans-serif;
 }
