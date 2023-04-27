@@ -21,6 +21,7 @@ const Mybenefits: React.FC = () => {
   const [clientData, setClientData] = useState<ClientData>({ name: "", surname: ""});
   const {state} = useLocation();
   const navigate = useNavigate();
+  const location = useLocation();
 
   async function fetchData(client_tolken: number) {
     try{
@@ -55,7 +56,7 @@ const Mybenefits: React.FC = () => {
           </IonButton>
         <div className="titleicon">
           <img src = "/logo2.png"></img>
-        </div>
+        </div> 
       </IonToolbar>
     </IonHeader>
     <IonContent className="benefits-content">
@@ -65,7 +66,7 @@ const Mybenefits: React.FC = () => {
             <IonCol size="12">
               <IonCard>
                 <IonCardHeader>
-                  <IonCardTitle>Seu nível é: Herói Épico</IonCardTitle>
+                  <IonCardTitle>Seu nível é: {checkLevel(location.state.loyalty)}</IonCardTitle>
                 </IonCardHeader>
                 <IonCardContent>
                   <IonLabel>Faltam 54489 XP para alcançar o próximo nível.</IonLabel>
