@@ -16,39 +16,20 @@ interface TotalExtract {
 }
 
 const Received: React.FC = () => {
-  var btnC:any = document.querySelector("#button-cartao");
+var btnC:any = document.querySelector("#button-cartao");
 var dadosCar:any = document.querySelector(".cartao");
 var btnB:any = document.querySelector("#button-bol");
 var dadosBol:any = document.querySelector(".boleto");
 var btnT:any = document.querySelector("#button-trans");
 var dadosTrans:any = document.querySelector(".transferencia");
 
-
-/funções para mostrar card dependendo a seleção do usuario/
-function showCar () {
-  btnC.addEventListener("click", function(){
-    dadosCar.style.display = "block";
-    dadosBol.style.display="none";
-    dadosTrans.style.display = "none";
-  });
-}
-function showBol () {
-  btnB.addEventListener("click", function(){
-    dadosBol.style.display = "block";
-    dadosCar.style.display="none";
-    dadosTrans.style.display = "none";
-  });
-}
-function showTransf () {
-  btnT.addEventListener("click", function(){
-    dadosTrans.style.display = "block";
-    dadosCar.style.display="none";
-    dadosBol.style.display="none";
-  });
-}
+let somaCard = 0, qtdCard = 0;
+let somaBol = 0, qtdBol = 0;
+let somaTransf = 0, qtdTransf = 0;
 
 /Conexão com back/
 const [ExtractData, setExtractData] = useState<TotalExtract[]>([]);
+const [infoType, setInfoType] = useState('Cartão');
 const location = useLocation();
 const {state} = useLocation();
 const navigate = useNavigate();
@@ -71,6 +52,33 @@ async function fetchData(client_tolken: number) {
   } catch (error) {
     console.log(error)
   }
+}
+
+function handleSegmentChange(event) {
+  setInfoType(event.detail.value);
+}
+
+/funções para mostrar card dependendo a seleção do usuario/
+function showCar () {
+  btnC.addEventListener("click", function(){
+    dadosCar.style.display = "block";
+    dadosBol.style.display="none";
+    dadosTrans.style.display = "none";
+  });
+}
+function showBol () {
+  btnB.addEventListener("click", function(){
+    dadosBol.style.display = "block";
+    dadosCar.style.display="none";
+    dadosTrans.style.display = "none";
+  });
+}
+function showTransf () {
+  btnT.addEventListener("click", function(){
+    dadosTrans.style.display = "block";
+    dadosCar.style.display="none";
+    dadosBol.style.display="none";
+  });
 }
 
 /seleção de datas/
@@ -144,7 +152,7 @@ return (
         </IonContent>
       </IonModal>
       
-    <IonSegment scrollable={true} >
+    <IonSegment scrollable={true} onIonChange={handleSegmentChange} >
       <IonSegmentButton  id="button-cartao" value="Cartão" onClick={() => showCar()}>
         <IonLabel >Cartão</IonLabel>
       </IonSegmentButton>
@@ -155,21 +163,82 @@ return (
         <IonLabel>Transferência</IonLabel>
       </IonSegmentButton>
     </IonSegment>
-    
+
     <IonRow>
       <IonCol size="12">
         <IonCard>
           <IonCardContent>
+          {infoType === 'Cartão' && (
+            <>
+            {ExtractData.map((ext, index) => {
+              if(ext.type == 1){
+                somaCard += ext.value;
+                qtdCard += 1;
+                return(null);
+              }
+              return null;
+            })}
+
             <div className='informacaoGeral'>
               <div className='quantidadeTotal'>
                 <p>Quantidade de transações</p>
-                <IonTitle color='dark'>{quantidade}</IonTitle>
+                <IonTitle color='dark'>{qtdCard}</IonTitle>
               </div>
               <div className='valorTotal'>
                 <p>Valor total recebido</p>
-              <IonTitle color='dark'>R${valorTotal.toFixed(2)}</IonTitle>
+              <IonTitle color='dark'>R$ {somaCard}</IonTitle>
               </div>
             </div>
+            </>
+      )}
+
+      {infoType === 'Boleto' && (
+        <>
+        {ExtractData.map((ext, index) => {
+          if(ext.type == 2){
+            somaBol += ext.value;
+            qtdBol += 1;
+            return(null);
+          }
+          return null;
+        })}
+
+        <div className='informacaoGeral'>
+          <div className='quantidadeTotal'>
+            <p>Quantidade de transações</p>
+            <IonTitle color='dark'>{qtdBol}</IonTitle>
+          </div>
+          <div className='valorTotal'>
+            <p>Valor total recebido</p>
+          <IonTitle color='dark'>R$ {somaBol}</IonTitle>
+          </div>
+        </div>
+        </>
+      )}
+
+      {infoType === 'Transferencia' && (
+        <>
+        {ExtractData.map((ext, index) => {
+          if(ext.type == 3){
+            somaTransf += ext.value;
+            qtdTransf += 1;
+            return(null);
+          }
+          return null;
+        })}
+
+        <div className='informacaoGeral'>
+          <div className='quantidadeTotal'>
+            <p>Quantidade de transações</p>
+            <IonTitle color='dark'>{qtdTransf}</IonTitle>
+          </div>
+          <div className='valorTotal'>
+            <p>Valor total recebido</p>
+          <IonTitle color='dark'>R$ {somaTransf}</IonTitle>
+          </div>
+        </div>
+        </>
+      )}
           </IonCardContent>
         </IonCard>
       </IonCol>
@@ -224,7 +293,6 @@ return (
                 </IonList>
               </IonCardContent>
             </div>
-
             <div className='transferencia'>
             <IonCardContent>
                 <IonList>
