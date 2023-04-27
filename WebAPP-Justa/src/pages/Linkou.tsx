@@ -46,7 +46,7 @@ const GeneratePaymentLinkPage = () => {
                 </IonItem>
                 <IonItem>
                 <IonLabel position="floating">Descrição</IonLabel>
-                <IonInput color="medium"min="0" clearInput={true} type="number" onIonInput={(e:any) => setDescription(e.detail.value!)}></IonInput>
+                <IonInput color="medium" clearInput={true} type="text" onIonInput={(e:any) => setDescription(e.detail.value!)}></IonInput>
                 </IonItem>
                 </IonCardContent>
               </IonCard>
