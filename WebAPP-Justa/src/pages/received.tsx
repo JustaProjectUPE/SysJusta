@@ -6,8 +6,6 @@ import { format, parseISO} from 'date-fns';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-let quantidade = 10, valorTotal=1;
-
 interface TotalExtract {
   date: string;
   desc: string;
@@ -16,12 +14,6 @@ interface TotalExtract {
 }
 
 const Received: React.FC = () => {
-var btnC:any = document.querySelector("#button-cartao");
-var dadosCar:any = document.querySelector(".cartao");
-var btnB:any = document.querySelector("#button-bol");
-var dadosBol:any = document.querySelector(".boleto");
-var btnT:any = document.querySelector("#button-trans");
-var dadosTrans:any = document.querySelector(".transferencia");
 
 let somaCard = 0, qtdCard = 0;
 let somaBol = 0, qtdBol = 0;
@@ -56,29 +48,6 @@ async function fetchData(client_tolken: number) {
 
 function handleSegmentChange(event) {
   setInfoType(event.detail.value);
-}
-
-/funções para mostrar card dependendo a seleção do usuario/
-function showCar () {
-  btnC.addEventListener("click", function(){
-    dadosCar.style.display = "block";
-    dadosBol.style.display="none";
-    dadosTrans.style.display = "none";
-  });
-}
-function showBol () {
-  btnB.addEventListener("click", function(){
-    dadosBol.style.display = "block";
-    dadosCar.style.display="none";
-    dadosTrans.style.display = "none";
-  });
-}
-function showTransf () {
-  btnT.addEventListener("click", function(){
-    dadosTrans.style.display = "block";
-    dadosCar.style.display="none";
-    dadosBol.style.display="none";
-  });
 }
 
 /seleção de datas/
@@ -148,14 +117,14 @@ return (
         </IonContent>
       </IonModal>
       
-    <IonSegment scrollable={true} onIonChange={handleSegmentChange} >
-      <IonSegmentButton  id="button-cartao" value="Cartão" onClick={() => showCar()}>
+    <IonSegment scrollable={true} onIonChange={handleSegmentChange} value={infoType}>
+      <IonSegmentButton  id="button-cartao" value="Cartão">
         <IonLabel >Cartão</IonLabel>
       </IonSegmentButton>
-      <IonSegmentButton id="button-bol" value="Boleto" onClick={() => showBol()}>
+      <IonSegmentButton id="button-bol" value="Boleto">
         <IonLabel>Boleto</IonLabel>
       </IonSegmentButton>
-      <IonSegmentButton id="button-trans" value="Transferencia" onClick={() => showTransf()}>
+      <IonSegmentButton id="button-trans" value="Transferencia">
         <IonLabel>Transferência</IonLabel>
       </IonSegmentButton>
     </IonSegment>
@@ -244,70 +213,62 @@ return (
       <IonCol size="12">
           <IonCard>
             <IonCardHeader>
-              <IonCardTitle color="medium" >Extrato</IonCardTitle>
+              <IonCardTitle id="title-extract">Extrato</IonCardTitle>
                 <div className='informacao'>
                 <IonCardSubtitle color="dark" > DATA</IonCardSubtitle>
                 <IonCardSubtitle color="dark" >VALOR LÍQUIDO </IonCardSubtitle>
                   <IonCardSubtitle color="dark" >DESCRIÇÃO </IonCardSubtitle>
                 </div>
             </IonCardHeader>
-
-            <div className='cartao'>
             <IonCardContent>
-                <IonList>
-                  {ExtractData.map((ext, index) => {
-                    if(ext.type == 1){
-                      return(
-                      <IonItem key={index}>
-                        <IonLabel>{ext.date}</IonLabel>
-                        <IonLabel>R$ {ext.value}</IonLabel>
-                        <IonLabel>{ext.desc}</IonLabel>
-                      </IonItem>
-                  )
-                }
-                return null;
-                })}
-                </IonList>
-              </IonCardContent>
-            </div>
+            {infoType === 'Cartão' && (
+              <>
+            {ExtractData.map((ext, index) => {
+              if(ext.type == 1){
+                return(
+                <IonItem key={index}>
+                  <IonLabel>{ext.date}</IonLabel>
+                  <IonLabel>R$ {ext.value}</IonLabel>
+                  <IonLabel>{ext.desc}</IonLabel>
+                </IonItem>)
+              }
+              return null;
+            })}
+            </>
+            )}
 
-            <div className='boleto'>
-            <IonCardContent>
-                <IonList>
-                  {ExtractData.map((ext, index) => {
-                    if(ext.type == 2){
-                      return(
-                      <IonItem key={index}>
-                        <IonLabel>{ext.date}</IonLabel>
-                        <IonLabel>R$ {ext.value}</IonLabel>
-                        <IonLabel>{ext.desc}</IonLabel>
-                      </IonItem>
-                  )
-                }
-                return null;
-                })}
-                </IonList>
-              </IonCardContent>
-            </div>
-            <div className='transferencia'>
-            <IonCardContent>
-                <IonList>
-                  {ExtractData.map((ext, index) => {
-                    if(ext.type == 3){
-                      return(
-                      <IonItem key={index}>
-                        <IonLabel>{ext.date}</IonLabel>
-                        <IonLabel>R$ {ext.value}</IonLabel>
-                        <IonLabel>{ext.desc}</IonLabel>
-                      </IonItem>
-                  )
-                }
-                return null;
-                })}
-                </IonList>
-              </IonCardContent>
-            </div>
+            {infoType === 'Boleto' && (
+              <>
+            {ExtractData.map((ext, index) => {
+              if(ext.type == 2){
+                return(
+                <IonItem key={index}>
+                  <IonLabel>{ext.date}</IonLabel>
+                  <IonLabel>R$ {ext.value}</IonLabel>
+                  <IonLabel>{ext.desc}</IonLabel>
+                </IonItem>)
+              }
+              return null;
+            })}
+            </>
+            )}
 
+            {infoType === 'Transferencia' && (
+              <>
+            {ExtractData.map((ext, index) => {
+              if(ext.type == 3){
+                return(
+                <IonItem key={index}>
+                  <IonLabel>{ext.date}</IonLabel>
+                  <IonLabel>R$ {ext.value}</IonLabel>
+                  <IonLabel>{ext.desc}</IonLabel>
+                </IonItem>)
+              }
+              return null;
+            })}
+            </>
+            )}
+            </IonCardContent>
         </IonCard>
         </IonCol>
     </IonRow>
