@@ -22,7 +22,7 @@ const GeneratePaymentLinkPage = () => {
     <IonPage>
       <IonHeader>
         <section className="register-header">
-          <IonButton fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
+          <IonButton  fill='clear' onClick={()=>navigate('/signin', {state:{id:state.id, loyalty:state.loyalty}})}>
             <IonIcon icon={arrowBackOutline}></IonIcon>
           </IonButton>
           <div className="register-title">
@@ -36,19 +36,19 @@ const GeneratePaymentLinkPage = () => {
           <IonRow>
             <IonCol size="12">
               <h1>Gerar link de pagamento</h1>
-              <IonCard>
+              <IonCard className='teste'>
                 <IonCardContent>
-                  <IonItem>
+                <IonItem>
                 <IonLabel position="floating">Valor</IonLabel>
-                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonChange={(e) => setAmount(e.detail.value!)}></IonInput>
+                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonChange={(e:any) => setAmount(e.detail.value!)}></IonInput>
                 </IonItem>
                 <IonItem>
                 <IonLabel position="floating">Descrição</IonLabel>
-                <IonInput color="medium" value={amount} min="0" clearInput={true} type="number" onIonChange={(e) => setDescription(e.detail.value!)}></IonInput>
+                <IonInput color="medium"  min="0" clearInput={true} type="text" onIonChange={(e:any) => setDescription(e.detail.value!)}></IonInput>
                 </IonItem>
                 </IonCardContent>
               </IonCard>
-        <IonButton onClick={generatePaymentLink}>Gerar link de pagamento</IonButton>
+        <IonButton className='buttonLINK' onClick={generatePaymentLink}>Gerar link de pagamento</IonButton>
         {paymentLink && (
           <div>
             <p>Aqui está o seu link de pagamento:</p>
